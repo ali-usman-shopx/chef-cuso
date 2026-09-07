@@ -112,11 +112,14 @@
         {%- if block_settings.stars_style == 'single' and block_settings.show_number -%}
           <span class="rating-count-separator">{{ block_settings.review_count_separator }}</span>
         {%- endif -%}
+        {% if block_settings.show_score_max_ratio %}
+          {{ rating | round: 1 }} / {{ scale_max | times: 100 | money_without_currency }}
+        {%  endif %}
         {%- if block_settings.show_number and block_settings.store_review_override == false -%}
           {{- rating_count }}
           {{ 'content.reviews' | t }}
         {% elsif block_settings.show_number and block_settings.store_review_override %}
-          (Over {{ rating_count }} happy customers)
+          (Over {{ rating_count | times: 100 | money_without_currency | remove: ".00" }} happy customers)
         {%- endif -%}
       </p>
     {%- endif -%}
@@ -294,6 +297,11 @@
     {
       "type": "header",
       "content": "Review Override"
+    },
+    {
+      "type": "checkbox",
+      "label": "Show Score / Max",
+      "id": "show_score_max_ratio"
     },
     {
       "type": "checkbox",
