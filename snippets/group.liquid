@@ -31,6 +31,7 @@
     size-style
     {{ class }}
     {% if background_color != blank %} color-custom-{{ block_id }}{% endif %}
+    css_override--{{ block.id }}
   "
   style="
     {% render 'border-override', settings: settings %}
@@ -98,3 +99,17 @@
     pointer-events: auto;
   }
 {% endstylesheet %}
+
+{% style %}
+  @media screen and (min-width: 769px) {
+    .css_override--{{ block.id }} {
+      {{ settings.desktop_css_override }}
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .css_override--{{ block.id }} {
+      {{ settings.mobile_css_override }}
+    }
+  }
+{% endstyle %}

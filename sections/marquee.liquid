@@ -14,7 +14,7 @@
 %}
 
 <div
-  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %} css_override--{{ section.id }}"
 ></div>
 <marquee-component
   class="section spacing-style gap-style{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
@@ -97,6 +97,20 @@
   }
 {% endstylesheet %}
 
+
+{% style %}
+  .css_override--{{ section.id }} {
+    {{ section.settings.desktop_css_override }}
+  }
+
+  @media screen and (max-width: 768px) {
+    .css_override--{{ section.id }} {
+      {{ section.settings.mobile_css_override }}
+    }
+  }
+{% endstyle %}
+
+
 {% schema %}
 {
   "name": "t:names.marquee",
@@ -173,6 +187,22 @@
       "step": 1,
       "unit": "px",
       "default": 24
+    },
+    {
+      "type": "header",
+      "content": "CSS Overrides"
+    },
+    {
+      "type": "textarea",
+      "id": "desktop_css_override",
+      "label": "Desktop CSS",
+      "default": ";"
+    },
+    {
+      "type": "textarea",
+      "id": "mobile_css_override",
+      "label": "Mobile CSS",
+      "default": ";"
     }
   ],
   "presets": [

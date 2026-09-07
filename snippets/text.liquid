@@ -56,6 +56,7 @@
 {% capture attributes %}
   class="{{ class }} spacing-style text-block text-block--{{ block.id }} {{ block_settings.type_preset }}
     {{ text_block_classes }}
+    css_override--{{ block.id }}
   "
 
   style="
@@ -143,3 +144,15 @@
     text-wrap: var(--text-wrap);
   }
 {% endstylesheet %}
+
+{% style %}
+  .css_override--{{ block.id }} {
+    {{ block_settings.desktop_css_override }}
+  }
+
+  @media screen and (max-width: 768px) {
+    .css_override--{{ block.id }} {
+      {{ block_settings.mobile_css_override }}
+    }
+  }
+{% endstyle %}

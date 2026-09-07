@@ -13,13 +13,19 @@
     assign scale_max = product.metafields.reviews.rating.value.scale_max | default: 5
     assign rating_count = product.metafields.reviews.rating_count | default: 3
   endif
+
+  if block_settings.store_review_override
+    assign rating = block_settings.store_rating
+    assign scale_max = 5
+    assign rating_count = block_settings.store_review_count
+  endif
 -%}
 
 {% if block_settings.text_color != blank %}
   {% style %}
     .rating-wrapper-{{ block.id }} {
-      --star-fill-color: {{ block_settings.text_color }};
-      --star-fill-color-rgb: {{ block_settings.text_color.rgb }};
+      --star-fill-color: {{ block_settings.star_color }};
+      --star-fill-color-rgb: {{ block_settings.star_color.rgb }};
       --color: {{ block_settings.text_color }};
       --color-rgb: {{ block_settings.text_color.rgb }};
     }
@@ -104,11 +110,13 @@
           <span aria-hidden="true">{{- rating | round: 1 }}</span>
         {%- endif -%}
         {%- if block_settings.stars_style == 'single' and block_settings.show_number -%}
-          <span class="rating-count-separator">|</span>
+          <span class="rating-count-separator">{{ block_settings.review_count_separator }}</span>
         {%- endif -%}
-        {%- if block_settings.show_number -%}
+        {%- if block_settings.show_number and block_settings.store_review_override == false -%}
           {{- rating_count }}
           {{ 'content.reviews' | t }}
+        {% elsif block_settings.show_number and block_settings.store_review_override %}
+          (Over {{ rating_count }} happy customers)
         {%- endif -%}
       </p>
     {%- endif -%}
@@ -141,7 +149,7 @@
 
   .rating-wrapper .rating-count,
   .rating-wrapper .rating-count-separator {
-    color: var(--star-fill-color);
+    color: var(--color);
     margin: 0;
     white-space: nowrap;
   }
@@ -202,10 +210,23 @@
       "default": true
     },
     {
+      "type": "text",
+      "id": "review_count_separator",
+      "label": "Review Count Separator",
+      "default": "|",
+      "visible_if": "{{ block.settings.show_number }}"
+    },
+    {
       "type": "color",
       "id": "text_color",
       "label": "t:settings.text_color",
       "placeholder": "t:settings.default"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Fill Color",
+      "placeholder": "#6d0ff0"
     },
     {
       "type": "header",
@@ -269,6 +290,30 @@
       "label": "t:settings.alignment",
       "default": "left",
       "visible_if": "{{ block.settings.width != 'fit-content' }}"
+    },
+    {
+      "type": "header",
+      "content": "Review Override"
+    },
+    {
+      "type": "checkbox",
+      "label": "Store Review Override",
+      "id": "store_review_override",
+      "default": false
+    },
+    {
+      "type": "number",
+      "label": "Rating",
+      "id": "store_rating",
+      "default": 5,
+      "visible_if": "{{ block.settings.store_review_override }}"
+    },
+    {
+      "type": "number",
+      "label": "Count of Reviews",
+      "id": "store_review_count",
+      "default": 20000,
+      "visible_if": "{{ block.settings.store_review_override }}"
     }
   ],
   "presets": [
