@@ -22,7 +22,7 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "flex-start",
             "gap": 0,
             "width": "fill",
             "custom_width": 100,
@@ -49,7 +49,9 @@
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-end": 0,
+            "desktop_css_override": ".group-block-content {\njustify-content: center;\n}",
+            "mobile_css_override": "padding-top: 15px;"
           },
           "blocks": {
             "text_8f4YJq": {
@@ -171,9 +173,11 @@
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 15,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "desktop_css_override": ";",
+                "mobile_css_override": "* {\nflex-wrap: nowrap !important;\n}"
               },
               "blocks": {
                 "button_7cdQDh": {
@@ -193,7 +197,7 @@
                     "width_mobile": "fit-content",
                     "custom_width_mobile": 100,
                     "desktop_css_override": "font-weight: 600;\nwidth: 173px !important;",
-                    "mobile_css_override": "width: 135px !important;"
+                    "mobile_css_override": ""
                   },
                   "blocks": {}
                 },
@@ -223,13 +227,32 @@
                 "button_7cdQDh",
                 "button_B8ncrq"
               ]
+            },
+            "review_3iw7Bn": {
+              "type": "review",
+              "name": "t:names.product_review_stars",
+              "settings": {
+                "stars_style": "shaded",
+                "show_number": true,
+                "review_count_separator": "|",
+                "text_color": "{{ settings.color_palette.background }}",
+                "star_color": "#b9250a",
+                "type_preset": "paragraph",
+                "width": "100%",
+                "alignment": "left",
+                "store_review_override": true,
+                "store_rating": 5,
+                "store_review_count": 20000
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "text_8f4YJq",
             "text_WgzpnN",
             "text_BGABi9",
-            "group_AfbJ8k"
+            "group_AfbJ8k",
+            "review_3iw7Bn"
           ]
         },
         "button_H9gpTf": {

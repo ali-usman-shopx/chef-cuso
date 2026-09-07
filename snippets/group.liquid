@@ -101,12 +101,14 @@
 {% endstylesheet %}
 
 {% style %}
-  .css_override--{{ block.id }} {
-    {{ settings.desktop_css_override }}
+  @media screen and (min-width: 769px) {
+    .css_override--{{ block.id }} {
+      {{ settings.desktop_css_override }}
+    }
   }
 
   @media screen and (max-width: 768px) {
-    .css_override--{{ section.id }} {
+    .css_override--{{ block.id }} {
       {{ settings.mobile_css_override }}
     }
   }
