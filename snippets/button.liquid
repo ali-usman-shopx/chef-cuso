@@ -22,6 +22,7 @@
     size-style
     {{ block_settings.style_class }}
     {{ block_settings.style_class }}--{{ block.id }}
+    css_override--{{ block.id }}
   "
   style="{% render 'size-style', settings: block_settings %}"
   {%- if block_settings.open_in_new_tab -%}
@@ -32,3 +33,15 @@
 >
   {{ block_settings.label }}
 </a>
+
+{% style %}
+  .css_override--{{ block.id }} {
+    {{ block_settings.desktop_css_override }}
+  }
+
+  @media screen and (max-width: 768px) {
+    .css_override--{{ block.id }} {
+      {{ block_settings.mobile_css_override }}
+    }
+  }
+{% endstyle %}
