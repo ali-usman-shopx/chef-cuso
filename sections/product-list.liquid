@@ -159,179 +159,258 @@
 </div>
 
 {% style %}
-  .tabs-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    overflow-x: auto;
-  }
-
-  .collection-tabs {
-    display: flex;
-    width: fit-content;
-    padding-left: 33px;
-    padding-right: 33px;
-    padding-bottom: 12px;
-    justify-content: center;
-    position: relative;
-    border-bottom: 2px solid #F1F1F1;
-    flex-wrap: nowrap;
-  }
-
-  .tab-underlines {
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-  }
-
-  .tab-underline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background-color: red;
-    border-radius: 5px;
-    transition: left 0.3s ease, width 0.3s ease;
-  }
-
-  .tab-labels {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    flex-wrap: nowrap;
-  }
-
-  .tab-label {
-    font-size: 17px;
-    line-height: 100%;
-    font-weight: 500;
-    color: #646464;
-  }
-
-  .tab-label:hover {
-    cursor: pointer;
-    color: #4e4e4e;
-  }
-
-  .tab-label.active {
-    color: #212121;
-    font-weight: 500;
-  }
-
-  .collection-panel {
-    display: none;
-  }
-
-  .collection-panel.active {
-    display: block;
-  }
-
   {% if section.settings.multiple_collections_enabled %}
+    .tabs-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+    }
+
+    .collection-tabs {
+      display: flex;
+      width: fit-content;
+      padding-left: 33px;
+      padding-right: 33px;
+      padding-bottom: 12px;
+      justify-content: center;
+      position: relative;
+      border-bottom: 2px solid #F1F1F1;
+      flex-wrap: nowrap;
+    }
+
+    .tab-underlines {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+    }
+
+    .tab-underline {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background-color: red;
+      border-radius: 5px;
+      transition: left 0.3s ease, width 0.3s ease;
+    }
+
+    .tab-labels {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      flex-wrap: nowrap;
+    }
+
+    .tab-label {
+      font-size: 17px;
+      line-height: 100%;
+      font-weight: 500;
+      color: #646464;
+      text-wrap: nowrap;
+    }
+
+    .tab-label:hover {
+      cursor: pointer;
+      color: #4e4e4e;
+    }
+
+    .tab-label.active {
+      color: #212121;
+      font-weight: 500;
+    }
+
+    .collection-panel {
+      display: none;
+    }
+
+    .collection-panel.active {
+      display: block;
+    }
+
     .collection-panel.active > div > div > slideshow-component
     > slideshow-container > slideshow-slides {
       display: flex;
       flex-direction: row;
       gap: {{ section.settings.carousel_gap_override }}
     }
+
+    slideshow-arrows {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .tabs-wrapper {
+        justify-content: flex-start;
+      }
+
+      .collection-tabs {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      .tab-labels {
+        width: max-content;
+      }
+
+      .resource-list__slide {
+        width: 100% !important;
+      }
+
+      .product-card .text-block {
+        width: 100%;
+      }
+
+      .product-card .text-block > p {
+        text-align: center;
+        width: 100%;
+      }
+
+      .product-card .rating-wrapper {
+        justify-content: center;
+      }
+
+      .product-card .price-container {
+        width: fit-content;
+        align-self: center;
+      }
+
+      /* Indicators */
+      slideshow-arrows {
+        display: flex;
+      }
+
+      slideshow-arrows .slideshow-control {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
+
+        background-color: #212121 !important;
+        color: white !important;
+
+        opacity: 1;
+      }
+
+      .resource-list__carousel .slideshow-control[disabled] {
+        display: flex;
+
+        background-color: white !important;
+        color: black !important;
+        border: 1px solid black;
+
+        opacity: 1;
+      }
+
+      slideshow-arrows .slideshow-control:first-child {
+        margin-left: -30px;
+      }
+
+      slideshow-arrows .slideshow-control:last-child {
+        margin-right: -30px;
+      }
+    }
   {% endif %}
 {% endstyle %}
 
-{% comment %} Initializes Active Tab and Collection {% endcomment %}
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.tab-labels span');
-    const underlines = document.querySelectorAll('.tab-underlines span');
-    const collections = document.querySelectorAll('.collection-panel');
+{% if section.settings.multiple_collections_enabled %}
+  {% comment %} Initializes Active Tab and Collection {% endcomment %}
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.tab-labels span');
+      const underlines = document.querySelectorAll('.tab-underlines span');
+      const collections = document.querySelectorAll('.collection-panel');
 
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => {
-        const collectionId = tab.dataset.collection;
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+          const collectionId = tab.dataset.collection;
 
-        // Active tab
-        tabs.forEach((t) => t.classList.remove('active'));
-        tab.classList.add('active');
+          // Active tab
+          tabs.forEach((t) => t.classList.remove('active'));
+          tab.classList.add('active');
 
-        const activeUnderline = document.querySelector(
-          `#tab-underline-${collectionId}`
-        );
+          const activeUnderline = document.querySelector(
+            `#tab-underline-${collectionId}`
+          );
 
-        if (activeUnderline) {
-          activeUnderline.classList.add('active');
-        }
+          if (activeUnderline) {
+            activeUnderline.classList.add('active');
+          }
 
-        // Active collection
-        collections.forEach((collection) => {
-          collection.classList.remove('active');
+          // Active collection
+          collections.forEach((collection) => {
+            collection.classList.remove('active');
+          });
+
+          const activeCollection = document.querySelector(
+            `.collection-panel[data-collection-id="${collectionId}"]`
+          );
+
+          if (activeCollection) {
+            activeCollection.classList.add('active');
+          }
         });
-
-        const activeCollection = document.querySelector(
-          `.collection-panel[data-collection-id="${collectionId}"]`
-        );
-
-        if (activeCollection) {
-          activeCollection.classList.add('active');
-        }
       });
+
+      // Set first tab active initially
+      if (tabs[0]) {
+        tabs[0].classList.add('active');
+      }
+
+      // Set first collection active initially
+      if (collections[0]) {
+        collections[0].classList.add('active');
+      }
     });
+  </script>
 
-    // Set first tab active initially
-    if (tabs[0]) {
-      tabs[0].classList.add('active');
-    }
+  {% comment %} Initializes Tab Underline {% endcomment %}
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.tab-label');
+      const underline = document.querySelector('.tab-underline');
+      const tabsContainer = document.querySelector('.collection-tabs');
 
-    // Set first collection active initially
-    if (collections[0]) {
-      collections[0].classList.add('active');
-    }
-  });
-</script>
+      function moveUnderline(tab) {
+        const tabRect = tab.getBoundingClientRect();
+        const containerRect = tabsContainer.getBoundingClientRect();
 
-{% comment %} Initializes Tab Underline {% endcomment %}
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.tab-label');
-    const underline = document.querySelector('.tab-underline');
-    const tabsContainer = document.querySelector('.collection-tabs');
+        const underlineWidth = 60;
 
-    function moveUnderline(tab) {
-      const tabRect = tab.getBoundingClientRect();
-      const containerRect = tabsContainer.getBoundingClientRect();
+        underline.style.width = `${underlineWidth}px`;
+        underline.style.left = `${
+          tabRect.left - containerRect.left + (tabRect.width - underlineWidth) / 2
+        }px`;
+      }
 
-      const underlineWidth = 60;
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach((item) => item.classList.remove('active'));
+          tab.classList.add('active');
 
-      underline.style.width = `${underlineWidth}px`;
-      underline.style.left = `${
-        tabRect.left - containerRect.left + (tabRect.width - underlineWidth) / 2
-      }px`;
-    }
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        tabs.forEach((item) => item.classList.remove('active'));
-        tab.classList.add('active');
-
-        moveUnderline(tab);
+          moveUnderline(tab);
+        });
       });
-    });
 
-    const activeTab = document.querySelector('.tab-label.active');
-
-    if (activeTab) {
-      moveUnderline(activeTab);
-    }
-
-    window.addEventListener('resize', () => {
       const activeTab = document.querySelector('.tab-label.active');
 
       if (activeTab) {
         moveUnderline(activeTab);
       }
+
+      window.addEventListener('resize', () => {
+        const activeTab = document.querySelector('.tab-label.active');
+
+        if (activeTab) {
+          moveUnderline(activeTab);
+        }
+      });
     });
-  });
-</script>
+  </script>
+{% endif %}
 
 {% schema %}
 {

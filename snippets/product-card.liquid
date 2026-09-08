@@ -125,7 +125,6 @@
   function applySpecialCardOverrides() {
     document.querySelectorAll('product-card').forEach((card) => {
       if (card.dataset.isSpecial === 'true') {
-        console.log("Applying Special Classes");
         card.querySelector('.image-css-override')?.classList.add('img-special-override');
   
         const addToCartButton = card.querySelector('.buy-buttons-block .add-to-cart-button');
