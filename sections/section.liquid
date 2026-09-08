@@ -11,6 +11,13 @@
   background_color: section.settings.background_color
 %}
 
+{% style %}
+  .section-css-override--{{ section.id }} {
+    padding-left: {{ section.settings.padding-block-left }}px;
+    padding-right: {{ section.settings.padding-block-right }}px;
+  }
+{% endstyle %}
+
 {% schema %}
 {
   "name": "t:names.section",
@@ -430,6 +437,26 @@
       "type": "range",
       "id": "padding-block-end",
       "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-left",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-right",
+      "label": "t:settings.right",
       "min": 0,
       "max": 100,
       "step": 1,
