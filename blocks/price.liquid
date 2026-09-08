@@ -92,6 +92,19 @@
 
 {% render 'payment-terms-styles' %}
 
+
+{% style %}
+  .compare-at-price {
+    {% if block_settings.slashed_price_size != ";" %}
+      font-size: {{ block_settings.slashed_price_size }};
+      vertical-align: middle;
+    {% endif %}
+    {% if block_settings.slashed_price_color %}
+      color: {{ block_settings.slashed_price_color }};
+    {% endif %}
+  }
+{% endstyle %}
+
 {% schema %}
 {
   "name": "t:names.product_price",
@@ -364,6 +377,17 @@
       "id": "text_color",
       "label": "t:settings.text_color",
       "placeholder": "t:settings.default"
+    },
+    {
+      "type": "text",
+      "id": "slashed_price_size",
+      "label": "Slashed Price Font Size",
+      "default": ";"
+    },
+    {
+      "type": "color",
+      "id": "slashed_price_color",
+      "label": "Slashed Price Font Color"
     },
     {
       "type": "header",
