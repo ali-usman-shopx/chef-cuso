@@ -88,10 +88,7 @@
           <span id="tab-label-4" data-collection="4" class="tab-label">Accessories & Apparel</span>
         </div>
         <div class="tab-underlines">
-          <span id="tab-underline-1" class="tab-underline active">&nbsp;</span>
-          <span id="tab-underline-2" class="tab-underline">&nbsp;</span>
-          <span id="tab-underline-3" class="tab-underline">&nbsp;</span>
-          <span id="tab-underline-4" class="tab-underline">&nbsp;</span>
+          <span class="tab-underline"></span>
         </div>
       </div>
     </div>
@@ -161,6 +158,88 @@
   </div>
 </div>
 
+{% style %}
+  .tabs-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+  }
+
+  .collection-tabs {
+    display: flex;
+    width: fit-content;
+    padding-left: 33px;
+    padding-right: 33px;
+    padding-bottom: 12px;
+    justify-content: center;
+    position: relative;
+    border-bottom: 2px solid #F1F1F1;
+    flex-wrap: nowrap;
+  }
+
+  .tab-underlines {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+  }
+
+  .tab-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: red;
+    border-radius: 5px;
+    transition: left 0.3s ease, width 0.3s ease;
+  }
+
+  .tab-labels {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: nowrap;
+  }
+
+  .tab-label {
+    font-size: 17px;
+    line-height: 100%;
+    font-weight: 500;
+    color: #646464;
+  }
+
+  .tab-label:hover {
+    cursor: pointer;
+    color: #4e4e4e;
+  }
+
+  .tab-label.active {
+    color: #212121;
+    font-weight: 500;
+  }
+
+  .collection-panel {
+    display: none;
+  }
+
+  .collection-panel.active {
+    display: block;
+  }
+
+  {% if section.settings.multiple_collections_enabled %}
+    .collection-panel.active > div > div > slideshow-component
+    > slideshow-container > slideshow-slides {
+      display: flex;
+      flex-direction: row;
+      gap: {{ section.settings.carousel_gap_override }}
+    }
+  {% endif %}
+{% endstyle %}
+
+{% comment %} Initializes Active Tab and Collection {% endcomment %}
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab-labels span');
@@ -174,11 +253,6 @@
         // Active tab
         tabs.forEach((t) => t.classList.remove('active'));
         tab.classList.add('active');
-
-        // Active underline
-        underlines.forEach((underline) => {
-          underline.classList.remove('active');
-        });
 
         const activeUnderline = document.querySelector(
           `#tab-underline-${collectionId}`
@@ -208,90 +282,56 @@
       tabs[0].classList.add('active');
     }
 
-    if (underlines[0]) {
-      underlines[0].classList.add('active');
-    }
-
+    // Set first collection active initially
     if (collections[0]) {
       collections[0].classList.add('active');
     }
   });
 </script>
 
-{% style %}
+{% comment %} Initializes Tab Underline {% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-label');
+    const underline = document.querySelector('.tab-underline');
+    const tabsContainer = document.querySelector('.collection-tabs');
 
-  .tabs-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+    function moveUnderline(tab) {
+      const tabRect = tab.getBoundingClientRect();
+      const containerRect = tabsContainer.getBoundingClientRect();
 
-  .collection-tabs {
-    display: flex;
-    width: fit-content;
-    padding-left: 33px;
-    padding-right: 33px;
-    justify-content: center;
-    position: relative;
-    border-bottom: 2px solid #F1F1F1;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-  }
+      const underlineWidth = 60;
 
-  /* .tab-underlines {
-    position: absolute;
-    bottom: -2px;
-    height: 2px;
-    width: 100%;
-    background-color: transparent;
-    justify-content: center;
-  }
+      underline.style.width = `${underlineWidth}px`;
+      underline.style.left = `${
+        tabRect.left - containerRect.left + (tabRect.width - underlineWidth) / 2
+      }px`;
+    }
 
-  .tab-underline {
-    height: 2px;
-    width: 60px;
-    background-color: transparent;
-  }
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((item) => item.classList.remove('active'));
+        tab.classList.add('active');
 
-  .tab-underline.active {
-    background-color: red;
-    border-radius: 5px;
-  } */
+        moveUnderline(tab);
+      });
+    });
 
-  .tab-labels {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 30px;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-  }
+    const activeTab = document.querySelector('.tab-label.active');
 
-  .tab-label {
-    font-size: 17px;
-    line-height: 100%;
-    font-weight: 500;
-    color: #646464;
-  }
+    if (activeTab) {
+      moveUnderline(activeTab);
+    }
 
-  .tab-label:hover {
-    cursor: pointer;
-    color: #4e4e4e;
-  }
+    window.addEventListener('resize', () => {
+      const activeTab = document.querySelector('.tab-label.active');
 
-  .tab-label.active {
-    color: #212121;
-    font-weight: 500;
-  }
-
-  .collection-panel {
-    display: none;
-  }
-
-  .collection-panel.active {
-    display: block;
-  }
-{% endstyle %}
+      if (activeTab) {
+        moveUnderline(activeTab);
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
@@ -365,6 +405,12 @@
       "max": 16,
       "step": 1,
       "default": 4
+    },
+    {
+      "type": "text",
+      "id": "carousel_gap_override",
+      "label": "Cards Gap Override",
+      "default": "32px"
     },
     {
       "type": "range",
