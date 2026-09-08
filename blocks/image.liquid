@@ -66,6 +66,19 @@
     style="{{ style }}"
     {{ block.shopify_attributes }}
   >
+    {% if block_settings.show_stamp %}
+      <div
+        class="stamp--{{ block.id }}"
+      >
+        <img
+          src="{{ block.settings.stamp | image_url }}"
+          alt="stamp"
+          width="{{ block.settings.stamp.width }}"
+          height="{{ block.settings.stamp.height }}"
+          loading="lazy"
+        />
+      </div>
+    {% endif %}
     {{ image }}
   </div>
 {% else %}
@@ -75,6 +88,19 @@
     style="{{ style }}"
     {{ block.shopify_attributes }}
   >
+    {% if block_settings.show_stamp %}
+      <div
+        class="stamp--{{ block.id }}"
+      >
+        <img
+          src="{{ block.settings.stamp | image_url }}"
+          alt="stamp"
+          width="{{ block.settings.stamp.width }}"
+          height="{{ block.settings.stamp.height }}"
+          loading="lazy"
+        />
+      </div>
+    {% endif %}
     {{ image }}
   </a>
 {% endif %}
@@ -112,6 +138,20 @@
   }
 {% endstylesheet %}
 
+{% style %}
+  {% if block.settings.show_stamp %}
+    .image-block--{{ block.id }} {
+      position: relative;
+    }
+
+    .image-block--{{ block.id }} .stamp--{{ block.id }} {
+      position: absolute;
+      z-index: 999;
+      {{ block.settings.stamp_css }}
+    }
+  {% endif %}
+{% endstyle %}
+
 {% schema %}
 {
   "name": "t:names.image",
@@ -121,6 +161,40 @@
       "type": "image_picker",
       "id": "image",
       "label": "t:settings.image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stamp",
+      "label": "Show Stamp",
+      "info": "This Feature Flag enables you to show an absolutly positioned image over the regular image."
+    },
+    {
+      "type": "image_picker",
+      "id": "stamp",
+      "label": "Stamp",
+      "visible_if": "{{ block.settings.show_stamp }}"
+    },
+    {
+      "type": "text",
+      "id": "stamp_width",
+      "label": "Stamp Width",
+      "default": "100px",
+      "visible_if": "{{ block.settings.show_stamp }}"
+    },
+    {
+      "type": "text",
+      "id": "stamp_height",
+      "label": "Stamp Height",
+      "default": "100px",
+      "visible_if": "{{ block.settings.show_stamp }}"
+    },
+    {
+      "type": "textarea",
+      "id": "stamp_css",
+      "label": "Stamp CSS",
+      "info": "Add the CSS here, absolute positioning already added.",
+      "default": ";",
+      "visible_if": "{{ block.settings.show_stamp }}"
     },
     {
       "type": "url",
