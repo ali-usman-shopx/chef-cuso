@@ -41,6 +41,20 @@
   {% render 'border-override', settings: block.settings %}
 {% endcapture %}
 
+{% capture slideshow_controls %}
+  {% render 'slideshow-controls',
+    style: block.settings.controls_style,
+    autoplay: false,
+    item_count: slide_count,
+    show_arrows: show_arrows,
+    arrows_on_media: false,
+    controls_on_media: false,
+    pagination_position: 'center',
+    shape: section.settings.icons_shape,
+    class: 'carousel-content__controls'
+  %}
+{% endcapture %}
+
 <div
   class="force-full-width"
   style="{{ gutter_style }}"
@@ -58,6 +72,7 @@
     slide_count: slide_count,
     slide_position: slide_position,
     slideshow_gutters: slideshow_gutters,
+    controls: slideshow_controls,
     attributes: block.shopify_attributes
   %}
 </div>
@@ -97,6 +112,47 @@
   }
 {% endstylesheet %}
 
+{% if block.settings.controls_style == "dots" %}
+  {% style %}
+    .carousel-content {
+      display: grid;
+      grid-template-areas:
+        "slides"
+        "controls";
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .carousel-content slideshow-container {
+      grid-area: slides;
+    }
+
+    .carousel-content slideshow-controls {
+      padding-top: 25px;
+      grid-area: controls;
+      position: static;
+    }
+
+    .carousel-content__controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: visible;
+      opacity: 1;
+      mix-blend-mode: normal !important;
+      transition: 200ms ease;
+    }
+
+    .slideshow-controls__dots button::after {
+      box-shadow: none !important;
+    }
+
+    .carousel-content__controls .slideshow-controls__dots button[aria-selected='true'] {
+      transform: scale(1.2);
+      --color-active: #B9250A !important;
+    }
+  {% endstyle %}
+{% endif %}
+
 {% schema %}
 {
   "name": "t:names.carousel_content",
@@ -107,6 +163,30 @@
   ],
   "tag": null,
   "settings": [
+    {
+      "type": "select",
+      "id": "controls_style",
+      "label": "Controls style",
+      "options": [
+        {
+          "value": "dots",
+          "label": "Dots"
+        },
+        {
+          "value": "counter",
+          "label": "Counter"
+        },
+        {
+          "value": "thumbnails",
+          "label": "Thumbnails"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "dots"
+    },
     {
       "type": "color",
       "id": "background_color",
