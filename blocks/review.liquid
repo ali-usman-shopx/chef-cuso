@@ -19,6 +19,12 @@
     assign scale_max = 5
     assign rating_count = block_settings.store_review_count
   endif
+  
+  if block_settings.product_review_override
+    assign rating = block_settings.product_rating
+    assign scale_max = 5
+    assign rating_count = block_settings.product_review_count
+  endif
 -%}
 
 {% if block_settings.text_color != blank %}
@@ -115,9 +121,11 @@
         {% if block_settings.show_score_max_ratio %}
           {{ rating | round: 1 }} / {{ scale_max | times: 100 | money_without_currency }}
         {%  endif %}
-        {%- if block_settings.show_number and block_settings.store_review_override == false -%}
+        {%- if block_settings.show_number and block_settings.store_review_override == false and block_settings.product_review_override == false -%}
           {{- rating_count }}
-          {{ 'content.reviews' | t }}
+          {{ 'content.reviews' | t }}        
+        {% elsif block_settings.show_number and block_settings.product_review_override %}
+          (&nbsp;<span style="text-decoration: underline; color: #212121">{{ rating_count}}</span>&nbsp;)
         {% elsif block_settings.show_number and block_settings.store_review_override %}
           (Over {{ rating_count | times: 100 | money_without_currency | remove: ".00" }} happy customers)
         {%- endif -%}
@@ -322,6 +330,26 @@
       "id": "store_review_count",
       "default": 20000,
       "visible_if": "{{ block.settings.store_review_override }}"
+    },
+    {
+      "type": "checkbox",
+      "label": "Product Review Override",
+      "id": "product_review_override",
+      "default": false
+    },
+    {
+      "type": "number",
+      "label": "Rating",
+      "id": "product_rating",
+      "default": 4.7,
+      "visible_if": "{{ block.settings.product_review_override }}"
+    },
+    {
+      "type": "number",
+      "label": "Count of Reviews",
+      "id": "product_review_count",
+      "default": 1171,
+      "visible_if": "{{ block.settings.product_review_override }}"
     }
   ],
   "presets": [

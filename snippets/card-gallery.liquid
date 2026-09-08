@@ -101,7 +101,7 @@
 
         # The class differs per media only by media_type; the base template and the
         # constrain-height suffix are the same for every slide, so build them once.
-        assign media_class = 'product-media-container media-fit product-media-container--[media_type]'
+        assign media_class = 'product-media-container media-fit product-media-container--[media_type] image-css-override'
         assign media_class_suffix = ''
         if constrain_to_viewport
           assign media_class_suffix = ' constrain-height'

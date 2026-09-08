@@ -28,7 +28,8 @@
     show_icon: can_add_to_cart,
     product: closest.product,
     add_to_cart_text: add_to_cart_text,
-    data_testid: 'standalone-add-to-cart'
+    data_testid: 'standalone-add-to-cart',
+    block_settings: block.settings
   %}
 </span>
 
@@ -86,6 +87,71 @@
       "default": "{{ settings.color_palette.background }}",
       "alpha": true,
       "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "Overrides"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_overrides",
+      "label": "Enable Overrides",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_icon_overrides",
+      "label": "Enable Icon Overrides",
+      "default": false,
+      "visible_if": "{{ block.settings.enable_overrides }}"
+    },
+    {
+      "type": "select",
+      "id": "icon_position",
+      "label": "Icon Position",
+      "options": [
+        {
+          "label": "left",
+          "value": "left"
+        },
+        {
+          "label": "none",
+          "value": "none",
+        },
+        {
+          "label": "right",
+          "value": "right"
+        }
+      ],
+      "visible_if": "{{ block.settings.enable_overrides and block.settings.enable_icon_overrides }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_icon",
+      "label": "Custom Icon",
+      "visible_if": "{{ block.settings.enable_overrides and block.settings.enable_icon_overrides }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_icon_special_variant",
+      "label": "Custom Icon Special Variant",
+      "visible_if": "{{ block.settings.enable_overrides and block.settings.enable_icon_overrides }}"
+    },
+    {
+      "type": "header",
+      "content": "CSS Overrides"
+    },
+    {
+      "type": "textarea",
+      "id": "desktop_css_override",
+      "label": "Desktop CSS",
+      "default": ";"
+    },
+    {
+      "type": "textarea",
+      "id": "mobile_css_override",
+      "label": "Mobile CSS",
+      "default": ";"
     }
   ]
 }

@@ -2,6 +2,7 @@
 
 {%- doc -%}
   @param {string} [product_view_context] - Context value passed through to the card snippet.
+  @param {boolean} [is_special] - Identifies a special card
 {%- enddoc -%}
 
 {% liquid
@@ -12,7 +13,7 @@
   {% content_for 'blocks', closest.product: product %}
 {% endcapture %}
 
-{% render 'product-card', children: children, product: product, product_view_context: product_view_context %}
+{% render 'product-card', children: children, product: product, product_view_context: product_view_context, is_special: is_special %}
 {% render 'quantity-selector-styles' %}
 {% render 'buy-buttons-styles' %}
 {% render 'gift-card-recipient-form-styles' %}
@@ -21,6 +22,24 @@
 {% render 'swatch-styles' %}
 {% render 'variant-picker-styles' %}
 {% render 'product-badges-styles' %}
+
+{% style %}
+  .image-css-override {
+    {{ block.settings.image_css_override }}
+  }
+
+  .img-special-override {
+    {{ block.settings.img_special_override }}
+  }
+
+  .buy-btn-special-override {
+    {{ block.settings.buy_btn_special_override }}
+  }
+
+  .buy-btn-special-override:hover {
+    opacity: 0.8;
+  }
+{% endstyle %}
 
 {% schema %}
 {
@@ -191,6 +210,32 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Overrides"
+    },
+    {
+      "type": "textarea",
+      "label": "Card Image Overrides",
+      "id": "image_css_override",
+      "default": ";"
+    },
+    {
+      "type": "header",
+      "content": "Special Card Overrides"
+    },
+    {
+      "type": "textarea",
+      "label": "Special Card Image Overrides",
+      "id": "img_special_override",
+      "default": ";"
+    },
+    {
+      "type": "textarea",
+      "label": "Special Card Buy Button Overrides",
+      "id": "buy_btn_special_override",
+      "default": ";"
     }
   ]
 }

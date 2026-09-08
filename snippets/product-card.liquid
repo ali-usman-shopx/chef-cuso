@@ -8,6 +8,7 @@
   @param {object} [block] - The block object
   @param {number} [product_card_gap] - The gap between the product card children (overrides block settings)
   @param {string} [product_view_context] - The context in which the product card is being rendered. Used for standard events.
+  @param {boolean} [is_special] - Identifies a special card
 {%- enddoc -%}
 
 {% assign block_settings = block.settings %}
@@ -77,6 +78,7 @@
     {% # theme-check-disable-next-line UnknownFilter %}
     view-event-payload="{{ product | standard_event_data: 'view', context: product_view_context | escape }}"
   {%- endunless -%}
+  data-is-special="{{ is_special }}"
 >
   <a
     id="{{ product_card_id | md5 }}"
@@ -118,3 +120,39 @@
 </product-card>
 
 {% render 'product-card-styles' %}
+
+<script>
+  function applySpecialCardOverrides() {
+    document.querySelectorAll('product-card').forEach((card) => {
+      if (card.dataset.isSpecial === 'true') {
+        console.log("Applying Special Classes");
+        card.querySelector('.image-css-override')?.classList.add('img-special-override');
+  
+        const addToCartButton = card.querySelector('.buy-buttons-block .add-to-cart-button');
+
+        addToCartButton?.classList.add('buy-btn-special-override');
+
+        if (addToCartButton?.classList.contains('buy-btn-special-override')) {
+          card.querySelectorAll('.custom-icon-special').forEach((icon) => {
+            icon.style.setProperty('display', 'flex');
+          });
+
+          card.querySelectorAll('.custom-icon-regular').forEach((icon) => {
+            icon.style.setProperty('display', 'none');
+          });
+        }
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', applySpecialCardOverrides);
+
+  if (specialOverrideObserver) {
+    var specialOverrideObserver = new MutationObserver(applySpecialCardOverrides);
+  }
+
+  specialOverrideObserver.observe(document.body, {
+    childList: true,
+    subtree: true
+  })
+</script>
