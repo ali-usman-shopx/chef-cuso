@@ -6,19 +6,52 @@
 {% if block_settings.icon_color != blank %}
   {% style %}
     .icon-block-{{ block.id }} {
+      --hover-fill-color: {{ block.settings.tastes_hover_color }};
+
       color: {{ block_settings.icon_color }};
     }
   {% endstyle %}
 {% endif %}
 
 {% capture icon %}
-  {% render 'icon-or-image',
-    icon: block_settings.icon,
-    image_upload: block_settings.image_upload,
-    width: block_settings.width,
-    class_name: icon_block_class,
-    attributes: block.shopify_attributes
-  %}
+  {% if block_settings.is_tastes_element_icon %}
+    <svg
+      class="{{ icon_block_class }} tastes_tooltip_icon"
+      width="{{ block_settings.width }}"
+      height="{{ block_settings.width }}"
+      viewBox="0 0 44 44"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style="background-color: {{ block_settings.background_color | default: 'transparent' }};"
+      {{ block.shopify_attributes }}
+      aria-hidden="true"
+    >
+      <!-- Circular border -->
+      <circle
+        cx="22"
+        cy="22"
+        r="20"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+
+      <!-- Cross Icon -->
+      <path
+        d="M15 22H29M22 15V29"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+  {% else %}
+    {% render 'icon-or-image',
+      icon: block_settings.icon,
+      image_upload: block_settings.image_upload,
+      width: block_settings.width,
+      class_name: icon_block_class,
+      attributes: block.shopify_attributes
+    %}
+  {% endif %}
 {% endcapture %}
 
 {%- if block_settings.link != blank -%}
@@ -44,6 +77,26 @@
   .icon-block__media {
     height: auto;
   }
+
+  .tastes_tooltip_icon {
+    transition:
+      transform 0.3s ease,
+      fill 0.3s ease;
+  }
+  
+  .tastes_tooltip-icon > circle {
+    transition: stroke 0.05s linear;
+  }
+
+  .tastes-tooltip-icon--hover {
+    transform: rotate(-45deg);
+    fill: var(--hover-fill-color);
+  }
+
+  .tastes-tooltip-icon--hover > circle {
+    stroke: var(--hover-fill-color);
+    transition: stroke 0.05s linear;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -51,6 +104,20 @@
   "name": "t:names.icon",
   "class": "icon-block",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "is_tastes_element_icon",
+      "label": "Tastes Element Icon",
+      "info": "This icon will designated as a tastes element icon.",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "tastes_hover_color",
+      "label": "Hover Fill Color",
+      "info": "This is the fill color when hover effect is applied on tastes element.",
+      "visible_if": "{{ block.settings.is_tastes_element_icon }}"
+    },
     {
       "type": "select",
       "id": "icon",

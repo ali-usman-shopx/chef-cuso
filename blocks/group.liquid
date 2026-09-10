@@ -29,6 +29,29 @@
   ],
   "settings": [
     {
+      "type": "checkbox",
+      "id": "is_tastes_parent_element",
+      "label": "Is Tastes Parent Element",
+      "info": "Sets the group as a tastes element, this means it will have the special overrides for tastes elements.",
+      "default": false
+    },
+    {
+      "type": "textarea",
+      "id": "tastes_tooltip_text",
+      "label": "Tastes Tooltip Text",
+      "info": "Sets the text to be rendered in the tastes tooltip pop-up",
+      "default": "Nothing to say...",
+      "visible_if": "{{ block.settings.is_tastes_parent_element }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "tooltip_on_right",
+      "label": "Tooltip on Right",
+      "info": "Sets the tooltip to left or right",
+      "default": false,
+      "visible_if": "{{ block.settings.is_tastes_parent_element }}"
+    },
+    {
       "type": "header",
       "content": "t:content.layout"
     },
