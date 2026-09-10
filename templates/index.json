@@ -3987,6 +3987,7 @@
               "type": "accordion",
               "name": "t:names.accordion",
               "settings": {
+                "enable_custom_faq_styling": false,
                 "icon": "caret",
                 "dividers": false,
                 "divider_color": "",
@@ -5277,6 +5278,360 @@
         "padding-block-right": 0
       }
     },
+    "section_NjJhmP": {
+      "type": "section",
+      "blocks": {
+        "group_wXMnDQ": {
+          "type": "group",
+          "name": "header",
+          "settings": {
+            "is_tastes_parent_element": false,
+            "tastes_tooltip_text": "Nothing to say...",
+            "tooltip_on_right": false,
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "desktop_css_override": ";",
+            "mobile_css_override": ";"
+          },
+          "blocks": {
+            "text_bJLRVE": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>FREQUENTLY ASKED QUESTIONS</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "0.875rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "text_color": "#b92509",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "desktop_css_override": ";",
+                "mobile_css_override": "* {font-size: 12px !important;}"
+              },
+              "blocks": {}
+            },
+            "text_pjUANi": {
+              "type": "text",
+              "name": "t:names.header",
+              "settings": {
+                "text": "<p>Straightforward Solutions</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "desktop_css_override": ";",
+                "mobile_css_override": "* {font-size: 24px !important;}"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_bJLRVE",
+            "text_pjUANi"
+          ]
+        },
+        "accordion_AXQPGD": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "enable_custom_faq_styling": true,
+            "icon": "caret",
+            "dividers": false,
+            "divider_color": "",
+            "type_preset": "h5",
+            "background_color": "",
+            "text_color": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_YAcdCa": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What is Damascus Steel?",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20,
+                "enable_tastes_accordion_styling": false,
+                "accordion_element_open_icon_color": ""
+              },
+              "blocks": {
+                "text_VFCJbG": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Damascus knives are knives made from Damascus steel. It is the technique used to make the steel that marks them as ‘Damascus’ rather than any other part of the knife design. </p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "desktop_css_override": ";",
+                    "mobile_css_override": ";"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_VFCJbG"
+              ]
+            },
+            "accordion_row_WrfTQ6": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "How Does Route Process Refunds or Reorders?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20,
+                "enable_tastes_accordion_styling": false,
+                "accordion_element_open_icon_color": ""
+              },
+              "blocks": {
+                "text_xh4jXh": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>We are unable to accept returns on certain items. These will be carefully marked before purchase.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "desktop_css_override": ";",
+                    "mobile_css_override": ";"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xh4jXh"
+              ]
+            },
+            "accordion_row_tzaFLF": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "What if My Order Never Arrives or is Stolen?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20,
+                "enable_tastes_accordion_styling": false,
+                "accordion_element_open_icon_color": ""
+              },
+              "blocks": {
+                "text_reDYkw": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "desktop_css_override": ";",
+                    "mobile_css_override": ";"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_reDYkw"
+              ]
+            },
+            "accordion_row_mek8m6": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "What are Route’s Terms and Conditions?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20,
+                "enable_tastes_accordion_styling": false,
+                "accordion_element_open_icon_color": ""
+              },
+              "blocks": {
+                "text_jKBtbr": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "desktop_css_override": ";",
+                    "mobile_css_override": ";"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_jKBtbr"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_YAcdCa",
+            "accordion_row_WrfTQ6",
+            "accordion_row_tzaFLF",
+            "accordion_row_mek8m6"
+          ]
+        }
+      },
+      "block_order": [
+        "group_wXMnDQ",
+        "accordion_AXQPGD"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "reversed_on_mobile": false,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "padding-block-left": 0,
+        "padding-block-right": 0
+      }
+    },
     "carousel_WxUnae": {
       "type": "carousel",
       "blocks": {
@@ -5570,7 +5925,7 @@
                             "letter_spacing": "normal",
                             "case": "none",
                             "wrap": "pretty",
-                            "text_color": "#4E4E4E",
+                            "text_color": "#4e4e4e",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -5699,7 +6054,7 @@
                                 "letter_spacing": "normal",
                                 "case": "none",
                                 "wrap": "pretty",
-                                "text_color": "#B92509",
+                                "text_color": "#b92509",
                                 "background": false,
                                 "background_color": "#00000026",
                                 "corner_radius": 0,
@@ -5722,7 +6077,7 @@
                                 "width": 22,
                                 "link": "",
                                 "open_in_new_tab": false,
-                                "icon_color": "#B9250A"
+                                "icon_color": "#b9250a"
                               },
                               "blocks": {}
                             }
@@ -5913,7 +6268,7 @@
                             "letter_spacing": "normal",
                             "case": "none",
                             "wrap": "pretty",
-                            "text_color": "#4E4E4E",
+                            "text_color": "#4e4e4e",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -6042,7 +6397,7 @@
                                 "letter_spacing": "normal",
                                 "case": "none",
                                 "wrap": "pretty",
-                                "text_color": "#B92509",
+                                "text_color": "#b92509",
                                 "background": false,
                                 "background_color": "#00000026",
                                 "corner_radius": 0,
@@ -6065,7 +6420,7 @@
                                 "width": 22,
                                 "link": "",
                                 "open_in_new_tab": false,
-                                "icon_color": "#B9250A"
+                                "icon_color": "#b9250a"
                               },
                               "blocks": {}
                             }
@@ -6256,7 +6611,7 @@
                             "letter_spacing": "normal",
                             "case": "none",
                             "wrap": "pretty",
-                            "text_color": "#4E4E4E",
+                            "text_color": "#4e4e4e",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -6385,7 +6740,7 @@
                                 "letter_spacing": "normal",
                                 "case": "none",
                                 "wrap": "pretty",
-                                "text_color": "#B92509",
+                                "text_color": "#b92509",
                                 "background": false,
                                 "background_color": "#00000026",
                                 "corner_radius": 0,
@@ -6408,7 +6763,7 @@
                                 "width": 22,
                                 "link": "",
                                 "open_in_new_tab": false,
-                                "icon_color": "#B9250A"
+                                "icon_color": "#b9250a"
                               },
                               "blocks": {}
                             }
@@ -6451,7 +6806,7 @@
         "mobile_columns": "1",
         "section_width": "page-width",
         "columns_gap": 20,
-        "background_color": "#F6F0E9",
+        "background_color": "#f6f0e9",
         "icons_style": "none",
         "icons_shape": "none",
         "padding-block-start": 48,
@@ -6471,6 +6826,7 @@
     "product_list_fcTCVC",
     "section_8Rf3CL",
     "section_H7UyGX",
+    "section_NjJhmP",
     "carousel_WxUnae"
   ]
 }
