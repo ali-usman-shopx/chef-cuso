@@ -28,6 +28,67 @@
 
 {% render 'accordion-styles' %}
 
+{% if block_settings.enable_custom_faq_styling %}
+  {% style %}
+    .accordion--{{ block.id }} .details {
+      padding: 20px;
+      border-bottom: 1px solid black;
+      margin-top: 5px;
+    }
+
+    .accordion--{{ block.id }} .details .svg-wrapper {
+      width: 24px;
+      height: 24px;
+      border-radius: 50px;
+      border: 1px solid black;
+    }
+
+    .accordion--{{ block.id }} .details[open] {
+      background-color: #F6F0E9;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .accordion--{{ block.id }} .details[open] .svg-wrapper {
+      background-color: #B92509;
+      border-color: #B92509;
+      color: white;
+    }
+
+    .accordion--{{ block.id }} .accordion-prefix {
+      font-size: 18px;
+      color: black;
+      opacity: 0.5;
+      padding-right: 20px;
+    }
+
+    .accordion--{{ block.id }} .details[open] .details-content {
+      margin-left: 40px;
+    }
+
+    .accordion--{{ block.id }} .details[open] .details-content * {
+      width: 100%;
+      max-width: 901px;
+    }
+  {% endstyle %}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const accordion = document.querySelector('.accordion--{{ block.id }}');
+      if (!accordion) return;
+
+      accordion.querySelectorAll('.details__header').forEach((header, index) => {
+        const prefix = document.createElement('span');
+        prefix.className = 'accordion-prefix';
+        prefix.textContent = String(index + 1).padStart(2, '0');
+
+        header.prepend(prefix);
+      });
+    });
+  </script>
+{% endif %}
+
+
 {% schema %}
 {
   "name": "t:names.accordion",
@@ -39,6 +100,12 @@
     }
   ],
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_custom_faq_styling",
+      "label": "Enable Custom FAQ Styling",
+      "default": false
+    },
     {
       "type": "select",
       "id": "icon",
