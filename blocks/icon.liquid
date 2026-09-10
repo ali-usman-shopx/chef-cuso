@@ -16,7 +16,7 @@
 {% capture icon %}
   {% if block_settings.is_tastes_element_icon %}
     <svg
-      class="{{ icon_block_class }} tastes_tooltip_icon"
+      class="{{ icon_block_class }} tastes-tooltip-icon"
       width="{{ block_settings.width }}"
       height="{{ block_settings.width }}"
       viewBox="0 0 44 44"
@@ -78,13 +78,13 @@
     height: auto;
   }
 
-  .tastes_tooltip_icon {
+  .tastes-tooltip-icon {
     transition:
       transform 0.3s ease,
       fill 0.3s ease;
   }
   
-  .tastes_tooltip-icon > circle {
+  .tastes-tooltip-icon > circle {
     transition: stroke 0.05s linear;
   }
 
