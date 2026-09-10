@@ -117,8 +117,9 @@
       "foreground": "#000000",
       "color1": "#333333",
       "color2": "#dfdfdf",
-      "color3": "#F6F0E9",
-      "color4": "#E1DBD5"
+      "color3": "#f6f0e9",
+      "color4": "#e1dbd5",
+      "color5": "#AF272E"
     }
   },
   "presets": {
