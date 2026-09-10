@@ -16,6 +16,12 @@
     padding-left: {{ section.settings.padding-block-left }}px;
     padding-right: {{ section.settings.padding-block-right }}px;
   }
+
+  {% if section.settings.vertical_on_mobile and section.settings.reversed_on_mobile %}
+    #section-content-css-override--{{ section.id }} {
+      flex-direction: column-reverse;
+    }
+  {% endif %}
 {% endstyle %}
 
 {% schema %}
@@ -63,6 +69,13 @@
       "label": "t:settings.vertical_on_mobile",
       "default": true,
       "visible_if": "{{ section.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "reversed_on_mobile",
+      "label": "Reveresed on Mobile",
+      "default": false,
+      "visible_if": "{{ section.settings.vertical_on_mobile }}"
     },
     {
       "type": "select",
