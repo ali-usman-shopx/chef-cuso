@@ -98,6 +98,18 @@
   .group-block__link ~ .group-block-content--design-mode {
     pointer-events: auto;
   }
+
+  .tastes-tooltip--visible {
+    display: flex !important;
+    position: absolute;
+    width: min(196px, calc(100vw - 32px));
+    padding: 18px;
+    color: #212121;
+    background-color: white;
+    border-radius: 10px;
+
+    transform: translateY(-100%);
+  }
 {% endstylesheet %}
 
 {% style %}
@@ -112,4 +124,128 @@
       {{ settings.mobile_css_override }}
     }
   }
+
+  {% if block.settings.is_tastes_parent_element %}
+    .css_override--{{ block.id }} {
+      position: relative;
+    }
+
+    .tastes-tooltip__{{ block.id }} {
+      display: none;
+    }
+
+    {% if block.settings.tooltip_on_right == true %}
+      .tastes-tooltip__{{ block.id }} {
+        /* left: 100%; */
+      }
+    {% else %}
+      .tastes-tooltip__{{ block.id }} {
+        /* right: 100% !important; */
+      }
+    {% endif %}
+  {% endif %}
 {% endstyle %}
+
+{% if block.settings.is_tastes_parent_element %}
+  <script>
+    function createTastesTooltip(group) {
+      let tooltip = document.createElement('div');
+
+      tooltip.className = 'tastes-tooltip__{{ block.id }}';
+      tooltip.textContent = {{ block.settings.tastes_tooltip_text | json }};
+
+      group.appendChild(tooltip);
+
+      return tooltip;
+    }
+
+    function positionTooltip(group, tooltip) {
+      const groupRect = group.getBoundingClientRect();
+
+      const viewportPadding = 16;
+      const tooltipGap = 12;
+      const preferredWidth = 196;
+      const minimumTooltipWidth = 100;
+
+      const spaceOnRight = window.innerWidth - groupRect.right - viewportPadding - tooltipGap;
+
+      const spaceOnLeft = groupRect.left - viewportPadding - tooltipGap;
+
+      const tooltipOnRight = {{ block.settings.tooltip_on_right | json }};
+
+      let actualSide = tooltipOnRight ? 'right' : 'left';
+
+      const preferredSpace = tooltipOnRight ? spaceOnRight : spaceOnLeft;
+
+      if (preferredSpace < minimumTooltipWidth) {
+        actualSide = tooltipOnRight ? 'left' : 'right';
+      }
+
+      const availableWidth = actualSide === 'right' ? spaceOnRight : spaceOnLeft;
+
+      const width = Math.min(
+        preferredWidth,
+        Math.max(minimumTooltipWidth, availableWidth)
+      );
+
+      tooltip.style.width = `${width}px`;
+
+      if (actualSide === 'right') {
+        tooltip.style.left = `${group.offsetWidth + tooltipGap}px`;
+        tooltip.style.right = 'auto';
+      } else {
+        tooltip.style.left = `${-(width + tooltipGap)}px`;
+        tooltip.style.right = 'auto';
+      }
+    }
+
+    function initTastesTooltip(group) {
+      let tooltip = null;
+
+      group.addEventListener('mouseenter', () => {
+        if (!tooltip) {
+          tooltip = createTastesTooltip(group);
+        }
+
+        positionTooltip(group, tooltip);
+
+        tooltip.classList.add('tastes-tooltip--visible');
+      });
+
+      group.addEventListener('mouseleave', () => {
+        if (tooltip) {
+          tooltip.classList.remove('tastes-tooltip--visible');
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        if (tooltip?.classList.contains('tastes-tooltip--visible')) {
+          positionTooltip(group, tooltip);
+        }
+      });
+    }
+
+    function initTastesIcons(group) {
+      let icons = group.querySelectorAll('.tastes_tooltip_icon');
+
+      if (!icons.length) return;
+
+      group.addEventListener('mouseenter', () => {
+        icons.forEach((icon) => {
+          icon.classList.add('tastes-tooltip-icon--hover');
+        });
+      });
+
+      group.addEventListener('mouseleave', () => {
+        icons.forEach((icon) => {
+          icon.classList.remove('tastes-tooltip-icon--hover');
+        });
+      });
+    }
+
+    document.querySelectorAll('.css_override--{{ block.id }}').forEach((group) => {
+      initTastesIcons(group);
+      initTastesTooltip(group);
+    });
+  </script>
+{% endif %}
