@@ -73,8 +73,8 @@
         <img
           src="{{ block.settings.stamp | image_url }}"
           alt="stamp"
-          width="{{ block.settings.stamp.width }}"
-          height="{{ block.settings.stamp.height }}"
+          width="{{ block.settings.stamp_width }}"
+          height="{{ block.settings.stamp_height }}"
           loading="lazy"
         />
       </div>
@@ -147,6 +147,7 @@
     .image-block--{{ block.id }} .stamp--{{ block.id }} {
       position: absolute;
       z-index: 999;
+      width: {{ block.settings.stamp_width }};
       {{ block.settings.stamp_css }}
     }
   {% endif %}
