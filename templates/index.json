@@ -4010,7 +4010,9 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": true,
                     "icon": "none",
-                    "width": 34
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
                   },
                   "blocks": {
                     "text_qMPhGc": {
@@ -4051,7 +4053,9 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 34
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
                   },
                   "blocks": {
                     "text_hKCmy9": {
@@ -4092,7 +4096,9 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 34
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
                   },
                   "blocks": {
                     "text_9hdjbD": {
@@ -4133,7 +4139,9 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 34
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
                   },
                   "blocks": {
                     "text_qpeTym": {
@@ -4174,7 +4182,9 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 34
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
                   },
                   "blocks": {
                     "text_nefFPB": {
@@ -4215,7 +4225,9 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 34
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
                   },
                   "blocks": {
                     "text_WVAFnf": {
@@ -4346,13 +4358,13 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/tastes_banner_mobile.png",
+                "image": "shopify://shop_images/tastes-2x.png",
                 "show_stamp": false,
                 "stamp_width": "100px",
                 "stamp_height": "100px",
                 "stamp_css": ";",
                 "link": "",
-                "image_ratio": "landscape",
+                "image_ratio": "adapt",
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -4411,7 +4423,7 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
-                "desktop_css_override": "position: absolute;\nleft: 6%;",
+                "desktop_css_override": "position: absolute;\nleft: 5%;",
                 "mobile_css_override": ";"
               },
               "blocks": {
@@ -4515,7 +4527,7 @@
                             "alignment": "left",
                             "type_preset": "custom",
                             "font": "var(--font-subheading--family)",
-                            "font_size": "1.25rem",
+                            "font_size": "1.125rem",
                             "line_height": "normal",
                             "letter_spacing": "normal",
                             "case": "none",
@@ -4631,7 +4643,7 @@
                             "alignment": "left",
                             "type_preset": "custom",
                             "font": "var(--font-subheading--family)",
-                            "font_size": "1.25rem",
+                            "font_size": "1.125rem",
                             "line_height": "normal",
                             "letter_spacing": "normal",
                             "case": "none",
@@ -4747,7 +4759,7 @@
                             "alignment": "left",
                             "type_preset": "custom",
                             "font": "var(--font-subheading--family)",
-                            "font_size": "1.25rem",
+                            "font_size": "1.125rem",
                             "line_height": "normal",
                             "letter_spacing": "normal",
                             "case": "none",
@@ -4951,7 +4963,7 @@
                             "alignment": "left",
                             "type_preset": "custom",
                             "font": "var(--font-subheading--family)",
-                            "font_size": "1.25rem",
+                            "font_size": "1.125rem",
                             "line_height": "normal",
                             "letter_spacing": "normal",
                             "case": "none",
@@ -5067,7 +5079,7 @@
                             "alignment": "left",
                             "type_preset": "custom",
                             "font": "var(--font-subheading--family)",
-                            "font_size": "1.25rem",
+                            "font_size": "1.125rem",
                             "line_height": "normal",
                             "letter_spacing": "normal",
                             "case": "none",
@@ -5183,7 +5195,7 @@
                             "alignment": "left",
                             "type_preset": "custom",
                             "font": "var(--font-subheading--family)",
-                            "font_size": "1.25rem",
+                            "font_size": "1.125rem",
                             "line_height": "normal",
                             "letter_spacing": "normal",
                             "case": "none",
