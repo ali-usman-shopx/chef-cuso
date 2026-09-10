@@ -10,20 +10,53 @@
     {% endif %}
     {{ block.shopify_attributes }}
   >
-    <summary class="details__header">
-      {% render 'icon-or-image',
-        icon: block_settings.icon,
-        image_upload: block_settings.image_upload,
-        width: block_settings.width,
-        class_name: 'details__icon'
-      %}
+    <summary class="details__header" id="details__header--{{ block.id }}">
+      {% if block_settings.enable_tastes_accordion_styling %}
+        <svg
+          class="tastes-accordion-icon__{{ block.id }} tastes-accordion-icon"
+          width="{{ block_settings.width }}"
+          height="{{ block_settings.width }}"
+          viewBox="0 0 44 44"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style="background-color: transparent;"
+          {{ block.shopify_attributes }}
+          aria-hidden="true"
+        >
+          <!-- Circular border -->
+          <circle
+            cx="22"
+            cy="22"
+            r="20"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+
+          <!-- Cross Icon -->
+          <path
+            d="M15 22H29M22 15V29"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      {% else %}
+        {% render 'icon-or-image',
+          icon: block_settings.icon,
+          image_upload: block_settings.image_upload,
+          width: block_settings.width,
+          class_name: 'details__icon'
+        %}
+      {% endif %}
       {{ block_settings.heading }}
-      <span class="svg-wrapper icon-caret icon-animated">
-        {{- 'icon-caret.svg' | inline_asset_content -}}
-      </span>
-      <span class="svg-wrapper icon-plus">
-        {{- 'icon-plus.svg' | inline_asset_content -}}
-      </span>
+      {% if block_settings.enable_tastes_accordion_styling == false %}
+        <span class="svg-wrapper icon-caret icon-animated">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+        <span class="svg-wrapper icon-plus">
+          {{- 'icon-plus.svg' | inline_asset_content -}}
+        </span>
+      {% endif %}
     </summary>
 
     <div class="details-content">
@@ -36,6 +69,42 @@
   open_by_default_on_desktop: block_settings.open_by_default,
   open_by_default_on_mobile: block_settings.open_by_default
 %}
+
+{% style %}
+  .tastes-accordion-icon__{{ block.id }} {
+    --hover-fill-color: {{ block.settings.accordion_element_open_icon_color }};
+  }
+
+  {% if block_settings.enable_tastes_accordion_styling %}
+    #details__header--{{ block.id }} {
+      font-size: 15px;
+    }
+  {% endif %}
+{% endstyle %}
+
+{% stylesheet %}
+  .tastes-accordion-icon {
+    margin-right: 14px;
+    transition:
+      transform 0.3s ease,
+      fill 0.3s ease;
+  }
+
+  .details[open] .tastes-accordion-icon > circle {
+    transition: stroke 0.05s linear;
+  }
+
+  .details[open] .tastes-accordion-icon {
+    transform: rotate(-45deg);
+    color: white;
+    fill: var(--hover-fill-color);
+  }
+
+  .details[open] .tastes-accordion-icon > circle {
+    stroke: var(--hover-fill-color);
+    transition: stroke 0.05s linear;
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
@@ -324,6 +393,19 @@
       "step": 2,
       "unit": "px",
       "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_tastes_accordion_styling",
+      "label": "Enabled Tastes Accordion Styling",
+      "info": "Enables Tastes Accordion Styling; cannot be used in junction with other special styling overrides (like FAQ styling override)",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "accordion_element_open_icon_color",
+      "label": "Icon Color on Open",
+      "visible_if": "{{ block.settings.enable_tastes_accordion_styling }}"
     }
   ],
   "presets": [

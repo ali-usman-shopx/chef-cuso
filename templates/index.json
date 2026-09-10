@@ -3904,7 +3904,7 @@
             "height": "fit",
             "custom_height": 100,
             "background_media": "none",
-            "background_color": "",
+            "background_color": "{{ settings.color_palette.color3 }}",
             "video_position": "cover",
             "background_image_position": "cover",
             "toggle_overlay": false,
@@ -3919,14 +3919,394 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
-            "padding-block-start": 0,
+            "padding-block-start": 45,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0,
             "desktop_css_override": "display: none;",
             "mobile_css_override": ";"
           },
-          "blocks": {}
+          "blocks": {
+            "text_WGdkF7": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>Introducing our dynamic 3-pack</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "0.75rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "text_color": "#b92509",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 24,
+                "padding-inline-end": 24,
+                "desktop_css_override": ";",
+                "mobile_css_override": ";"
+              },
+              "blocks": {}
+            },
+            "text_hndHzi": {
+              "type": "text",
+              "name": "t:names.header",
+              "settings": {
+                "text": "<p>Savor The Unforgettable Tastes</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.5rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 24,
+                "padding-inline-end": 24,
+                "desktop_css_override": ";",
+                "mobile_css_override": ";"
+              },
+              "blocks": {}
+            },
+            "accordion_tLbdnR": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": false,
+                "divider_color": "",
+                "type_preset": "h5",
+                "background_color": "",
+                "text_color": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 24,
+                "padding-inline-end": 24
+              },
+              "blocks": {
+                "accordion_row_t7ANc3": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Bold and rich Mexican style seasoning",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                  },
+                  "blocks": {
+                    "text_qMPhGc": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>I found my love for barbecuing and cooking in college while I was pursuing engineering and later working as a mechanical engineer. </p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.875rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": true,
+                        "background_color": "{{ settings.color_palette.background }}",
+                        "corner_radius": 10,
+                        "padding-block-start": 13,
+                        "padding-block-end": 13,
+                        "padding-inline-start": 13,
+                        "padding-inline-end": 13,
+                        "desktop_css_override": ";",
+                        "mobile_css_override": ";"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_qMPhGc"
+                  ]
+                },
+                "accordion_row_LqWRky": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Bold and rich Mexican style seasoning",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                  },
+                  "blocks": {
+                    "text_hKCmy9": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>I found my love for barbecuing and cooking in college while I was pursuing engineering and later working as a mechanical engineer. </p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.875rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": true,
+                        "background_color": "{{ settings.color_palette.background }}",
+                        "corner_radius": 10,
+                        "padding-block-start": 13,
+                        "padding-block-end": 13,
+                        "padding-inline-start": 13,
+                        "padding-inline-end": 13,
+                        "desktop_css_override": ";",
+                        "mobile_css_override": ";"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_hKCmy9"
+                  ]
+                },
+                "accordion_row_W96rWi": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Bold and rich Mexican style seasoning",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                  },
+                  "blocks": {
+                    "text_9hdjbD": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>I found my love for barbecuing and cooking in college while I was pursuing engineering and later working as a mechanical engineer. </p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.875rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": true,
+                        "background_color": "{{ settings.color_palette.background }}",
+                        "corner_radius": 10,
+                        "padding-block-start": 13,
+                        "padding-block-end": 13,
+                        "padding-inline-start": 13,
+                        "padding-inline-end": 13,
+                        "desktop_css_override": ";",
+                        "mobile_css_override": ";"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_9hdjbD"
+                  ]
+                },
+                "accordion_row_HxRTBp": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Bold and rich Mexican style seasoning",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                  },
+                  "blocks": {
+                    "text_qpeTym": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>I found my love for barbecuing and cooking in college while I was pursuing engineering and later working as a mechanical engineer. </p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.875rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": true,
+                        "background_color": "{{ settings.color_palette.background }}",
+                        "corner_radius": 10,
+                        "padding-block-start": 13,
+                        "padding-block-end": 13,
+                        "padding-inline-start": 13,
+                        "padding-inline-end": 13,
+                        "desktop_css_override": ";",
+                        "mobile_css_override": ";"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_qpeTym"
+                  ]
+                },
+                "accordion_row_JT97fy": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Bold and rich Mexican style seasoning",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                  },
+                  "blocks": {
+                    "text_nefFPB": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>I found my love for barbecuing and cooking in college while I was pursuing engineering and later working as a mechanical engineer. </p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.875rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": true,
+                        "background_color": "{{ settings.color_palette.background }}",
+                        "corner_radius": 10,
+                        "padding-block-start": 13,
+                        "padding-block-end": 13,
+                        "padding-inline-start": 13,
+                        "padding-inline-end": 13,
+                        "desktop_css_override": ";",
+                        "mobile_css_override": ";"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_nefFPB"
+                  ]
+                },
+                "accordion_row_VWwgCq": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Bold and rich Mexican style seasoning",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 34,
+                    "enable_tastes_accordion_styling": true,
+                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                  },
+                  "blocks": {
+                    "text_WVAFnf": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>I found my love for barbecuing and cooking in college while I was pursuing engineering and later working as a mechanical engineer. </p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.875rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": true,
+                        "background_color": "{{ settings.color_palette.background }}",
+                        "corner_radius": 10,
+                        "padding-block-start": 13,
+                        "padding-block-end": 13,
+                        "padding-inline-start": 13,
+                        "padding-inline-end": 13,
+                        "desktop_css_override": ";",
+                        "mobile_css_override": ";"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_WVAFnf"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_t7ANc3",
+                "accordion_row_LqWRky",
+                "accordion_row_W96rWi",
+                "accordion_row_HxRTBp",
+                "accordion_row_JT97fy",
+                "accordion_row_VWwgCq"
+              ]
+            },
+            "image_HtPVbN": {
+              "type": "image",
+              "name": "t:names.image",
+              "settings": {
+                "image": "shopify://shop_images/tastes_banner_mobile.png",
+                "show_stamp": false,
+                "stamp_width": "100px",
+                "stamp_height": "100px",
+                "stamp_css": ";",
+                "link": "",
+                "image_ratio": "adapt",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_WGdkF7",
+            "text_hndHzi",
+            "accordion_tLbdnR",
+            "image_HtPVbN"
+          ]
         },
         "group_pFgQnL": {
           "type": "group",
@@ -3971,7 +4351,7 @@
             "padding-inline-start": 0,
             "padding-inline-end": 0,
             "desktop_css_override": "position: relative;",
-            "mobile_css_override": ";"
+            "mobile_css_override": "display: none;"
           },
           "blocks": {
             "image_mHcb6T": {
@@ -4497,7 +4877,7 @@
                       "name": "t:names.group",
                       "settings": {
                         "is_tastes_parent_element": true,
-                        "tastes_tooltip_text": "I found my love for barbecuing and cooking in college while I was pursuing engineering and later working as a mechanical engineer.",
+                        "tastes_tooltip_text": "Nothing to say...",
                         "tooltip_on_right": true,
                         "content_direction": "row",
                         "vertical_on_mobile": true,
