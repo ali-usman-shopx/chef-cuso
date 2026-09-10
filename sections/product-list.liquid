@@ -79,19 +79,21 @@
       test_id: 'resource-list-grid'
     %}
   {% else %}
-    <div class="tabs-wrapper">
-      <div class="collection-tabs">
-        <div class="tab-labels">
-          <span id="tab-label-1" data-collection="1" class="tab-label active">Best Sellers</span>
-          <span id="tab-label-2" data-collection="2" class="tab-label">Seasonings & Rubs</span>
-          <span id="tab-label-3" data-collection="3" class="tab-label">Kitchen Knives</span>
-          <span id="tab-label-4" data-collection="4" class="tab-label">Accessories & Apparel</span>
-        </div>
-        <div class="tab-underlines">
-          <span class="tab-underline"></span>
+    {% if section.settings.render_tabs %}
+      <div class="tabs-wrapper">
+        <div class="collection-tabs">
+          <div class="tab-labels">
+            <span id="tab-label-1" data-collection="1" class="tab-label active">Best Sellers</span>
+            <span id="tab-label-2" data-collection="2" class="tab-label">Seasonings & Rubs</span>
+            <span id="tab-label-3" data-collection="3" class="tab-label">Kitchen Knives</span>
+            <span id="tab-label-4" data-collection="4" class="tab-label">Accessories & Apparel</span>
+          </div>
+          <div class="tab-underlines">
+            <span class="tab-underline"></span>
+          </div>
         </div>
       </div>
-    </div>
+    {% endif %}
 
     {% for selected_collection in section.settings.collections %}
       <div
@@ -160,68 +162,70 @@
 
 {% style %}
   {% if section.settings.multiple_collections_enabled %}
-    .tabs-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      overflow-x: auto;
-    }
+    {% if section.settings.render_tabs %}
+      .tabs-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow-x: auto;
+      }
 
-    .collection-tabs {
-      display: flex;
-      width: fit-content;
-      padding-left: 33px;
-      padding-right: 33px;
-      padding-bottom: 12px;
-      justify-content: center;
-      position: relative;
-      border-bottom: 2px solid #F1F1F1;
-      flex-wrap: nowrap;
-    }
+      .collection-tabs {
+        display: flex;
+        width: fit-content;
+        padding-left: 33px;
+        padding-right: 33px;
+        padding-bottom: 12px;
+        justify-content: center;
+        position: relative;
+        border-bottom: 2px solid #F1F1F1;
+        flex-wrap: nowrap;
+      }
 
-    .tab-underlines {
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-    }
+      .tab-underlines {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+      }
 
-    .tab-underline {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 2px;
-      background-color: red;
-      border-radius: 5px;
-      transition: left 0.3s ease, width 0.3s ease;
-    }
+      .tab-underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background-color: red;
+        border-radius: 5px;
+        transition: left 0.3s ease, width 0.3s ease;
+      }
 
-    .tab-labels {
-      display: flex;
-      flex-direction: row;
-      gap: 30px;
-      flex-wrap: nowrap;
-    }
+      .tab-labels {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        flex-wrap: nowrap;
+      }
 
-    .tab-label {
-      font-size: 17px;
-      line-height: 100%;
-      font-weight: 500;
-      color: #646464;
-      text-wrap: nowrap;
-    }
+      .tab-label {
+        font-size: 17px;
+        line-height: 100%;
+        font-weight: 500;
+        color: #646464;
+        text-wrap: nowrap;
+      }
 
-    .tab-label:hover {
-      cursor: pointer;
-      color: #4e4e4e;
-    }
+      .tab-label:hover {
+        cursor: pointer;
+        color: #4e4e4e;
+      }
 
-    .tab-label.active {
-      color: #212121;
-      font-weight: 500;
-    }
+      .tab-label.active {
+        color: #212121;
+        font-weight: 500;
+      }
+    {% endif %}
 
     .collection-panel {
       display: none;
@@ -243,18 +247,20 @@
     }
 
     @media screen and (max-width: 768px) {
-      .tabs-wrapper {
-        justify-content: flex-start;
-      }
+      {% if section.settings.render_tabs %}
+        .tabs-wrapper {
+          justify-content: flex-start;
+        }
 
-      .collection-tabs {
-        padding-left: 0px;
-        padding-right: 0px;
-      }
+        .collection-tabs {
+          padding-left: 0px;
+          padding-right: 0px;
+        }
 
-      .tab-labels {
-        width: max-content;
-      }
+        .tab-labels {
+          width: max-content;
+        }
+      {% endif %}
 
       .resource-list__slide {
         width: 100% !important;
@@ -368,48 +374,50 @@
   </script>
 
   {% comment %} Initializes Tab Underline {% endcomment %}
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const tabs = document.querySelectorAll('.tab-label');
-      const underline = document.querySelector('.tab-underline');
-      const tabsContainer = document.querySelector('.collection-tabs');
+  {% if section.settings.render_tabs %}
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.tab-label');
+        const underline = document.querySelector('.tab-underline');
+        const tabsContainer = document.querySelector('.collection-tabs');
 
-      function moveUnderline(tab) {
-        const tabRect = tab.getBoundingClientRect();
-        const containerRect = tabsContainer.getBoundingClientRect();
+        function moveUnderline(tab) {
+          const tabRect = tab.getBoundingClientRect();
+          const containerRect = tabsContainer.getBoundingClientRect();
 
-        const underlineWidth = 60;
+          const underlineWidth = 60;
 
-        underline.style.width = `${underlineWidth}px`;
-        underline.style.left = `${
-          tabRect.left - containerRect.left + (tabRect.width - underlineWidth) / 2
-        }px`;
-      }
+          underline.style.width = `${underlineWidth}px`;
+          underline.style.left = `${
+            tabRect.left - containerRect.left + (tabRect.width - underlineWidth) / 2
+          }px`;
+        }
 
-      tabs.forEach((tab) => {
-        tab.addEventListener('click', () => {
-          tabs.forEach((item) => item.classList.remove('active'));
-          tab.classList.add('active');
+        tabs.forEach((tab) => {
+          tab.addEventListener('click', () => {
+            tabs.forEach((item) => item.classList.remove('active'));
+            tab.classList.add('active');
 
-          moveUnderline(tab);
+            moveUnderline(tab);
+          });
         });
-      });
 
-      const activeTab = document.querySelector('.tab-label.active');
-
-      if (activeTab) {
-        moveUnderline(activeTab);
-      }
-
-      window.addEventListener('resize', () => {
         const activeTab = document.querySelector('.tab-label.active');
 
         if (activeTab) {
           moveUnderline(activeTab);
         }
+
+        window.addEventListener('resize', () => {
+          const activeTab = document.querySelector('.tab-label.active');
+
+          if (activeTab) {
+            moveUnderline(activeTab);
+          }
+        });
       });
-    });
-  </script>
+    </script>
+  {% endif %}
 {% endif %}
 
 {% schema %}
@@ -435,8 +443,16 @@
       "type": "checkbox",
       "label": "Multiple Collections",
       "id": "multiple_collections_enabled",
-      "info": "Enabling this will add tabs and switching between multiple selected collections.",
+      "info": "Enabling this will override default styling and behavior, and allow addition of multiple collections and tabs.",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "label": "Render Tabs",
+      "id": "render_tabs",
+      "info": "Enabling this will add tabs.",
+      "default": true,
+      "visible_if": "{{ section.settings.multiple_collections_enabled }}"
     },
     {
       "type": "collection_list",
