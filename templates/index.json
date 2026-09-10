@@ -4010,9 +4010,7 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": true,
                     "icon": "none",
-                    "width": 34,
-                    "enable_tastes_accordion_styling": true,
-                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                    "width": 34
                   },
                   "blocks": {
                     "text_qMPhGc": {
@@ -4053,9 +4051,7 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 34,
-                    "enable_tastes_accordion_styling": true,
-                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                    "width": 34
                   },
                   "blocks": {
                     "text_hKCmy9": {
@@ -4096,9 +4092,7 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 34,
-                    "enable_tastes_accordion_styling": true,
-                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                    "width": 34
                   },
                   "blocks": {
                     "text_9hdjbD": {
@@ -4139,9 +4133,7 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 34,
-                    "enable_tastes_accordion_styling": true,
-                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                    "width": 34
                   },
                   "blocks": {
                     "text_qpeTym": {
@@ -4182,9 +4174,7 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 34,
-                    "enable_tastes_accordion_styling": true,
-                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                    "width": 34
                   },
                   "blocks": {
                     "text_nefFPB": {
@@ -4225,9 +4215,7 @@
                     "heading": "Bold and rich Mexican style seasoning",
                     "open_by_default": false,
                     "icon": "none",
-                    "width": 34,
-                    "enable_tastes_accordion_styling": true,
-                    "accordion_element_open_icon_color": "{{ settings.color_palette.color5 }}"
+                    "width": 34
                   },
                   "blocks": {
                     "text_WVAFnf": {

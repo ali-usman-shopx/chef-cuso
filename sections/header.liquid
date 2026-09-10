@@ -129,7 +129,7 @@
     endif
   endif
   capture search
-    render 'search', style: search_style, class: search_class, display_style: section.settings.actions_display_style
+    render 'search', style: search_style, class: search_class, display_style: section.settings.actions_display_style, use_custom_search_icon: section.settings.use_custom_search_icon
   endcapture
 
   # Skip drawer search under specific conditions:
@@ -468,6 +468,47 @@
   src="{{ 'header.js' | asset_url }}"
   type="module"
 ></script>
+
+{% style %}
+  .header-menu[aria-expanded="true"] .menu-list {
+    background-color: white !important;
+  }
+
+  .header__columns:has(.header-menu[aria-expanded="true"]) #custom-cart-icon-header > g * {
+    stroke: black !important;
+  }
+
+  .header__columns:has(.header-menu[aria-expanded="true"]) .custom-search-icon * {
+    stroke: black !important;
+  }
+
+  #header-component .menu-list {
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #50514F;
+    border-radius: 60px;
+    max-height: fit-content !important;
+    height: 50px;
+    margin-top: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  #header-component .menu-list .menu-list__trigger {
+    max-height: fit-content !important;
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+
+  #header-component .menu-list .menu-list__link {
+    max-height: fit-content !important;
+    padding-top: 0px;
+  }
+
+  #header-component .menu-list .overflow-menu {
+    max-height: fit-content !important;
+  }
+{% endstyle %}
 
 {% stylesheet %}
   body {
@@ -1200,6 +1241,28 @@
   "tag": "header",
   "class": "header-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Icons Overrides"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_account_icon",
+      "label": "Enable Customer Account",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_cart_icon",
+      "label": "Use Custom Cart Icon",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_search_icon",
+      "label": "Use Custom Search Icon",
+      "default": false
+    },
     {
       "type": "header",
       "content": "t:content.logo"

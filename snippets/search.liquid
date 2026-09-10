@@ -4,6 +4,7 @@
   @param {string} [style] - The style of the search action.
   @param {string} [class] - Additional classes for the search action.
   @param {string} [display_style] - The display style ('icon' or 'text').
+  @param {boolean} [use_custom_search_icon] - Feature Flag to override icon.
 
   @example
   {% render 'search', style: 'default', class: 'custom-class', display_style: 'icon' %}
@@ -24,7 +25,21 @@
       </span>
 
       <span class="svg-wrapper {% if display_style != 'icon' %}desktop:hidden{% endif %}">
-        {{ 'icon-search.svg' | inline_asset_content }}
+        {% if use_custom_search_icon %}
+          <svg class="custom-search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_82_16604)">
+              <path d="M13.5 20C18.7467 20 23 15.7467 23 10.5C23 5.25329 18.7467 1 13.5 1C8.25329 1 4 5.25329 4 10.5C4 15.7467 8.25329 20 13.5 20Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+              <path d="M0.66272 23.3374L7.06308 16.937" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_82_16604">
+                <rect width="24" height="24" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
+        {% else %}
+          {{ 'icon-search.svg' | inline_asset_content }}
+        {% endif %}
       </span>
     </button>
   </search-button>
