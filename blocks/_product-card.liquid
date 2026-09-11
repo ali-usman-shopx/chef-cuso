@@ -24,6 +24,14 @@
 {% render 'product-badges-styles' %}
 
 {% style %}
+  .card-gallery:has(.image-css-override) {
+    border: 1px solid #E2E2E2;
+  }
+
+  .card-gallery:has(.img-special-override) {
+    border-color: #F6F0E9;
+  }
+
   .image-css-override {
     {{ block.settings.image_css_override }}
   }

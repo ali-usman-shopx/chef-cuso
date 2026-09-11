@@ -145,7 +145,15 @@
 
         <span class="deferred-media__poster-icon icon-play">
           <span class="visually-hidden">{{ 'accessibility.play_video' | t }}</span>
-          {{- 'icon-play.svg' | inline_asset_content -}}
+          {% if block_settings.use_custom_play_button %}
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M48 24C48 37.2 37.2 48 24 48C10.8 48 0 37.2 0 24C0 10.8 10.8 0 24 0C37.2 0 48 10.8 48 24Z" fill="white" fill-opacity="0.5"/>
+              <path d="M44 24C44 35 35 44 24 44C13 44 4 35 4 24C4 13 13 4 24 4C35 4 44 13 44 24Z" fill="white"/>
+              <path d="M18 32V16L33.9111 24H34L18 32Z" fill="#212121"/>
+            </svg>
+          {% else %}
+            {{- 'icon-play.svg' | inline_asset_content -}}
+          {% endif %}
         </span>
       </button>
     {% endif %}
