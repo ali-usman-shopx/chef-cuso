@@ -34,6 +34,24 @@
       --star-fill-color-rgb: {{ block_settings.star_color.rgb }};
       --color: {{ block_settings.text_color }};
       --color-rgb: {{ block_settings.text_color.rgb }};
+      {% if block_settings.override_sizes == false %}    
+        --star-size: calc(var(--font-{{ block_settings.type_preset }}--size) * 1.1);
+        --font-size: calc(var(--font-{{ block_settings.type_preset }}--size));
+      {% else %}
+        --star-size: {{block_settings.star_size}};
+        --font-size: {{block_settings.font_size}};
+      {% endif %}
+
+      --rating-margin-bottom: {{ block_settings.rating_margin_bottom }};
+    }
+
+    @media screen and (max-width: 768px) {
+      .rating-wrapper-{{ block.id }} {
+        {% if block_settings.override_sizes %}
+          --star-size: {{block_settings.star_size_mobile}};
+          --font-size: {{block_settings.font_size_mobile}};
+        {% endif %}
+      }
     }
   {% endstyle %}
 {% endif %}
@@ -81,7 +99,6 @@
     </svg>
     <div
       class="rating"
-      style="--star-size: calc(var(--font-{{ block_settings.type_preset }}--size) * 1.1);"
       aria-label="{{ 'accessibility.rating' | t: rating: rating }}"
     >
       {% if block_settings.stars_style == 'single' %}
@@ -156,6 +173,7 @@
 
   .rating {
     gap: var(--gap-3xs);
+    margin-bottom: var(--rating-margin-bottom);
   }
 
   .rating-wrapper .rating-count,
@@ -163,6 +181,7 @@
     color: var(--color);
     margin: 0;
     white-space: nowrap;
+    font-size: var(--font-size);
   }
 
   .rating-count-separator {
@@ -174,6 +193,7 @@
   .stars {
     height: var(--star-size);
     fill: var(--empty-star-fill-color);
+    align-self: center;
   }
 
   .filled-star {
@@ -186,6 +206,48 @@
   "name": "t:names.product_review_stars",
   "tag": null,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "override_sizes",
+      "default": true,
+      "info": "Enables Size Overrides",
+      "label": "Over Sizes"
+    },
+    {
+      "type": "text",
+      "id": "star_size",
+      "label": "Star Size",
+      "default": "12px",
+      "visible_if": "{{ block.settings.override_sizes }}"
+    },
+    {
+      "type": "text",
+      "id": "font_size",
+      "label": "Font Size",
+      "default": "14px",
+      "visible_if": "{{ block.settings.override_sizes }}"
+    },
+    {
+      "type": "text",
+      "id": "star_size_mobile",
+      "label": "Star Size Mobile",
+      "default": "19px",
+      "visible_if": "{{ block.settings.override_sizes }}"
+    },
+    {
+      "type": "text",
+      "id": "font_size_mobile",
+      "label": "Font Size Mobile",
+      "default": "14px",
+      "visible_if": "{{ block.settings.override_sizes }}"
+    },
+    {
+      "type": "text",
+      "id": "rating_margin_bottom",
+      "label": "Rating Margin Bottom",
+      "default": "0px",
+      "visible_if": "{{ block.settings.override_sizes }}"
+    },
     {
       "type": "paragraph",
       "content": "t:content.resource_reference_product_review"
