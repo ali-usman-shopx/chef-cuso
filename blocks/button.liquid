@@ -1,11 +1,17 @@
 
-{% render 'button', link: block.settings.link %}
+{% render 'button', link: block.settings.link, block: block %}
 
 {% schema %}
 {
   "name": "t:names.button",
   "tag": null,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "render_arrow",
+      "label": "Render Arrow Icon",
+      "default": false
+    },
     {
       "type": "text",
       "id": "label",

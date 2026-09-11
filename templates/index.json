@@ -190,7 +190,8 @@
                   "type": "button",
                   "name": "t:names.button",
                   "settings": {
-                    "label": "SHOP ALL  →",
+                    "render_arrow": true,
+                    "label": "SHOP ALL",
                     "link": "shopify://collections/all",
                     "open_in_new_tab": false,
                     "style_class": "button",
@@ -211,7 +212,8 @@
                   "type": "button",
                   "name": "t:names.button",
                   "settings": {
-                    "label": "BUILD YOUR PACK  →",
+                    "render_arrow": true,
+                    "label": "BUILD YOUR PACK",
                     "link": "shopify://collections/all",
                     "open_in_new_tab": false,
                     "style_class": "button-custom",
@@ -276,6 +278,7 @@
           "name": "t:names.button",
           "disabled": true,
           "settings": {
+            "render_arrow": false,
             "label": "Shop all",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
@@ -705,8 +708,8 @@
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0,
-            "image_css_override": "padding: 30px !important;\nmedia-fit: contain;\nbackground-color: transparent;\nborder: 1px solid #E2E2E2;",
-            "img_special_override": "background-color: #F6F0E9;\nborder-color: #F6F0E9;",
+            "image_css_override": "padding: 30px !important;\nmedia-fit: contain;\nbackground-color: transparent;",
+            "img_special_override": "background-color: #F6F0E9;",
             "buy_btn_special_override": "background-color: #B9250A !important;\ncolor: white !important;\nbox-shadow: none;"
           },
           "blocks": {
@@ -1058,7 +1061,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "desktop_css_override": ";",
-                "mobile_css_override": ";"
+                "mobile_css_override": "* {font-size: 12px !important;}"
               },
               "blocks": {}
             },
@@ -1085,7 +1088,7 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
-                "desktop_css_override": "* {font-size: 12px !important;}",
+                "desktop_css_override": ";",
                 "mobile_css_override": "* {font-size: 20px !important;}"
               },
               "blocks": {}
@@ -1976,7 +1979,8 @@
                   "type": "button",
                   "name": "t:names.button",
                   "settings": {
-                    "label": "LEARN MORE ABOUT CUSO  →",
+                    "render_arrow": true,
+                    "label": "LEARN MORE ABOUT CUSO",
                     "link": "shopify://collections/all",
                     "open_in_new_tab": false,
                     "style_class": "button",
@@ -3357,7 +3361,8 @@
               "type": "button",
               "name": "t:names.button",
               "settings": {
-                "label": "LEARN MORE ABOUT US  →",
+                "render_arrow": true,
+                "label": "LEARN MORE ABOUT US",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
                 "style_class": "button",
@@ -3771,6 +3776,7 @@
           "type": "video",
           "name": "t:names.video",
           "settings": {
+            "use_custom_play_button": true,
             "source": "url",
             "video_url": "https://youtu.be/dQw4w9WgXcQ?si=dGQ6uZbzqDv9oQ8Y",
             "video_autoplay": false,
@@ -3870,6 +3876,7 @@
               "type": "button",
               "name": "t:names.button",
               "settings": {
+                "render_arrow": false,
                 "label": "Discover the collection",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
@@ -4617,6 +4624,7 @@
                           "name": "t:names.button",
                           "disabled": true,
                           "settings": {
+                            "render_arrow": false,
                             "label": "Icon",
                             "link": "shopify://collections/all",
                             "open_in_new_tab": false,
@@ -4733,6 +4741,7 @@
                           "name": "t:names.button",
                           "disabled": true,
                           "settings": {
+                            "render_arrow": false,
                             "label": "Icon",
                             "link": "shopify://collections/all",
                             "open_in_new_tab": false,
@@ -4849,6 +4858,7 @@
                           "name": "t:names.button",
                           "disabled": true,
                           "settings": {
+                            "render_arrow": false,
                             "label": "Icon",
                             "link": "shopify://collections/all",
                             "open_in_new_tab": false,
@@ -4989,6 +4999,7 @@
                           "name": "t:names.button",
                           "disabled": true,
                           "settings": {
+                            "render_arrow": false,
                             "label": "Icon",
                             "link": "shopify://collections/all",
                             "open_in_new_tab": false,
@@ -5105,6 +5116,7 @@
                           "name": "t:names.button",
                           "disabled": true,
                           "settings": {
+                            "render_arrow": false,
                             "label": "Icon",
                             "link": "shopify://collections/all",
                             "open_in_new_tab": false,
@@ -5221,6 +5233,7 @@
                           "name": "t:names.button",
                           "disabled": true,
                           "settings": {
+                            "render_arrow": false,
                             "label": "Icon",
                             "link": "shopify://collections/all",
                             "open_in_new_tab": false,
@@ -5650,6 +5663,7 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
+            "render_arrow": true,
             "label": "SEE ALL FAQ'S",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
@@ -6894,6 +6908,7 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
+            "render_arrow": true,
             "label": "SEE ALL RESOURCES",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
