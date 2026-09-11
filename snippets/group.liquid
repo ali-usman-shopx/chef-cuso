@@ -133,16 +133,6 @@
     .tastes-tooltip__{{ block.id }} {
       display: none;
     }
-
-    {% if block.settings.tooltip_on_right == true %}
-      .tastes-tooltip__{{ block.id }} {
-        /* left: 100%; */
-      }
-    {% else %}
-      .tastes-tooltip__{{ block.id }} {
-        /* right: 100% !important; */
-      }
-    {% endif %}
   {% endif %}
 {% endstyle %}
 

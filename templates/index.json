@@ -223,7 +223,7 @@
                     "custom_width": 100,
                     "width_mobile": "fit-content",
                     "custom_width_mobile": 100,
-                    "desktop_css_override": "font-weight: 600;\npadding-left: 38px;\npadding-right: 38px;",
+                    "desktop_css_override": "font-weight: 600;\npadding-left: 40px;\npadding-right: 40px;",
                     "mobile_css_override": "padding-left: 19px;\npadding-right: 19px;"
                   },
                   "blocks": {}
@@ -351,7 +351,7 @@
             "padding-block-end": 0,
             "padding-inline-start": 10,
             "padding-inline-end": 10,
-            "desktop_css_override": "* {\nfont-weight: 500 !important;\n}",
+            "desktop_css_override": ";",
             "mobile_css_override": ";"
           },
           "blocks": {}
@@ -393,7 +393,7 @@
             "padding-block-end": 0,
             "padding-inline-start": 10,
             "padding-inline-end": 10,
-            "desktop_css_override": "* {\nfont-weight: 500 !important;\n}",
+            "desktop_css_override": ";",
             "mobile_css_override": ";"
           },
           "blocks": {}
@@ -435,7 +435,7 @@
             "padding-block-end": 0,
             "padding-inline-start": 10,
             "padding-inline-end": 10,
-            "desktop_css_override": "* {\nfont-weight: 500 !important;\n}",
+            "desktop_css_override": ";",
             "mobile_css_override": ";"
           },
           "blocks": {}
@@ -477,7 +477,7 @@
             "padding-block-end": 0,
             "padding-inline-start": 10,
             "padding-inline-end": 10,
-            "desktop_css_override": "* {\nfont-weight: 500 !important;\n}",
+            "desktop_css_override": ";",
             "mobile_css_override": ";"
           },
           "blocks": {}
@@ -519,7 +519,7 @@
             "padding-block-end": 0,
             "padding-inline-start": 10,
             "padding-inline-end": 10,
-            "desktop_css_override": "* {\nfont-weight: 500 !important;\n}",
+            "desktop_css_override": ";",
             "mobile_css_override": ";"
           },
           "blocks": {}
@@ -625,7 +625,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "desktop_css_override": ";",
-                "mobile_css_override": ";"
+                "mobile_css_override": "* {font-size: 12px !important;}"
               },
               "blocks": {}
             },
@@ -651,7 +651,9 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "desktop_css_override": ";",
+                "mobile_css_override": "* {font-size: 20px !important;}"
               },
               "blocks": {}
             },
@@ -697,9 +699,9 @@
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0,
-            "image_css_override": "padding: 30px !important;\nmedia-fit: contain;\nbackground-color: transparent;",
-            "img_special_override": "background-color: #F6F0E9;",
-            "buy_btn_special_override": "background-color: #B9250A !important;\ncolor: white !important;"
+            "image_css_override": "padding: 30px !important;\nmedia-fit: contain;\nbackground-color: transparent;\nborder: 1px solid #E2E2E2;",
+            "img_special_override": "background-color: #F6F0E9;\nborder-color: #F6F0E9;",
+            "buy_btn_special_override": "background-color: #B9250A !important;\ncolor: white !important;\nbox-shadow: none;"
           },
           "blocks": {
             "product_card_gallery_VjtV6X": {
@@ -848,7 +850,7 @@
                     "icon_position": "right",
                     "custom_icon": "shopify://shop_images/black.svg",
                     "custom_icon_special_variant": "shopify://shop_images/4f02d73d5f99ae210772322d63870ffc.svg",
-                    "desktop_css_override": "text-transform: uppercase !important;\nfont-size: 16px;\nfont-weight: 600;",
+                    "desktop_css_override": "text-transform: uppercase !important;\nfont-size: 14px;\nfont-weight: 600;",
                     "mobile_css_override": ";"
                   },
                   "blocks": {}
@@ -1052,7 +1054,7 @@
               "type": "text",
               "name": "t:names.header",
               "settings": {
-                "text": "<p>Discover elevated design </p>",
+                "text": "<p>Home Of The Cuso Cuts Brand</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1071,8 +1073,8 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
-                "desktop_css_override": ";",
-                "mobile_css_override": ";"
+                "desktop_css_override": "* {font-size: 12px !important;}",
+                "mobile_css_override": "* {font-size: 20px !important;}"
               },
               "blocks": {}
             }
@@ -1743,7 +1745,7 @@
                 "tastes_tooltip_text": "Nothing to say...",
                 "tooltip_on_right": false,
                 "content_direction": "row",
-                "vertical_on_mobile": true,
+                "vertical_on_mobile": false,
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
@@ -1777,7 +1779,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "desktop_css_override": ";",
-                "mobile_css_override": ";"
+                "mobile_css_override": "padding-top: 30px;"
               },
               "blocks": {
                 "icon_Q7VbLH": {
@@ -1805,7 +1807,7 @@
                     "alignment": "left",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "font_size": "0.875rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "uppercase",
@@ -1819,7 +1821,7 @@
                     "padding-inline-start": 0,
                     "padding-inline-end": 0,
                     "desktop_css_override": ";",
-                    "mobile_css_override": ";"
+                    "mobile_css_override": "* {font-size: 12px !important;}"
                   },
                   "blocks": {}
                 }
@@ -1975,7 +1977,7 @@
                     "width_mobile": "fit-content",
                     "custom_width_mobile": 100,
                     "desktop_css_override": "font-weight: 600;",
-                    "mobile_css_override": ""
+                    "mobile_css_override": "padding-top: 11px;\npadding-bottom: 11px;"
                   },
                   "blocks": {}
                 }
@@ -2077,7 +2079,7 @@
             "padding-inline-start": 0,
             "padding-inline-end": 0,
             "desktop_css_override": ";",
-            "mobile_css_override": ";"
+            "mobile_css_override": "* {align-content: left !important;}"
           },
           "blocks": {
             "text_ND49kW": {
@@ -2104,7 +2106,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "desktop_css_override": ";",
-                "mobile_css_override": ";"
+                "mobile_css_override": "* {font-size: 12px !important;}"
               },
               "blocks": {}
             },
@@ -2132,7 +2134,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "desktop_css_override": ";",
-                "mobile_css_override": ";"
+                "mobile_css_override": "* {font-size: 24px !important;}"
               },
               "blocks": {}
             }
@@ -3249,7 +3251,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "desktop_css_override": ";",
-                "mobile_css_override": ";"
+                "mobile_css_override": "* {font-size: 12px !important;}"
               },
               "blocks": {}
             },
@@ -3257,7 +3259,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<p>Looking for some all<br/>natural grilling essentials?</p>",
+                "text": "<p>Looking For Some All<br/>Natural Grilling Essentials?</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -3277,7 +3279,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "desktop_css_override": "*{line-height: 100% !important;}",
-                "mobile_css_override": ";"
+                "mobile_css_override": "* {\nfont-size: 24px !important;\nline-height: 28px !important;\n}"
               },
               "blocks": {}
             },
@@ -3326,7 +3328,7 @@
                 "width_mobile": "fit-content",
                 "custom_width_mobile": 100,
                 "desktop_css_override": "font-weight: 600;",
-                "mobile_css_override": ""
+                "mobile_css_override": "padding-top: 11px;\npadding-bottom: 11px;"
               },
               "blocks": {}
             }
@@ -3437,7 +3439,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "desktop_css_override": ";",
-                "mobile_css_override": ";"
+                "mobile_css_override": "* {font-size: 12px !important;}"
               },
               "blocks": {}
             },
@@ -3463,7 +3465,9 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "desktop_css_override": ";",
+                "mobile_css_override": "* {font-size: 24px !important;}"
               },
               "blocks": {}
             },
@@ -3732,7 +3736,7 @@
             "border_width": 1,
             "border_opacity": 100,
             "border_color": "",
-            "border_radius": 0,
+            "border_radius": 15,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -4424,7 +4428,7 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
-                "desktop_css_override": "position: absolute;\nleft: 5%;",
+                "desktop_css_override": "position: absolute;\npadding-left: 10%;",
                 "mobile_css_override": ";"
               },
               "blocks": {
@@ -5428,14 +5432,14 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "",
                     "line_height": "normal",
-                    "letter_spacing": "normal",
+                    "letter_spacing": "loose",
                     "case": "none",
                     "wrap": "pretty",
-                    "text_color": "",
+                    "text_color": "#212121",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -5443,7 +5447,7 @@
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0,
-                    "desktop_css_override": ";",
+                    "desktop_css_override": "* {font-size: 15px !important;}",
                     "mobile_css_override": ";"
                   },
                   "blocks": {}
@@ -5593,11 +5597,33 @@
             "accordion_row_tzaFLF",
             "accordion_row_mek8m6"
           ]
+        },
+        "button_6FVM4n": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "SEE ALL FAQ'S",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "custom_button_background": "{{ settings.color_palette.foreground }}",
+            "custom_button_text": "{{ settings.color_palette.background }}",
+            "custom_button_border": "{{ settings.color_palette.background }}",
+            "link_text_color": "",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100,
+            "desktop_css_override": ";",
+            "mobile_css_override": "padding-top: 11px;\npadding-bottom: 11px;"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "group_wXMnDQ",
-        "accordion_AXQPGD"
+        "accordion_AXQPGD",
+        "button_6FVM4n"
       ],
       "name": "t:names.faq_section",
       "settings": {
@@ -5607,7 +5633,7 @@
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
+        "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 32,
         "section_width": "page-width",
@@ -5674,7 +5700,7 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 0,
-            "padding-block-end": 16,
+            "padding-block-end": 60,
             "padding-inline-start": 0,
             "padding-inline-end": 0,
             "desktop_css_override": ";",
@@ -5705,7 +5731,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "desktop_css_override": ";",
-                "mobile_css_override": ";"
+                "mobile_css_override": "* {font-size: 12px !important;}"
               },
               "blocks": {}
             },
@@ -5733,7 +5759,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
                 "desktop_css_override": ";",
-                "mobile_css_override": ";"
+                "mobile_css_override": "* {font-size: 24px !important;}"
               },
               "blocks": {}
             }
@@ -5934,7 +5960,7 @@
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
                             "desktop_css_override": "margin-bottom: -10px;",
-                            "mobile_css_override": ";"
+                            "mobile_css_override": "* {font-size: 14px !important;}"
                           },
                           "blocks": {}
                         },
@@ -5953,7 +5979,7 @@
                             "letter_spacing": "normal",
                             "case": "none",
                             "wrap": "pretty",
-                            "text_color": "#555453",
+                            "text_color": "#212121",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -5962,7 +5988,7 @@
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
                             "desktop_css_override": ";",
-                            "mobile_css_override": ";"
+                            "mobile_css_override": "* {font-size: 16px !important;}"
                           },
                           "blocks": {}
                         },
@@ -6011,7 +6037,7 @@
                             "gap": 5,
                             "width": "fill",
                             "custom_width": 100,
-                            "width_mobile": "fill",
+                            "width_mobile": "fit-content",
                             "custom_width_mobile": 100,
                             "height": "fit",
                             "custom_height": 100,
@@ -6277,7 +6303,7 @@
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
                             "desktop_css_override": "margin-bottom: -10px;",
-                            "mobile_css_override": ";"
+                            "mobile_css_override": "* {font-size: 14px !important;}"
                           },
                           "blocks": {}
                         },
@@ -6296,7 +6322,7 @@
                             "letter_spacing": "normal",
                             "case": "none",
                             "wrap": "pretty",
-                            "text_color": "#555453",
+                            "text_color": "#212121",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -6305,7 +6331,7 @@
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
                             "desktop_css_override": ";",
-                            "mobile_css_override": ";"
+                            "mobile_css_override": "* {font-size: 16px !important;}"
                           },
                           "blocks": {}
                         },
@@ -6354,7 +6380,7 @@
                             "gap": 5,
                             "width": "fill",
                             "custom_width": 100,
-                            "width_mobile": "fill",
+                            "width_mobile": "fit-content",
                             "custom_width_mobile": 100,
                             "height": "fit",
                             "custom_height": 100,
@@ -6620,7 +6646,7 @@
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
                             "desktop_css_override": "margin-bottom: -10px;",
-                            "mobile_css_override": ";"
+                            "mobile_css_override": "* {font-size: 14px !important;}"
                           },
                           "blocks": {}
                         },
@@ -6639,7 +6665,7 @@
                             "letter_spacing": "normal",
                             "case": "none",
                             "wrap": "pretty",
-                            "text_color": "#555453",
+                            "text_color": "#212121",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -6648,7 +6674,7 @@
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
                             "desktop_css_override": ";",
-                            "mobile_css_override": ";"
+                            "mobile_css_override": "* {font-size: 16px !important;}"
                           },
                           "blocks": {}
                         },
@@ -6697,7 +6723,7 @@
                             "gap": 5,
                             "width": "fill",
                             "custom_width": 100,
-                            "width_mobile": "fill",
+                            "width_mobile": "fit-content",
                             "custom_width_mobile": 100,
                             "height": "fit",
                             "custom_height": 100,
@@ -6812,6 +6838,67 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "section_waDFdW": {
+      "type": "section",
+      "blocks": {
+        "button_HRK3xB": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "SEE ALL RESOURCES",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "custom_button_background": "{{ settings.color_palette.foreground }}",
+            "custom_button_text": "{{ settings.color_palette.background }}",
+            "custom_button_border": "{{ settings.color_palette.background }}",
+            "link_text_color": "",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100,
+            "desktop_css_override": ";",
+            "mobile_css_override": "padding-top: 11px;\npadding-bottom: 11px;"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "button_HRK3xB"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "reversed_on_mobile": false,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "{{ settings.color_palette.color3 }}",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 55,
+        "padding-block-left": 0,
+        "padding-block-right": 0
+      }
     }
   },
   "order": [
@@ -6827,6 +6914,7 @@
     "section_8Rf3CL",
     "section_H7UyGX",
     "section_NjJhmP",
-    "carousel_WxUnae"
+    "carousel_WxUnae",
+    "section_waDFdW"
   ]
 }
