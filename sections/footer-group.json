@@ -1075,6 +1075,12 @@
               "type": "review",
               "name": "t:names.product_review_stars",
               "settings": {
+                "override_sizes": true,
+                "star_size": "22px",
+                "font_size": "16px",
+                "star_size_mobile": "20px",
+                "font_size_mobile": "13px",
+                "rating_margin_bottom": "1px",
                 "stars_style": "shaded",
                 "show_number": true,
                 "review_count_separator": "|",
@@ -1106,7 +1112,7 @@
       "block_order": [
         "group_XVAeX7"
       ],
-      "name": "t:names.footer",
+      "name": "Newsletter",
       "settings": {
         "section_width": "page-width",
         "gap": 20,
