@@ -895,10 +895,10 @@
         "multiple_collections_enabled": true,
         "render_tabs": true,
         "collections": [
-          "coffee",
-          "frontpage",
-          "test",
-          "test2"
+          "cuso-best-sellers",
+          "cuso-essentials",
+          "test2",
+          "test"
         ],
         "collection": "",
         "layout_type": "carousel",
@@ -3747,7 +3747,7 @@
         "multiple_collections_enabled": true,
         "render_tabs": false,
         "collections": [
-          "coffee"
+          "cuso-essentials"
         ],
         "collection": "coffee",
         "layout_type": "carousel",
@@ -5676,7 +5676,7 @@
             "custom_width": 100,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100,
-            "desktop_css_override": ";",
+            "desktop_css_override": "font-weight: 600;",
             "mobile_css_override": "padding-top: 11px;\npadding-bottom: 11px;"
           },
           "blocks": {}
@@ -6921,7 +6921,7 @@
             "custom_width": 100,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100,
-            "desktop_css_override": ";",
+            "desktop_css_override": "font-weight: 600;",
             "mobile_css_override": "padding-top: 11px;\npadding-bottom: 11px;"
           },
           "blocks": {}
