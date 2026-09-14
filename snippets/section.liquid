@@ -53,7 +53,7 @@
   </div>
 
   <div
-    class="border-style custom-section-content"
+    class="border-style custom-section-content {% if section.settings.exclude_from_theme_padding_override %}no-padding-assertion{% endif %}"
     style="{% render 'border-override', settings: section.settings %}"
   >
     {% if section.settings.toggle_overlay %}

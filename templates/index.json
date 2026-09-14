@@ -1003,6 +1003,7 @@
       ],
       "name": "Banner",
       "settings": {
+        "exclude_from_theme_padding_override": true,
         "content_direction": "column",
         "vertical_on_mobile": true,
         "reversed_on_mobile": false,
@@ -4444,6 +4445,7 @@
       ],
       "name": "t:names.image_with_text",
       "settings": {
+        "exclude_from_theme_padding_override": false,
         "content_direction": "row",
         "vertical_on_mobile": true,
         "reversed_on_mobile": true,
@@ -5032,6 +5034,7 @@
       ],
       "name": "t:names.video_section",
       "settings": {
+        "exclude_from_theme_padding_override": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
         "reversed_on_mobile": false,
@@ -6437,6 +6440,7 @@
       ],
       "name": "Tastes Section",
       "settings": {
+        "exclude_from_theme_padding_override": false,
         "content_direction": "row",
         "vertical_on_mobile": true,
         "reversed_on_mobile": false,
@@ -6814,6 +6818,7 @@
       ],
       "name": "t:names.faq_section",
       "settings": {
+        "exclude_from_theme_padding_override": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
         "reversed_on_mobile": false,
@@ -8059,6 +8064,7 @@
       ],
       "name": "t:names.custom_section",
       "settings": {
+        "exclude_from_theme_padding_override": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
         "reversed_on_mobile": false,
