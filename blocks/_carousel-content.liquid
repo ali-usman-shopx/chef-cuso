@@ -51,7 +51,8 @@
     controls_on_media: false,
     pagination_position: 'center',
     shape: section.settings.icons_shape,
-    class: 'carousel-content__controls'
+    class: 'carousel-content__controls',
+    visible_slides_desktop: block.settings.visible_slides_desktop
   %}
 {% endcapture %}
 
@@ -73,7 +74,8 @@
     slide_position: slide_position,
     slideshow_gutters: slideshow_gutters,
     controls: slideshow_controls,
-    attributes: block.shopify_attributes
+    attributes: block.shopify_attributes,
+    visible_slides_desktop: block.settings.visible_slides_desktop
   %}
 </div>
 
@@ -163,6 +165,13 @@
   ],
   "tag": null,
   "settings": [
+    {
+      "type": "number",
+      "id": "visible_slides_desktop",
+      "label": "Visible Slides Desktop",
+      "info": "The number of slides that controls (dots) will see as visible for desktop. Mobile also relies on this currently, as per design.",
+      "default": 5
+    },
     {
       "type": "select",
       "id": "controls_style",

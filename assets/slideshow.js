@@ -413,6 +413,12 @@ export class Slideshow extends Component {
     return this.#current;
   }
 
+  get configuredVisibleSlides() {
+    const visibleSlides = parseInt(this.dataset.visibleSlidesDesktop ?? '1', 10) || 1;
+
+    return visibleSlides;
+  }
+
   /**
    * Sets the current slide index and update the DOM
    * @type {number}
@@ -424,9 +430,16 @@ export class Slideshow extends Component {
 
     if (current) current.textContent = `${value + 1}`;
 
-    for (const controls of [thumbnails, dots]) {
-      controls?.forEach((el, i) => el.setAttribute('aria-selected', `${i === value}`));
-    }
+    thumbnails?.forEach((el, i) => {
+      el.setAttribute('aria-selected', `${i === value}`);
+    });
+
+    const visibleSlides = this.configuredVisibleSlides;
+    const dotIndex = Math.floor(value / visibleSlides);
+
+    dots?.forEach((el, i) => {
+      el.setAttribute('aria-selected', `${i === dotIndex}`);
+    });
 
     if (previous) previous.disabled = Boolean(!this.infinite && value === 0);
     if (next) next.disabled = Boolean(!this.infinite && slides && this.nextIndex >= slides.length);
