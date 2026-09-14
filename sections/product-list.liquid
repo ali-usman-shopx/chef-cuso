@@ -19,6 +19,7 @@
     section-resource-list
     spacing-style
     gap-style
+    section-with-overrides--{{ section.settings.id }}
   "
   style="
     {% render 'spacing-style', settings: section.settings %}
@@ -320,6 +321,11 @@
       }
     }
   {% endif %}
+
+  .section-with-overrides--{{ section.settings.id }} slideshow-component > slideshow-container > slideshow-arrows {
+    max-height: fit-content;
+    top: 150px;
+  }
 {% endstyle %}
 
 {% if section.settings.multiple_collections_enabled %}
