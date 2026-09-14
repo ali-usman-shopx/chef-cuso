@@ -24,28 +24,32 @@
 {% render 'product-badges-styles' %}
 
 {% style %}
-  .card-gallery:has(.image-css-override) {
+  .product-card--{{ block.id }} .card-gallery:has(.image-css-override) {
     border: 1px solid #E2E2E2;
   }
 
-  .card-gallery:has(.img-special-override) {
+  .product-card--{{ block.id }} .card-gallery:has(.img-special-override) {
     border-color: #F6F0E9;
   }
 
-  .image-css-override {
+  .product-card--{{ block.id }} .image-css-override {
     {{ block.settings.image_css_override }}
   }
 
-  .img-special-override {
+  .product-card--{{ block.id }} .img-special-override {
     {{ block.settings.img_special_override }}
   }
 
-  .buy-btn-special-override {
+  .product-card--{{ block.id }} .buy-btn-special-override {
     {{ block.settings.buy_btn_special_override }}
   }
 
-  .buy-btn-special-override:hover {
+  .product-card--{{ block.id }} .buy-btn-special-override:hover {
     opacity: 0.8;
+  }
+
+  .product-card--{{ block.id }} .product-badges {
+    display: none;
   }
 {% endstyle %}
 
