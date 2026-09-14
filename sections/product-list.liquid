@@ -13,12 +13,14 @@
 <div
   data-testid="product-list"
   class="
+    apply-horizontal-padding-from-theme
     section
     section--{{ section.settings.section_width }}
     {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
     section-resource-list
     spacing-style
     gap-style
+    section-with-overrides--{{ section.settings.id }}
   "
   style="
     {% render 'spacing-style', settings: section.settings %}
@@ -320,6 +322,11 @@
       }
     }
   {% endif %}
+
+  .section-with-overrides--{{ section.settings.id }} slideshow-component > slideshow-container > slideshow-arrows {
+    max-height: fit-content;
+    top: 150px;
+  }
 {% endstyle %}
 
 {% if section.settings.multiple_collections_enabled %}

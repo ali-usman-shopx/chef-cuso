@@ -32,6 +32,7 @@
     {{ class }}
     {% if background_color != blank %} color-custom-{{ block_id }}{% endif %}
     css_override--{{ block.id }}
+    {% if block.settings.is_tastes_parent_element %}no-padding-assertion{% endif %}
   "
   style="
     {% render 'border-override', settings: settings %}
