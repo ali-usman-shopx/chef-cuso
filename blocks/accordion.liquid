@@ -43,6 +43,8 @@
     .accordion--{{ block.id }} .details .svg-wrapper {
       width: 24px;
       height: 24px;
+      min-width: 24px;
+      min-height: 24px;
       border-radius: 50px;
       border: 1px solid black;
     }
@@ -73,6 +75,12 @@
     .accordion--{{ block.id }} .details[open] .details-content * {
       width: 100%;
       max-width: 901px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .accordion--{{ block.id }} .accordion-prefix {
+        padding-right: 9px;
+      }
     }
   {% endstyle %}
 
