@@ -1125,6 +1125,12 @@
           }
         ],
         "default": "narrow"
+      },
+      {
+        "type": "textarea",
+        "id": "padding_horizontal",
+        "label": "Padding Horizontal",
+        "default": "80px"
       }
     ]
   },
