@@ -4614,7 +4614,7 @@
             "padding-inline-end": 0,
             "image_css_override": "padding: 30px !important;\nmedia-fit: contain;\nbackground-color: transparent;",
             "img_special_override": ";",
-            "buy_btn_special_override": "background-color: #B9250A !important;\ncolor: white !important;"
+            "buy_btn_special_override": "background-color: #B9250A !important;\ncolor: white !important;\nbox-shadow: none;"
           },
           "blocks": {
             "product_card_gallery_dCV3Qy": {
