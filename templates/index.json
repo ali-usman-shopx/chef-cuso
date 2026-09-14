@@ -1739,6 +1739,7 @@
       },
       "name": "Brand Carousel",
       "settings": {
+        "stretching_cards": false,
         "columns": 5,
         "mobile_columns": "2",
         "section_width": "page-width",
@@ -3233,6 +3234,7 @@
       },
       "name": "Testimonials Carousel",
       "settings": {
+        "stretching_cards": false,
         "columns": 3,
         "mobile_columns": "1",
         "section_width": "page-width",
@@ -7011,6 +7013,7 @@
       },
       "name": "Recipes Carousel",
       "settings": {
+        "stretching_cards": true,
         "columns": 3,
         "mobile_columns": "1",
         "section_width": "page-width",

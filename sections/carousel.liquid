@@ -17,6 +17,7 @@
     section-carousel
     spacing-style
     gap-style
+    section-overrides--{{ section.id }}
   "
   style="
     {% render 'spacing-style', settings: section.settings %}
@@ -29,6 +30,20 @@
   {% content_for 'block', type: '_carousel-content', id: 'static-carousel-content', closest.product: null %}
 </div>
 
+{% style %}
+  {% if section.settings.stretching_cards %}
+    .section-overrides--{{ section.id }} slideshow-slides {
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 768px) {
+      .section-overrides--{{ section.id }} slideshow-slides .card {
+        width: 100%;
+      }
+    }
+  {% endif %}
+{% endstyle %}
+
 {% schema %}
 {
   "name": "t:names.carousel",
@@ -36,6 +51,13 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "stretching_cards",
+      "label": "Stretching Cards",
+      "info": "This settings enables stretching cards--cards that have 100% width on mobile and center justified on desktop.",
+      "default": false
+    },
     {
       "type": "range",
       "id": "columns",
