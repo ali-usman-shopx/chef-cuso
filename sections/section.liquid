@@ -323,6 +323,18 @@
       "visible_if": "{{ section.settings.background_media == 'image' }}"
     },
     {
+      "type": "checkbox",
+      "id": "use_different_background_image_on_mobile",
+      "label": "Use Different Background Image on Mobile",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background Image Mobile",
+      "visible_if": "{{ section.settings.use_different_background_image_on_mobile }}"
+    },
+    {
       "type": "select",
       "id": "background_image_position",
       "label": "t:settings.image_position",

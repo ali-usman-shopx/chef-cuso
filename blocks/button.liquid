@@ -1,6 +1,24 @@
 
 {% render 'button', link: block.settings.link, block: block %}
 
+{% stylesheet %}
+  .button-secondary:hover {
+    color: white;
+    background-color: #B9250A;
+    border-color: #B9250A;
+    box-shadow: none;
+  }
+
+  .button-secondary:hover path {
+    fill: white;
+  }
+
+  .button-secondary .svg-wrapper, .button-secondary .svg-wrapper svg {
+    transition: inherit;
+    max-width: 1em;
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:names.button",

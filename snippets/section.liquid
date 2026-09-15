@@ -43,13 +43,26 @@
   "
 >
   <div class="custom-section-background">
-    {% render 'background-media',
-      background_media: section.settings.background_media,
-      background_video: section.settings.video,
-      background_video_position: section.settings.video_position,
-      background_image: section.settings.background_image,
-      background_image_position: section.settings.background_image_position
-    %}
+    <div class="background-img-desktop">
+      {% render 'background-media',
+        background_media: section.settings.background_media,
+        background_video: section.settings.video,
+        background_video_position: section.settings.video_position,
+        background_image: section.settings.background_image,
+        background_image_position: section.settings.background_image_position
+      %}
+    </div>
+    {% if section.settings.use_different_background_image_on_mobile %}
+      <div class="background-img-mobile">
+        {% render 'background-media',
+          background_media: section.settings.background_media,
+          background_video: section.settings.video,
+          background_video_position: section.settings.video_position,
+          background_image: section.settings.background_image_mobile,
+          background_image_position: section.settings.background_image_position
+        %}
+      </div>
+    {% endif %}
   </div>
 
   <div
@@ -79,6 +92,30 @@
     </div>
   </div>
 </div>
+
+{% style %}
+  {% if section.settings.use_different_background_image_on_mobile %}
+    @media screen and (max-width: 768px) {
+      .background-img-desktop {
+        display: none;
+      }
+
+      .background-img-mobile {
+        display: flex;
+      }
+    }
+
+    @media screen and (min-width: 769px) {
+      .background-img-desktop {
+        display: flex;
+      }
+
+      .background-img-mobile {
+        display: none;
+      }
+    }
+  {% endif %}
+{% endstyle %}
 
 {% stylesheet %}
   .section-wrapper {
