@@ -470,44 +470,62 @@
 ></script>
 
 {% style %}
-  .header-menu[aria-expanded="true"] .menu-list {
-    background-color: white !important;
+  #custom-cart-icon-header > g * {
+    stroke: black;
   }
 
-  .header__columns:has(.header-menu[aria-expanded="true"]) #custom-cart-icon-header > g * {
-    stroke: black !important;
+  .custom-search-icon * {
+    stroke: black;
   }
 
-  .header__columns:has(.header-menu[aria-expanded="true"]) .custom-search-icon * {
-    stroke: black !important;
-  }
+  {% if template.name == 'index' %}
+    #custom-cart-icon-header > g * {
+      stroke: white;
+    }
 
-  #header-component .menu-list {
-    padding-left: 30px;
-    padding-right: 30px;
-    background-color: #50514F;
-    border-radius: 60px;
-    max-height: fit-content !important;
-    height: 50px;
-    margin-top: 16px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
+    .custom-search-icon * {
+      stroke: white;
+    }
 
-  #header-component .menu-list .menu-list__trigger {
-    max-height: fit-content !important;
-    padding-top: 0px;
-    margin-top: 0px;
-  }
+    .header-menu[aria-expanded="true"] .menu-list {
+      background-color: white !important;
+    }
 
-  #header-component .menu-list .menu-list__link {
-    max-height: fit-content !important;
-    padding-top: 0px;
-  }
+    .header__columns:has(.header-menu[aria-expanded="true"]) #custom-cart-icon-header > g * {
+      stroke: black !important;
+    }
 
-  #header-component .menu-list .overflow-menu {
-    max-height: fit-content !important;
-  }
+    .header__columns:has(.header-menu[aria-expanded="true"]) .custom-search-icon * {
+      stroke: black !important;
+    }
+
+    #header-component .menu-list {
+      padding-left: 30px;
+      padding-right: 30px;
+      background-color: #50514F;
+      border-radius: 60px;
+      max-height: fit-content !important;
+      height: 50px;
+      margin-top: 16px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    #header-component .menu-list .menu-list__trigger {
+      max-height: fit-content !important;
+      padding-top: 0px;
+      margin-top: 0px;
+    }
+
+    #header-component .menu-list .menu-list__link {
+      max-height: fit-content !important;
+      padding-top: 0px;
+    }
+
+    #header-component .menu-list .overflow-menu {
+      max-height: fit-content !important;
+    }
+  {% endif %}
 {% endstyle %}
 
 {% stylesheet %}
