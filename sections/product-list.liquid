@@ -82,15 +82,15 @@
     %}
   {% else %}
     {% if section.settings.render_tabs %}
-      <div class="tabs-wrapper">
-        <div class="collection-tabs">
-          <div class="tab-labels">
-            <span id="tab-label-1" data-collection="1" class="tab-label active">Best Sellers</span>
-            <span id="tab-label-2" data-collection="2" class="tab-label">Seasonings & Rubs</span>
-            <span id="tab-label-3" data-collection="3" class="tab-label">Kitchen Knives</span>
-            <span id="tab-label-4" data-collection="4" class="tab-label">Accessories & Apparel</span>
+      <div class="tabs-wrapper--{{ section.id }}">
+        <div class="collection-tabs--{{ section.id }}">
+          <div class="tab-labels--{{ section.id }}">
+            <span id="tab-label-1--{{ section.id }}" data-collection="1" class="tab-label active">Best Sellers</span>
+            <span id="tab-label-2--{{ section.id }}" data-collection="2" class="tab-label">Seasonings & Rubs</span>
+            <span id="tab-label-3--{{ section.id }}" data-collection="3" class="tab-label">Kitchen Knives</span>
+            <span id="tab-label-4--{{ section.id }}" data-collection="4" class="tab-label">Accessories & Apparel</span>
           </div>
-          <div class="tab-underlines">
+          <div class="tab-underlines--{{ section.id }}">
             <span class="tab-underline"></span>
           </div>
         </div>
@@ -165,14 +165,14 @@
 {% style %}
   {% if section.settings.multiple_collections_enabled %}
     {% if section.settings.render_tabs %}
-      .tabs-wrapper {
+      .tabs-wrapper--{{ section.id }} {
         width: 100%;
         display: flex;
         justify-content: center;
         overflow-x: auto;
       }
 
-      .collection-tabs {
+      .collection-tabs--{{ section.id }} {
         display: flex;
         width: fit-content;
         padding-left: 33px;
@@ -184,7 +184,7 @@
         flex-wrap: nowrap;
       }
 
-      .tab-underlines {
+      .tab-underlines--{{ section.id }} {
         position: absolute;
         bottom: -2px;
         left: 0;
@@ -203,7 +203,7 @@
         transition: left 0.3s ease, width 0.3s ease;
       }
 
-      .tab-labels {
+      .tab-labels--{{ section.id }} {
         display: flex;
         flex-direction: row;
         gap: 30px;
@@ -250,16 +250,16 @@
 
     @media screen and (max-width: 768px) {
       {% if section.settings.render_tabs %}
-        .tabs-wrapper {
+        .tabs-wrapper--{{ section.id }} {
           justify-content: flex-start;
         }
 
-        .collection-tabs {
+        .collection-tabs--{{ section.id }} {
           padding-left: 0px;
           padding-right: 0px;
         }
 
-        .tab-labels {
+        .tab-labels--{{ section.id }} {
           width: max-content;
         }
       {% endif %}
@@ -333,8 +333,8 @@
   {% comment %} Initializes Active Tab and Collection {% endcomment %}
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const tabs = document.querySelectorAll('.tab-labels span');
-      const underlines = document.querySelectorAll('.tab-underlines span');
+      const tabs = document.querySelectorAll('.tab-labels--{{ section.id }} span');
+      const underlines = document.querySelectorAll('.tab-underlines--{{ section.id }} span');
       const collections = document.querySelectorAll('.collection-panel');
 
       tabs.forEach((tab, index) => {
@@ -386,7 +386,7 @@
       document.addEventListener('DOMContentLoaded', () => {
         const tabs = document.querySelectorAll('.tab-label');
         const underline = document.querySelector('.tab-underline');
-        const tabsContainer = document.querySelector('.collection-tabs');
+        const tabsContainer = document.querySelector('.collection-tabs--{{ section.id }}');
 
         function moveUnderline(tab) {
           const tabRect = tab.getBoundingClientRect();

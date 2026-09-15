@@ -145,13 +145,4 @@
   }
 
   document.addEventListener('DOMContentLoaded', applySpecialCardOverrides);
-
-  if (specialOverrideObserver) {
-    var specialOverrideObserver = new MutationObserver(applySpecialCardOverrides);
-  }
-
-  specialOverrideObserver.observe(document.body, {
-    childList: true,
-    subtree: true
-  })
 </script>
