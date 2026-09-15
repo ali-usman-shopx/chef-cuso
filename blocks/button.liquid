@@ -17,6 +17,38 @@
     transition: inherit;
     max-width: 1em;
   }
+
+  .button-dark {
+    color: white;
+    background-color: black;
+    border-color: black;
+    box-shadow: none;
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 100px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    transition: 125ms ease-out;
+  }
+
+  .button-dark path {
+    transition: 125ms ease-in;
+    fill: white;
+  }
+  
+  .button-dark .svg-wrapper, .button-dark .svg-wrapper svg {
+    transition: 125ms ease-in;
+    max-width: 1em;
+  }
+
+  .button-dark:hover {
+    color: black;
+    background-color: white;
+  }
+
+  .button-dark:hover path {
+    fill: black;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -63,6 +95,10 @@
         {
           "value": "button-unstyled",
           "label": "t:options.link"
+        },
+        {
+          "value": "button-dark",
+          "label": "Dark"
         },
         {
           "value": "button-custom",
