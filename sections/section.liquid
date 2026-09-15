@@ -11,6 +11,25 @@
   background_color: section.settings.background_color
 %}
 
+{% style %}
+  .section-css-override--{{ section.id }} {
+    padding-left: {{ section.settings.padding-block-left }}px;
+    padding-right: {{ section.settings.padding-block-right }}px;
+  }
+  @media (max-width: 768px) {
+    .section-css-override--{{ section.id }} {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    {% if section.settings.vertical_on_mobile and section.settings.reversed_on_mobile %}
+      #section-content-css-override--{{ section.id }} {
+        flex-direction: column-reverse;
+      }
+    {% endif %}
+  }
+{% endstyle %}
+
 {% schema %}
 {
   "name": "t:names.section",
@@ -35,6 +54,13 @@
       "content": "t:content.layout"
     },
     {
+      "type": "checkbox",
+      "id": "exclude_from_theme_padding_override",
+      "label": "Exclude from Theme Padding Override",
+      "info": "Enabling this will make it so that the horizontal theme padding override is not applied to this section.",
+      "default": false
+    },
+    {
       "type": "select",
       "id": "content_direction",
       "label": "t:settings.direction",
@@ -56,6 +82,13 @@
       "label": "t:settings.vertical_on_mobile",
       "default": true,
       "visible_if": "{{ section.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "reversed_on_mobile",
+      "label": "Reveresed on Mobile",
+      "default": false,
+      "visible_if": "{{ section.settings.vertical_on_mobile }}"
     },
     {
       "type": "select",
@@ -430,6 +463,26 @@
       "type": "range",
       "id": "padding-block-end",
       "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-left",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-right",
+      "label": "t:settings.right",
       "min": 0,
       "max": 100,
       "step": 1,

@@ -1,11 +1,17 @@
 
-{% render 'button', link: block.settings.link %}
+{% render 'button', link: block.settings.link, block: block %}
 
 {% schema %}
 {
   "name": "t:names.button",
   "tag": null,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "render_arrow",
+      "label": "Render Arrow Icon",
+      "default": false
+    },
     {
       "type": "text",
       "id": "label",
@@ -141,6 +147,22 @@
       "unit": "%",
       "default": 100,
       "visible_if": "{{ block.settings.width_mobile == \"custom\" }}"
+    },
+    {
+      "type": "header",
+      "content": "CSS Overrides"
+    },
+    {
+      "type": "textarea",
+      "id": "desktop_css_override",
+      "label": "Desktop CSS",
+      "default": ";"
+    },
+    {
+      "type": "textarea",
+      "id": "mobile_css_override",
+      "label": "Mobile CSS",
+      "default": ";"
     }
   ],
   "presets": [

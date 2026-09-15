@@ -48,6 +48,7 @@
         --border-width: {% if is_custom_input %}{{ block_settings.border_width }}px{% else %}var(--style-border-width-inputs){% endif %};
         --border-radius: {% if is_custom_input %}{{ block_settings.border_radius }}px{% else %}var(--style-border-radius-inputs){% endif %};
         {% if is_custom_input %}{% render 'input-custom-styles', block_settings: block_settings %}{% endif %}
+        border: none;
       "
     >
       <label
@@ -79,9 +80,15 @@
         {% if block_settings.display_type != 'text' %}
           aria-label="{{ 'actions.sign_up' | t }}"
         {% endif %}
+        {% if block_settings.integrated_button %}
+          style="border-radius: 50px; margin: 0px;"
+        {% endif %}
       >
         {% if block_settings.display_type == 'text' %}
           {{ block_settings.label }}
+          <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.42756 11.4546L6.44318 10.483L10.4957 6.43044H0V5.02419H10.4957L6.44318 0.98442L7.42756 4.45843e-05L13.1548 5.72732L7.42756 11.4546Z" fill="white"/>
+          </svg>
         {% else %}
           <svg
             viewBox="0 0 20 20"
@@ -402,6 +409,39 @@
 
   .email-signup__message-text {
     margin: 0;
+  }
+
+  .email-signup__button--integrated {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding-top: 18px !important;
+  }
+
+  .email-signup__button--integrated svg {
+    width: 18px;
+    margin-top: 5px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .email-signup__button--integrated, .email-signup__input {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 12px;
+    }
+
+    .email-signup__button--integrated {
+      padding-top: 8px !important;
+      font-size: 12px;
+    }
+
+    .email-signup__button--integrated svg {
+      margin-top: 5px;
+    }
+    
+    .email-signup__input {
+      font-size: 10px !important;
+    }
   }
 {% endstylesheet %}
 

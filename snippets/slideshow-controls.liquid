@@ -15,6 +15,7 @@
   @param {number} [thumbnail_radius] - The border radius for thumbnails in pixels
   @param {string} [class] - Additional classes to apply to the controls
   @param {boolean} [secondary] - Whether the controls are secondary
+  @param {number} [visible_slides_desktop] - The number of slides dots see as visible per page for desktop
 
   @example
   {%- render 'slideshow-controls', style: 'dots', item_count: 10 -%}
@@ -44,6 +45,16 @@
     assign scroll_mode = 'vertical'
   else
     assign scroll_mode = 'horizontal'
+  endif
+-%}
+
+{%- liquid
+  assign desktop_dot_count = item_count
+  assign slides_dots_offset = 1
+
+  if visible_slides_desktop != blank and visible_slides_desktop < item_count
+    assign desktop_dot_count = item_count | times: 1.0 | divided_by: visible_slides_desktop | ceil
+    assign slides_dots_offset = visible_slides_desktop
   endif
 -%}
 
@@ -158,13 +169,13 @@
         </div>
       {% when 'dots' %}
         <ol class="slideshow-controls__{{ style }}">
-          {% for i in (1..item_count) %}
+          {% for i in (1..desktop_dot_count) %}
             <li>
               <button
                 class="slideshow-control button button-unstyled"
                 style="animation-timeline: --slide-{{ forloop.index0 }}"
-                aria-label="{{ 'accessibility.slide_status' | t: index: forloop.index, length: forloop.length }}"
-                on:click="/select/{{ forloop.index0 }}"
+                aria-label="{{ 'accessibility.slide_status' | t: index: forloop.index, length: desktop_dot_count }}"
+                on:click="/select/{{ forloop.index0 | times: slides_dots_offset }}"
                 ref="dots[]"
                 {% if forloop.first %}
                   aria-selected="true"

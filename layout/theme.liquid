@@ -48,6 +48,25 @@
     {% endif %}
 
     {{ content_for_header }}
+
+    <style>
+      {% comment %}
+        The Overall Padding is provided by apply-horizontal-padding class.
+        Its value can be configured via the theme settings.
+        It will not apply on elements containing "no-padding-assertion" class.
+      {% endcomment %}
+
+      body {
+        --padding-horizontal: {{ settings.padding_horizontal }};
+      }
+
+      @media screen and (min-width: 1440px) {
+        .apply-horizontal-padding-from-theme:not(:has(.no-padding-assertion)) {
+          padding-left: var(--padding-horizontal) !important;
+          padding-right: var(--padding-horizontal) !important;
+        }
+      }
+    </style>
   </head>
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">

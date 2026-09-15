@@ -8,6 +8,7 @@
   @param {string} [class] - Additional CSS classes to apply to the button.
   @param {string} [id] - The ID attribute for the button.
   @param {string} [data_testid] - The data-testid attribute for testing.
+  @param {object} [block_settings] - The Block Settings
 {%- enddoc -%}
 
 {%- liquid
@@ -15,6 +16,10 @@
   assign product_variant_media = product.selected_or_first_available_variant.featured_media.preview_image | image_url: width: 100
   if product.selected_or_first_available_variant.featured_media.preview_image == blank
     assign product_variant_media = product.featured_media.preview_image | image_url: width: 100
+  endif
+  assign position = "left"
+  if block_settings.enable_icon_overrides
+    assign position = block_settings.icon_position
   endif
 -%}
 
@@ -31,7 +36,7 @@
     name="add"
     ref="addToCartButton"
     on:click="/handleClick"
-    class="button {{ class }}"
+    class="button {{ class }} css_override--{{ id }}"
     {% if data_testid %}
       data-testid="{{ data_testid }}"
     {% endif %}
@@ -39,15 +44,42 @@
       disabled
     {% endunless %}
   >
-    {% if show_icon %}
+    {% if show_icon and position == "left" %}
       <span
         aria-hidden="true"
         class="svg-wrapper add-to-cart-icon"
       >
-        {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
+        {% if block_settings.custom_icon != blank and block_settings.enable_icon_overrides %}
+          {{ block_settings.custom_icon | image_url: width: 18 | image_tag }}
+        {% else %}
+          {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
+        {% endif %}
       </span>
     {% endif %}
     {{- add_to_cart_text | default: default_add_to_cart_text -}}
+    {% if show_icon and position == "right" %}
+      {% if block_settings.custom_icon != blank and block_settings.enable_icon_overrides %}
+        <span
+          aria-hidden="true"
+          class="svg-wrapper add-to-cart-icon custom-icon-regular"
+        >
+          {{ block_settings.custom_icon | image_url: width: 18 | image_tag }}
+        </span>
+        <span
+          aria-hidden="true"
+          class="svg-wrapper add-to-cart-icon custom-icon-special"
+        >
+          {{ block_settings.custom_icon_special_variant | image_url: width: 18 | image_tag }}
+        </span>
+        {% else %}
+        <span
+          aria-hidden="true"
+          class="svg-wrapper add-to-cart-icon"
+        >
+          {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
+        </span>
+        {% endif %}
+    {% endif %}
     {% comment %} checkmark burst markup {% endcomment %}
     <span class="add-to-cart__added">
       <span class="svg-wrapper add-to-cart__added-icon">
@@ -56,3 +88,19 @@
     </span>
   </button>
 </add-to-cart-component>
+
+{% style %}
+  .custom-icon-special {
+    display: none;
+  }
+
+  .css_override--{{ id }} {
+    {{ block_settings.desktop_css_override }}
+  }
+
+  @media screen and (max-width: 768px) {
+    .css_override--{{ id }} {
+      {{ block_settings.mobile_css_override }}
+    }
+  }
+{% endstyle %}

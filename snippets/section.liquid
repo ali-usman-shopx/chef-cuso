@@ -21,7 +21,7 @@
 
 <div class="section-background color-custom-{{ section_id }}"></div>
 <div
-  class="section section--{{ section.settings.section_width }} color-custom-{{ section_id }}"
+  class="apply-horizontal-padding-from-theme section section--{{ section.settings.section_width }} color-custom-{{ section_id }} section-css-override--{{ section_id }}"
   data-testid="ui-test-section"
 
   {% if request.visual_preview_mode %}
@@ -53,7 +53,7 @@
   </div>
 
   <div
-    class="border-style custom-section-content"
+    class="border-style custom-section-content {% if section.settings.exclude_from_theme_padding_override %}no-padding-assertion{% endif %}"
     style="{% render 'border-override', settings: section.settings %}"
   >
     {% if section.settings.toggle_overlay %}
@@ -67,7 +67,8 @@
         layout-panel-flex--{{ section.settings.content_direction }}
         section-content-wrapper
         {% if section.settings.vertical_on_mobile %} mobile-column{% endif %}
-      "
+        "
+      id="section-content-css-override--{{ section.id }}"
       style="
         {% render 'layout-panel-style', settings: section.settings %}
         {% render 'spacing-style', settings: section.settings %}

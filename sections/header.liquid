@@ -129,7 +129,7 @@
     endif
   endif
   capture search
-    render 'search', style: search_style, class: search_class, display_style: section.settings.actions_display_style
+    render 'search', style: search_style, class: search_class, display_style: section.settings.actions_display_style, use_custom_search_icon: section.settings.use_custom_search_icon
   endcapture
 
   # Skip drawer search under specific conditions:
@@ -143,7 +143,7 @@
   if section.settings.search_row == 'bottom' or search_style != 'none' and skip_drawer_search == false
     # Mobile search duplicate for when search is not in the right order for mobile layout
     capture drawer_search
-      render 'search', class: 'search-action--hidden-on-menu', style: search_style, display_style: section.settings.actions_display_style
+      render 'search', class: 'search-action--hidden-on-menu', style: search_style, display_style: section.settings.actions_display_style, use_custom_search_icon: section.settings.use_custom_search_icon
     endcapture
   endif
 
@@ -325,7 +325,7 @@
 
 <header-component
   id="header-component"
-  class="{{ class }}"
+  class="{{ class }} apply-horizontal-padding-from-theme"
   data-theme-color="rgb({{ section.settings.background_color_top.rgb | default: settings.page_background_color.rgb }})"
   data-bubble-style="{{ section.settings.bubble_style }}"
   {% if transparent %}
@@ -468,6 +468,47 @@
   src="{{ 'header.js' | asset_url }}"
   type="module"
 ></script>
+
+{% style %}
+  .header-menu[aria-expanded="true"] .menu-list {
+    background-color: white !important;
+  }
+
+  .header__columns:has(.header-menu[aria-expanded="true"]) #custom-cart-icon-header > g * {
+    stroke: black !important;
+  }
+
+  .header__columns:has(.header-menu[aria-expanded="true"]) .custom-search-icon * {
+    stroke: black !important;
+  }
+
+  #header-component .menu-list {
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #50514F;
+    border-radius: 60px;
+    max-height: fit-content !important;
+    height: 50px;
+    margin-top: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  #header-component .menu-list .menu-list__trigger {
+    max-height: fit-content !important;
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+
+  #header-component .menu-list .menu-list__link {
+    max-height: fit-content !important;
+    padding-top: 0px;
+  }
+
+  #header-component .menu-list .overflow-menu {
+    max-height: fit-content !important;
+  }
+{% endstyle %}
 
 {% stylesheet %}
   body {
@@ -1183,6 +1224,34 @@
     font-family: var(--menu-localization-font);
     font-size: var(--menu-localization-font-size);
   }
+
+  /* Overrides ; Branding to left, menu to the right, and spacing adjustment for mobile */
+  @media screen and (max-width: 768px) {
+    #header-component[data-menu-style=drawer] .header__columns .header-logo {
+      grid-area: leftA;
+      width: 89px;
+      margin-left: 24px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    #header-component[data-menu-style=drawer] .header__drawer {
+      position: absolute;
+      right: 0;
+    }
+
+    .header-actions__action {
+      margin-right: 30px;
+    }
+
+    #header-component[data-menu-style=drawer] .header__columns:not(:has(shopify-account)) .search-action {
+      margin-right: -5px;
+    }
+
+    .menu-drawer * {
+      color: black !important;
+    }
+  }
 {% endstylesheet %}
 
 {% unless request.design_mode %}
@@ -1200,6 +1269,28 @@
   "tag": "header",
   "class": "header-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Icons Overrides"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_account_icon",
+      "label": "Enable Customer Account",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_cart_icon",
+      "label": "Use Custom Cart Icon",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_search_icon",
+      "label": "Use Custom Search Icon",
+      "default": false
+    },
     {
       "type": "header",
       "content": "t:content.logo"
