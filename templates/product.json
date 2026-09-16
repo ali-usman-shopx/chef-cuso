@@ -323,7 +323,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Introducing our dynamic 3-pack of seasonings: Dirt, Maple Bourbon, and Southwest Sand. Elevate your dishes with bold flavors that enrich every culinary creation.</p>",
+                    "text": "{{ closest.product.description }}",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
@@ -1416,7 +1416,7 @@
                     "text_RCJW4W": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Merchandise (Shirts, apparel, etc.)<br/>Fulfillment time:<br/><br/>2-3 business days on average (up to 5 business days depending on volume)<br/><br/>Shipping time:<br/>Domestic - $5.95 per order – USPS Retail Ground - Estimated 2–8 Business Days (usually arrives in 3-4 business days)<br/>International - $14.95-$60 per order – Ascendia – Times vary widely based on country.<br/>Kitchen Products (Knives, Cutting Boards, etc.)<br/><br/>Fulfillment time:<br/><br/>1-2 business days on average (up to 5 business days depending on volume)<br/><br/>Shipping time:<br/>Selected by customer<br/>Price varies by item weight, distance shipped, and shipping speed.</p>",
+                        "text": "<p>{{ closest.product.metafields.custom.about_product | metafield_tag }}</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
