@@ -97,16 +97,16 @@
 </add-to-cart-component>
 
 {% stylesheet %}
-  .add-to-cart-button path {
-    fill: white;
-  }
-
   .add-to-cart-button .svg-wrapper, .add-to-cart-button .svg-wrapper svg {
     max-width: 1em;
   }
 {% endstylesheet %}
 
 {% style %}
+  .css_override--{{ id }} path {
+    fill: {{ block_settings.custom_icon_color }};
+  }
+
   .custom-icon-special {
     display: none;
   }
