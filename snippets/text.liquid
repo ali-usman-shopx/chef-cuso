@@ -146,6 +146,20 @@
 {% endstylesheet %}
 
 {% style %}
+  {% if block_settings.override_mobile_font_size %}
+    @media screen and (max-width: 768px) {
+      .css_override--{{ block.id }} * {
+        font-size: {{ block_settings.mobile_font_size }}px;
+      }
+    }
+  {% endif %}
+  
+  {% if block_settings.use_special_font %}
+    .css_override--{{ block.id }} * {
+      font: {{ block_settings.special_font }};
+    }
+  {% endif %}
+
   .css_override--{{ block.id }} {
     {{ block_settings.desktop_css_override }}
   }
