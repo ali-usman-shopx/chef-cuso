@@ -13,6 +13,7 @@
   style="
     {% render 'size-style', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
+    max-width: 587px;
   "
   {{ block.shopify_attributes }}
 >
@@ -81,7 +82,7 @@
           aria-label="{{ 'actions.sign_up' | t }}"
         {% endif %}
         {% if block_settings.integrated_button %}
-          style="border-radius: 50px; margin: 0px;"
+          style="border-radius: 50px; margin: 0px; font-weight: 600;"
         {% endif %}
       >
         {% if block_settings.display_type == 'text' %}

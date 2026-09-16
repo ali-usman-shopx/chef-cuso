@@ -182,6 +182,12 @@
       "visible_if": "{{ block.settings.content_direction == 'column' }}"
     },
     {
+      "type": "checkbox",
+      "id": "enable_no_wrap",
+      "label": "No Wrap",
+      "default": false
+    },
+    {
       "type": "range",
       "id": "gap",
       "label": "t:settings.gap",
@@ -190,6 +196,23 @@
       "step": 1,
       "unit": "px",
       "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_mobile_gap",
+      "label": "Use Custom Mobile Gap",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "label": "Mobile Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12,
+      "visible_if": "{{ block.settings.use_custom_mobile_gap }}"
     },
     {
       "type": "header",

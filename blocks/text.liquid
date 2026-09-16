@@ -147,6 +147,23 @@
       "visible_if": "{{ block.settings.use_special_font }}"
     },
     {
+      "type": "checkbox",
+      "id": "override_font_weight",
+      "label": "Override Font Weight",
+      "default": false,
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "custom_font_weight",
+      "label": "Font Weight",
+      "default": 600,
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "visible_if": "{{ block.settings.override_font_weight }}"
+    },
+    {
       "type": "select",
       "id": "font_size",
       "label": "t:settings.size",
@@ -281,6 +298,22 @@
       ],
       "default": "normal",
       "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_letter_spacing",
+      "label": "Use Custom Letter Spacing",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "custom_letter_spacing",
+      "label": "Custom Letter Spacing",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 1,
+      "visible_if": "{{ block.settings.use_custom_letter_spacing }}"
     },
     {
       "type": "select",
