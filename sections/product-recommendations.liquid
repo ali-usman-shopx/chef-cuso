@@ -191,6 +191,16 @@
   </div>
 </product-recommendations>
 
+{% if section.settings.use_custom_mobile_gap %}
+  {% style %}
+    @media screen and (max-width: 768px) {
+      .resource-list--grid {
+        gap: {{ section.settings.mobile_gap }}px;
+      }
+    }
+  {% endstyle %}
+{% endif %}
+
 {% schema %}
 {
   "name": "t:names.product_recommendations",
@@ -430,6 +440,23 @@
       "step": 1,
       "unit": "px",
       "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_mobile_gap",
+      "label": "Use Custom Mobile Gap",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "label": "Mobile Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12,
+      "visible_if": "{{ section.settings.use_custom_mobile_gap }}"
     },
     {
       "type": "color",
