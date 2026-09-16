@@ -325,7 +325,7 @@
 
 <header-component
   id="header-component"
-  class="{{ class }} apply-horizontal-padding-from-theme"
+  class="{{ class }} {% if template.name == "product" %}no-padding-assertion restrain-width-1202{% else %} apply-horizontal-padding-from-theme {% endif %}"
   data-theme-color="rgb({{ section.settings.background_color_top.rgb | default: settings.page_background_color.rgb }})"
   data-bubble-style="{{ section.settings.bubble_style }}"
   {% if transparent %}
@@ -360,6 +360,7 @@
       --header-actions-font-weight: var(--font-{{ section.settings.actions_font | default: 'heading' }}--weight);
       --header-actions-text-case: {{ section.settings.actions_text_case | default: 'none' }};
     {% endif %}
+    {% if template.name == "product" %}width: 100%; padding: 0px;{% endif %}
   "
 >
   <div class="header__underlay header__underlay-closed"></div>
@@ -480,6 +481,16 @@
 
   .header__icon--menu .svg-wrapper svg path {
     stroke: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .header__row {
+      padding-right: 13px;
+    }
+
+    .header__icon--menu {
+      margin-right: 10px;
+    }
   }
 
   {% if template.name == 'index' %}

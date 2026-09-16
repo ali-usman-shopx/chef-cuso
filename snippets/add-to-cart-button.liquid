@@ -15,7 +15,7 @@
   assign default_add_to_cart_text = 'actions.add_to_cart' | t
 
   if block_settings.use_custom_label
-    assign default_add_to_cart_text = block_settings.use_custom_label
+    assign add_to_cart_text = block_settings.custom_label
   endif
 
   assign product_variant_media = product.selected_or_first_available_variant.featured_media.preview_image | image_url: width: 100
