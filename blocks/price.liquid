@@ -94,6 +94,12 @@
 
 
 {% style %}
+  {% if block_settings.override_font_weight %}
+    .price-css-override--{{ block.id }} * {
+      font-weight: {{ block_settings.custom_font_weight }};
+    }
+  {% endif %}
+
   {% if block_settings.override_mobile_font_size %}
     @media screen and (max-width: 768px) {
       .price-css-override--{{ block.id }} * {
@@ -239,6 +245,23 @@
       ],
       "default": "var(--font-body--family)",
       "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "override_font_weight",
+      "label": "Override Font Weight",
+      "default": false,
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "custom_font_weight",
+      "label": "Font Weight",
+      "default": 600,
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "visible_if": "{{ block.settings.override_font_weight }}"
     },
     {
       "type": "select",

@@ -13,6 +13,11 @@
 
 {%- liquid
   assign default_add_to_cart_text = 'actions.add_to_cart' | t
+
+  if block_settings.use_custom_label
+    assign default_add_to_cart_text = block_settings.use_custom_label
+  endif
+
   assign product_variant_media = product.selected_or_first_available_variant.featured_media.preview_image | image_url: width: 100
   if product.selected_or_first_available_variant.featured_media.preview_image == blank
     assign product_variant_media = product.featured_media.preview_image | image_url: width: 100
@@ -90,6 +95,16 @@
     </span>
   </button>
 </add-to-cart-component>
+
+{% stylesheet %}
+  .add-to-cart-button path {
+    fill: white;
+  }
+
+  .add-to-cart-button .svg-wrapper, .add-to-cart-button .svg-wrapper svg {
+    max-width: 1em;
+  }
+{% endstylesheet %}
 
 {% style %}
   .custom-icon-special {

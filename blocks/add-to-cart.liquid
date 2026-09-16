@@ -138,6 +138,20 @@
       "visible_if": "{{ block.settings.enable_overrides and block.settings.enable_icon_overrides }}"
     },
     {
+      "type": "checkbox",
+      "id": "use_custom_label",
+      "label": "Use Custom Label",
+      "default": false,
+      "visible_if": "{{ block.settings.enable_overrides }}"
+    },
+    {
+      "type": "text",
+      "id": "custom_label",
+      "label": "Custom Label",
+      "default": "Custom Label",
+      "visible_if": "{{ block.settings.use_custom_label }}"
+    },
+    {
       "type": "header",
       "content": "CSS Overrides"
     },

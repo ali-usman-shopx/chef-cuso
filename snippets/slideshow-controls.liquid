@@ -46,6 +46,11 @@
   else
     assign scroll_mode = 'horizontal'
   endif
+
+  assign thumbnails_offset = 0
+  if template.name == "product"
+    assign thumbnails_offset = 1
+  endif
 -%}
 
 {%- liquid
@@ -117,9 +122,9 @@
           class="slideshow-controls__thumbnails-container"
         >
           <div class="slideshow-controls__thumbnails">
-            {% for media in thumbnails %}
+            {% for media in thumbnails offset: thumbnails_offset %}
               <button
-                class="slideshow-control button button-unstyled slideshow-controls__thumbnail"
+                class="slideshow-control button button-unstyled slideshow-controls__thumbnail {% if forloop.first %}slideshow-controls__thumbnail-colored-bg{% endif %}"
                 aria-label="{{ 'accessibility.slide_status' | t: index: forloop.index, length: forloop.length }}"
                 on:click="/select/{{ forloop.index0 }}"
                 style="--aspect-ratio: {% if aspect_ratio == 'adapt' %}{{ media.preview_image.aspect_ratio | default: 1.0 }}{% else %}{{ aspect_ratio }}{% endif %};"

@@ -114,6 +114,14 @@
 {% endstylesheet %}
 
 {% style %}
+  {% if settings.use_custom_mobile_gap %}
+    @media screen and (max-width: 768px) {
+      .css_override--{{ block.id }} .group-block-content {
+        gap: {{ settings.mobile_gap }}px;
+      }
+    }
+  {% endif %}
+
   @media screen and (min-width: 769px) {
     .css_override--{{ block.id }} {
       {{ settings.desktop_css_override }}

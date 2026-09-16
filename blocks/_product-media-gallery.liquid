@@ -43,12 +43,25 @@
       height: 113px;
       outline: none;
       border-radius: 19px;
+      background-color: transparent;
+      border: 1px solid #E2E2E2;
+    }
+
+    .media-gallery--{{ block.id }} .slideshow-controls__thumbnails .slideshow-controls__thumbnail-colored-bg {
       background-color: {{ block.settings.media_background_color }};
+      border-color: {{ block.settings.media_background_color }};
     }
 
     .media-gallery--{{ block.id }} .slideshow-controls__thumbnails .slideshow-controls__thumbnail > img {
       border-radius: 19px;
     }
+
+    @media screen and (max-width: 768px) {
+      .media-gallery--{{ block.id }} {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+    } 
   {% endif %}
 {% endstyle %}
 
