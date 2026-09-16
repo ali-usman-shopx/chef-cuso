@@ -220,7 +220,7 @@
                     "mobile_font_size": 14,
                     "line_height": "normal",
                     "letter_spacing": "normal",
-                    "use_custom_letter_spacing": false,
+                    "use_custom_letter_spacing": true,
                     "custom_letter_spacing": 1,
                     "case": "none",
                     "wrap": "pretty",
