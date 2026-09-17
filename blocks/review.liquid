@@ -203,6 +203,13 @@
   .filled-star {
     fill: var(--star-fill-color);
   }
+
+  /* Custom Very Small Screen Overrides */
+  @media screen and (max-width: 374px) {
+    .rating-wrapper {
+      flex-wrap: wrap;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
