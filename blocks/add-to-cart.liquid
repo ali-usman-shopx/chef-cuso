@@ -138,20 +138,25 @@
       "visible_if": "{{ block.settings.enable_overrides and block.settings.enable_icon_overrides }}"
     },
     {
-      "type": "header",
-      "content": "CSS Overrides"
+      "type": "color",
+      "id": "custom_icon_color",
+      "label": "Custom Icon Color",
+      "default": "#000000",
+      "visible_if": "{{ block.settings.enable_overrides and block.settings.enable_icon_overrides }}"
     },
     {
-      "type": "textarea",
-      "id": "desktop_css_override",
-      "label": "Desktop CSS",
-      "default": ";"
+      "type": "checkbox",
+      "id": "use_custom_label",
+      "label": "Use Custom Label",
+      "default": false,
+      "visible_if": "{{ block.settings.enable_overrides }}"
     },
     {
-      "type": "textarea",
-      "id": "mobile_css_override",
-      "label": "Mobile CSS",
-      "default": ";"
+      "type": "text",
+      "id": "custom_label",
+      "label": "Custom Label",
+      "default": "Custom Label",
+      "visible_if": "{{ block.settings.use_custom_label }}"
     }
   ]
 }

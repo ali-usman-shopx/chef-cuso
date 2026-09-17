@@ -31,3 +31,8 @@
 
 --horizontal-alignment: {{ horizontal_alignment }}; --vertical-alignment: {{ vertical_alignment }};
 --vertical-alignment-mobile: {{ vertical_alignment_mobile }};
+
+{% if settings.enable_no_wrap %}
+  --flex-wrap: nowrap;
+  --flex-wrap-mobile: nowrap;
+{% endif %}

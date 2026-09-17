@@ -519,20 +519,17 @@
       "default": 0
     },
     {
-      "type": "header",
-      "content": "CSS Overrides"
+      "type": "checkbox",
+      "id": "override_margin_bottom",
+      "label": "Override Margin Bottom",
+      "default": true
     },
     {
-      "type": "textarea",
-      "id": "desktop_css_override",
-      "label": "Desktop CSS",
-      "default": ";"
-    },
-    {
-      "type": "textarea",
-      "id": "mobile_css_override",
-      "label": "Mobile CSS",
-      "default": ";"
+      "type": "number",
+      "id": "custom_margin_bottom",
+      "label": "Margin Bottom",
+      "default": -12,
+      "visible_if": "{{ block.settings.override_margin_bottom }}"
     }
   ],
   "presets": [

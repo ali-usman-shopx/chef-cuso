@@ -1,6 +1,67 @@
 
 {% render 'button', link: block.settings.link, block: block %}
 
+{% stylesheet %}
+  .button {
+    font-weight: 600;
+  }
+
+  .button-secondary:hover {
+    color: white;
+    background-color: #B9250A;
+    border-color: #B9250A;
+    box-shadow: none;
+  }
+
+  .button-secondary:hover path {
+    fill: white;
+  }
+
+  .button-secondary .svg-wrapper, .button-secondary .svg-wrapper svg {
+    transition: inherit;
+    max-width: 1em;
+  }
+
+  .button-dark {
+    color: white;
+    background-color: black;
+    border-color: black;
+    box-shadow: none;
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 100px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    transition: 125ms ease-out;
+  }
+
+  .button-dark path {
+    transition: 125ms ease-in;
+    fill: white;
+  }
+  
+  .button-dark .svg-wrapper, .button-dark .svg-wrapper svg {
+    transition: 125ms ease-in;
+    max-width: 1em;
+  }
+
+  .button-dark:hover {
+    color: black;
+    background-color: white;
+  }
+
+  .button-dark:hover path {
+    fill: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .button {
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:names.button",
@@ -45,6 +106,10 @@
         {
           "value": "button-unstyled",
           "label": "t:options.link"
+        },
+        {
+          "value": "button-dark",
+          "label": "Dark"
         },
         {
           "value": "button-custom",
@@ -147,22 +212,6 @@
       "unit": "%",
       "default": 100,
       "visible_if": "{{ block.settings.width_mobile == \"custom\" }}"
-    },
-    {
-      "type": "header",
-      "content": "CSS Overrides"
-    },
-    {
-      "type": "textarea",
-      "id": "desktop_css_override",
-      "label": "Desktop CSS",
-      "default": ";"
-    },
-    {
-      "type": "textarea",
-      "id": "mobile_css_override",
-      "label": "Mobile CSS",
-      "default": ";"
     }
   ],
   "presets": [

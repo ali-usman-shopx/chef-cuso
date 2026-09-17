@@ -50,6 +50,13 @@
   },
   "settings": [
     {
+      "type": "checkbox",
+      "id": "restrain_width",
+      "label": "Restrain Max Width",
+      "info": "Sets Max Width to 1202px.",
+      "default": false
+    },
+    {
       "type": "header",
       "content": "t:content.layout"
     },
@@ -321,6 +328,18 @@
       "id": "background_image",
       "label": "t:settings.image",
       "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_different_background_image_on_mobile",
+      "label": "Use Different Background Image on Mobile",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background Image Mobile",
+      "visible_if": "{{ section.settings.use_different_background_image_on_mobile }}"
     },
     {
       "type": "select",

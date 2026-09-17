@@ -1,0 +1,195 @@
+{%- doc -%}
+  Renders three bundle options.
+
+  Each option renders the `bundle-option` snippet with its configured
+  bundle count, discount, and JavaScript callback.
+{%- enddoc -%}
+
+<div class="bundle-options">
+  {% render 'bundle-option',
+    bundle_count: block.settings.bundle_1_count,
+    discount: block.settings.bundle_1_discount,
+    onclick_function: "handleBundleClick(event)",
+    id: block.id
+  %}
+
+  {% render 'bundle-option',
+    bundle_count: block.settings.bundle_2_count,
+    discount: block.settings.bundle_2_discount,
+    onclick_function: "handleBundleClick(event)",
+    id: block.id
+  %}
+
+  {% render 'bundle-option',
+    bundle_count: block.settings.bundle_3_count,
+    discount: block.settings.bundle_3_discount,
+    onclick_function: "handleBundleClick(event)",
+    id: block.id
+  %}
+</div>
+
+{% style %}
+  #shopify-block-{{ block.id }} {
+    width: 100%;
+  }
+{% endstyle %}
+
+{% stylesheet %}
+  .bundle-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+{% endstylesheet %}
+
+{% comment %} This JS is responsible for applying the Quantity Update and the Discount on Click {% endcomment %}
+<script>
+  function handleBundleClick(event) {
+    selectBundle(event.currentTarget);
+  }
+
+  function findBundleElementByItemCount(count) {
+    let match = undefined;
+    document.querySelectorAll(".bundle-option").forEach((element) => {
+      if (!element.id) return;
+      if (parseInt(element.id.split('-').pop(), 10) == count) match = element;
+    });
+    return match;
+  }
+
+  function selectBundle(activeToBe) {
+    if (!activeToBe) return;
+
+    const clickedBundleElementID = activeToBe.id;
+
+    if (!clickedBundleElementID) return;
+
+    const count = parseInt(clickedBundleElementID.split('-').pop(), 10);
+
+    const quantityElement = document.querySelector('input[name="quantity"]');
+
+    quantityElement.value = count;
+
+    noActiveBundle();
+
+    activeToBe.classList.toggle('active', true);
+
+    document.querySelector('.quantity-minus').disabled = false;
+  }
+
+  function noActiveBundle() {
+    document.querySelectorAll('.bundle-option-{{ block.id }}').forEach((optionElement) => {
+      optionElement.classList.toggle('active', false);
+    });
+  }
+
+  function handleQuantityUpdate(event, updatedQuantity) {
+    const newQuantity = parseInt(event.currentTarget?.value) || updatedQuantity;
+
+    if (newQuantity >= {{ block.settings.bundle_1_count }}) {
+      selectBundle(document.querySelector("#bundle-option-block-{{ block.id }}-count-{{ block.settings.bundle_1_count }}"));
+    }
+    else if (newQuantity >= {{ block.settings.bundle_2_count }}) {
+      selectBundle(document.querySelector("#bundle-option-block-{{ block.id }}-count-{{ block.settings.bundle_2_count }}"));
+    }
+    else if (newQuantity >= {{ block.settings.bundle_3_count }}) {
+      selectBundle(document.querySelector("#bundle-option-block-{{ block.id }}-count-{{ block.settings.bundle_3_count }}"));
+    }
+    else {
+      noActiveBundle();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const quantityElement = document.querySelector('input[name="quantity"]');
+
+    if (!quantityElement) return;
+
+    let debounceTimer;
+
+    document.addEventListener("quantity-selector:update", (event) => {
+      clearTimeout(debounceTimer);      
+      debounceTimer = setTimeout(() => {
+        const newValue = quantityElement.value;
+
+        if (!newValue) return;
+
+        noActiveBundle(event, newValue);
+        selectBundle(findBundleElementByItemCount(newValue));
+      }, 100);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Bundle options",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Bundle 1"
+    },
+    {
+      "type": "number",
+      "id": "bundle_1_count",
+      "label": "Bundle count",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "bundle_1_discount",
+      "label": "Discount",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "header",
+      "content": "Bundle 2"
+    },
+    {
+      "type": "number",
+      "id": "bundle_2_count",
+      "label": "Bundle count",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "bundle_2_discount",
+      "label": "Discount",
+      "default": 15,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "header",
+      "content": "Bundle 3"
+    },
+    {
+      "type": "number",
+      "id": "bundle_3_count",
+      "label": "Bundle count",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "bundle_3_discount",
+      "label": "Discount",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle options"
+    }
+  ]
+}
+{% endschema %}

@@ -142,9 +142,9 @@
           {{- rating_count }}
           {{ 'content.reviews' | t }}        
         {% elsif block_settings.show_number and block_settings.product_review_override %}
-          (&nbsp;<span style="text-decoration: underline; color: #212121">{{ rating_count}} Reviews</span>&nbsp;)
+          {%if block_settings.show_parenthesis %}({% endif %}&nbsp;<span style="text-decoration: underline; color: #212121">{{ rating_count}} Reviews</span>&nbsp;{%if block_settings.show_parenthesis %}){% endif %}
         {% elsif block_settings.show_number and block_settings.store_review_override %}
-          (Over {{ rating_count | times: 100 | money_without_currency | remove: ".00" }} happy customers)
+          {%if block_settings.show_parenthesis %}({% endif %}Over {{ rating_count | times: 100 | money_without_currency | remove: ".00" }} happy customers{%if block_settings.show_parenthesis %}){% endif %}
         {%- endif -%}
       </p>
     {%- endif -%}
@@ -184,6 +184,10 @@
     font-size: var(--font-size);
   }
 
+  .rating-count * {
+    font-size: var(--font-size);
+  }
+
   .rating-count-separator {
     opacity: var(--opacity-20);
     padding-left: calc(var(--padding-xs) / 2);
@@ -198,6 +202,13 @@
 
   .filled-star {
     fill: var(--star-fill-color);
+  }
+
+  /* Custom Very Small Screen Overrides */
+  @media screen and (max-width: 374px) {
+    .rating-wrapper {
+      flex-wrap: wrap;
+    }
   }
 {% endstylesheet %}
 
@@ -287,6 +298,13 @@
       "id": "review_count_separator",
       "label": "Review Count Separator",
       "default": "|",
+      "visible_if": "{{ block.settings.show_number }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_parenthesis",
+      "label": "Show Parenthesis",
+      "default": true,
       "visible_if": "{{ block.settings.show_number }}"
     },
     {
