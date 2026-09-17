@@ -146,6 +146,12 @@
 {% endstylesheet %}
 
 {% style %}
+  {% if block_settings.strip_text_decoration %}
+    .css_override--{{ block.id }} * {
+      text-decoration: none;
+    }
+  {% endif %}
+
   {% if block_settings.override_font_weight %}
     .css_override--{{ block.id }} * {
       font-weight: {{ block_settings.custom_font_weight }};
@@ -157,14 +163,6 @@
       letter-spacing: {{ block_settings.custom_letter_spacing }}px;
     }
   {% endif %}
-
-  {% if block_settings.override_mobile_font_size %}
-    @media screen and (max-width: 768px) {
-      .css_override--{{ block.id }} * {
-        font-size: {{ block_settings.mobile_font_size }}px;
-      }
-    }
-  {% endif %}
   
   {% if block_settings.use_special_font %}
     .css_override--{{ block.id }} * {
@@ -172,13 +170,41 @@
     }
   {% endif %}
 
-  .css_override--{{ block.id }} {
-    {{ block_settings.desktop_css_override }}
-  }
+  {% if block_settings.override_margin_top %}
+    .css_override--{{ block.id }} {
+      margin-top: {{ block_settings.custom_margin_top }}px;
+    }
+  {% endif %}
+
+  {% if block_settings.use_custom_line_height %}
+    .css_override--{{ block.id }} * {
+      line-height: {{ block_settings.custom_line_height }}px !important;
+    }
+  {% endif %}
 
   @media screen and (max-width: 768px) {
     .css_override--{{ block.id }} {
-      {{ block_settings.mobile_css_override }}
+      {% if block_settings.override_mobile_font_color %}
+        --color: {{ block_settings.mobile_font_color }};
+      {% endif %}
+
+      {% if block_settings.override_mobile_padding %}    
+        padding: {{ block_settings.mobile_padding_top }}px {{ block_settings.mobile_padding_right }}px {{ block_settings.mobile_padding_bottom }}px {{ block_settings.mobile_padding_left }}px;
+      {% endif %}
+
+      {% if block_settings.override_max_width_mobile %}
+        max-width: {{ block_settings.custom_max_width_mobile }};
+      {% endif %}
+    }
+
+    .css_override--{{ block.id }} * {
+      {% if block_settings.override_mobile_font_size %}
+        font-size: {{ block_settings.mobile_font_size }}px;
+      {% endif %}
+
+      {% if block_settings.use_custom_line_height %}
+        line-height: {{ block_settings.custom_line_height }}px !important;
+      {% endif %}
     }
   }
 {% endstyle %}

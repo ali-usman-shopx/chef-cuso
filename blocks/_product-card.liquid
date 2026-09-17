@@ -33,15 +33,19 @@
   }
 
   .product-card--{{ block.id }} .image-css-override {
-    {{ block.settings.image_css_override }}
+    padding: 30px !important;
+    media-fit: contain;
+    background-color: #FFFFFF;
   }
 
   .product-card--{{ block.id }} .img-special-override {
-    {{ block.settings.img_special_override }}
+    background-color: #F6F0E9;
   }
 
   .product-card--{{ block.id }} .buy-btn-special-override {
-    {{ block.settings.buy_btn_special_override }}
+    background-color: #B9250A !important;
+    color: white !important;
+    box-shadow: none;
   }
 
   .product-card--{{ block.id }} .buy-btn-special-override:hover {
@@ -51,6 +55,17 @@
   .product-card--{{ block.id }} .product-badges {
     display: none;
   }
+
+  .product-card--{{ block.id }} .product-title * {
+    height: 1lh;
+    margin-bottom: 14px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .product-card--{{ block.id }} .product-title * {
+      height: 2lh;
+    }
+  }  
 {% endstyle %}
 
 {% schema %}
@@ -222,32 +237,6 @@
       "step": 1,
       "unit": "px",
       "default": 0
-    },
-    {
-      "type": "header",
-      "content": "Overrides"
-    },
-    {
-      "type": "textarea",
-      "label": "Card Image Overrides",
-      "id": "image_css_override",
-      "default": ";"
-    },
-    {
-      "type": "header",
-      "content": "Special Card Overrides"
-    },
-    {
-      "type": "textarea",
-      "label": "Special Card Image Overrides",
-      "id": "img_special_override",
-      "default": ";"
-    },
-    {
-      "type": "textarea",
-      "label": "Special Card Buy Button Overrides",
-      "id": "buy_btn_special_override",
-      "default": ";"
     }
   ]
 }

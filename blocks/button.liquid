@@ -2,6 +2,10 @@
 {% render 'button', link: block.settings.link, block: block %}
 
 {% stylesheet %}
+  .button {
+    font-weight: 600;
+  }
+
   .button-secondary:hover {
     color: white;
     background-color: #B9250A;
@@ -48,6 +52,13 @@
 
   .button-dark:hover path {
     fill: black;
+  }
+
+  @media screen and (max-width: 768px) {
+    .button {
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
   }
 {% endstylesheet %}
 
@@ -201,22 +212,6 @@
       "unit": "%",
       "default": 100,
       "visible_if": "{{ block.settings.width_mobile == \"custom\" }}"
-    },
-    {
-      "type": "header",
-      "content": "CSS Overrides"
-    },
-    {
-      "type": "textarea",
-      "id": "desktop_css_override",
-      "label": "Desktop CSS",
-      "default": ";"
-    },
-    {
-      "type": "textarea",
-      "id": "mobile_css_override",
-      "label": "Mobile CSS",
-      "default": ";"
     }
   ],
   "presets": [

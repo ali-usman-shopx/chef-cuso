@@ -52,6 +52,71 @@
       "visible_if": "{{ block.settings.is_tastes_parent_element }}"
     },
     {
+      "type": "checkbox",
+      "id": "is_footer_element",
+      "label": "Is Footer Element",
+      "info": "Designates group as a footer element and allows you to toggle Footer CSS overrides on.",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "footer_element_type",
+      "label": "Footer Element Type",
+      "info": "Allows you to specify footer element type and toggle its css on or off.",
+      "visible_if": "{{ block.settings.is_footer_element }}",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "instagram-main-wrapper",
+          "label": "Instagram Main Wrapper"
+        },
+        {
+          "value": "instagram-heading-wrapper",
+          "label": "Instagram Heading Wrapper"
+        },
+        {
+          "value": "instagram-image-wrapper",
+          "label": "Instagram Image Wrapper"
+        },
+        {
+          "value": "content-wrapper", // This will set desktop padding left and right to 8%.
+          "label": "Footer Wrapper"
+        },
+        {
+          "value": "branding", // Styles branding container
+          "label": "Branding"
+        },
+        {
+          "value": "logo-wrapper", // Styles Footer Logo
+          "label": "Logo Wrapper"
+        },
+        {
+          "value": "links",
+          "label": "Links"
+        },
+        {
+          "value": "links-top-row",
+          "label": "Links Top Row"
+        },
+        {
+          "value": "links-bottom-row",
+          "label": "Links Bottom Row"
+        },
+        {
+          "value": "utilities",
+          "label": "Utilities"
+        },
+        {
+          "value": "payment-logos",
+          "label": "Payment Logos"
+        },
+      ],
+      "default": "none"
+    },
+    {
       "type": "header",
       "content": "t:content.layout"
     },
@@ -558,22 +623,6 @@
       "step": 1,
       "unit": "px",
       "default": 0
-    },
-    {
-      "type": "header",
-      "content": "CSS Overrides"
-    },
-    {
-      "type": "textarea",
-      "id": "desktop_css_override",
-      "label": "Desktop CSS",
-      "default": ";"
-    },
-    {
-      "type": "textarea",
-      "id": "mobile_css_override",
-      "label": "Mobile CSS",
-      "default": ";"
     }
   ],
   "presets": [

@@ -112,12 +112,14 @@
   }
 
   .css_override--{{ id }} {
-    {{ block_settings.desktop_css_override }}
+    text-transform: uppercase !important;
+    font-size: 14px;
+    font-weight: 600;
   }
 
   @media screen and (max-width: 768px) {
     .css_override--{{ id }} {
-      {{ block_settings.mobile_css_override }}
+      font-size: 12px;
     }
   }
 {% endstyle %}
