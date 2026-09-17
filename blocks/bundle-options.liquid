@@ -47,24 +47,27 @@
 
 {% comment %} This JS is responsible for applying the Quantity Update and the Discount on Click {% endcomment %}
 <script>
-  const quantityDiscountMap = {
-    {{ block.settings.bundle_1_count }}: {{block.settings.bundle_1_discount}},
-    {{ block.settings.bundle_2_count }}: {{block.settings.bundle_2_discount}},
-    {{ block.settings.bundle_3_count }}: {{block.settings.bundle_3_discount}},
-  };
-
   function handleBundleClick(event) {
     selectBundle(event.currentTarget);
   }
 
+  function findBundleElementByItemCount(count) {
+    let match = undefined;
+    document.querySelectorAll(".bundle-option").forEach((element) => {
+      if (!element.id) return;
+      if (parseInt(element.id.split('-').pop(), 10) == count) match = element;
+    });
+    return match;
+  }
+
   function selectBundle(activeToBe) {
+    if (!activeToBe) return;
+
     const clickedBundleElementID = activeToBe.id;
 
     if (!clickedBundleElementID) return;
 
     const count = parseInt(clickedBundleElementID.split('-').pop(), 10);
-
-    if (!(count in quantityDiscountMap)) {console.log("Key not in map!"); return;};
 
     const quantityElement = document.querySelector('input[name="quantity"]');
 
@@ -73,6 +76,8 @@
     noActiveBundle();
 
     activeToBe.classList.toggle('active', true);
+
+    document.querySelector('.quantity-minus').disabled = false;
   }
 
   function noActiveBundle() {
@@ -81,8 +86,8 @@
     });
   }
 
-  function handleQuantityUpdate(event) {
-    const newQuantity = parseInt(event.currentTarget.value);
+  function handleQuantityUpdate(event, updatedQuantity) {
+    const newQuantity = parseInt(event.currentTarget?.value) || updatedQuantity;
 
     if (newQuantity >= {{ block.settings.bundle_1_count }}) {
       selectBundle(document.querySelector("#bundle-option-block-{{ block.id }}-count-{{ block.settings.bundle_1_count }}"));
@@ -104,13 +109,17 @@
     if (!quantityElement) return;
 
     let debounceTimer;
-    
-    quantityElement.addEventListener('change', (event) => {
-      console.log("Fired");
+
+    document.addEventListener("quantity-selector:update", (event) => {
       clearTimeout(debounceTimer);      
       debounceTimer = setTimeout(() => {
-        handleQuantityUpdate(event)
-      }, 100); 
+        const newValue = quantityElement.value;
+
+        if (!newValue) return;
+
+        noActiveBundle(event, newValue);
+        selectBundle(findBundleElementByItemCount(newValue));
+      }, 100);
     });
   });
 </script>
