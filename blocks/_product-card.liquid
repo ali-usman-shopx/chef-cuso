@@ -33,9 +33,12 @@
   }
 
   .product-card--{{ block.id }} .image-css-override {
-    padding: 30px !important;
-    media-fit: contain;
+    padding: 30px;
     background-color: #FFFFFF;
+  }
+
+  .product-card--{{ block.id }} .image-css-override img.product-media__image {
+    object-fit: contain;
   }
 
   .product-card--{{ block.id }} .img-special-override {
@@ -43,8 +46,8 @@
   }
 
   .product-card--{{ block.id }} .buy-btn-special-override {
-    background-color: #B9250A !important;
-    color: white !important;
+    background-color: #B9250A;
+    color: white;
     box-shadow: none;
   }
 

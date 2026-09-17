@@ -177,8 +177,8 @@
   {% endif %}
 
   {% if block_settings.use_custom_line_height %}
-    .css_override--{{ block.id }} * {
-      line-height: {{ block_settings.custom_line_height }}px !important;
+    .css_override--{{ block.id }} > p {
+      line-height: {{ block_settings.custom_line_height }}px;
     }
   {% endif %}
 
@@ -201,9 +201,11 @@
       {% if block_settings.override_mobile_font_size %}
         font-size: {{ block_settings.mobile_font_size }}px;
       {% endif %}
+    }
 
-      {% if block_settings.use_custom_line_height %}
-        line-height: {{ block_settings.custom_line_height }}px !important;
+    .css_override--{{ block.id }} > p {
+      {% if block_settings.use_different_line_height_on_mobile %}
+        line-height: {{ block_settings.custom_line_height_mobile }}px;
       {% endif %}
     }
   }
