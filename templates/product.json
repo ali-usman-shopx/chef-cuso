@@ -12,25 +12,6 @@
     "main": {
       "type": "product-information",
       "blocks": {
-        "disclosures_g9mWze": {
-          "type": "disclosures",
-          "name": "t:names.disclosures",
-          "settings": {
-            "heading": "Disclosures",
-            "heading_preset": "h5",
-            "open_by_default": false,
-            "icon": "caret",
-            "disclosure_heading_preset": "h6",
-            "text_color": "",
-            "dividers": true,
-            "divider_color": "{{ settings.color_palette.color2 }}",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "media-gallery": {
           "type": "_product-media-gallery",
           "static": true,
@@ -141,6 +122,8 @@
                   "type": "text",
                   "name": "t:names.product_title",
                   "settings": {
+                    "override_margin_top": false,
+                    "custom_margin_top": 0,
                     "text": "<h1>{{ closest.product.title }}</h1>",
                     "width": "100%",
                     "max_width": "normal",
@@ -152,8 +135,8 @@
                     "override_font_weight": false,
                     "custom_font_weight": 600,
                     "font_size": "2rem",
-                    "override_mobile_font_size": false,
-                    "mobile_font_size": 14,
+                    "override_mobile_font_size": true,
+                    "mobile_font_size": 24,
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "use_custom_letter_spacing": false,
@@ -161,6 +144,8 @@
                     "case": "none",
                     "wrap": "pretty",
                     "text_color": "",
+                    "override_mobile_font_color": false,
+                    "mobile_font_color": "#ffffff",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -168,8 +153,13 @@
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0,
+                    "override_mobile_padding": false,
+                    "mobile_padding_top": 0,
+                    "mobile_padding_bottom": 0,
+                    "mobile_padding_left": 0,
+                    "mobile_padding_right": 0,
                     "desktop_css_override": ";",
-                    "mobile_css_override": "* {font-size: 24px;}"
+                    "mobile_css_override": ";"
                   },
                   "blocks": {}
                 },
@@ -205,6 +195,8 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
+                    "override_margin_top": false,
+                    "custom_margin_top": 0,
                     "text": "<p>ALL-NATURAL SEASONINGS</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -216,8 +208,8 @@
                     "override_font_weight": false,
                     "custom_font_weight": 600,
                     "font_size": "0.875rem",
-                    "override_mobile_font_size": false,
-                    "mobile_font_size": 14,
+                    "override_mobile_font_size": true,
+                    "mobile_font_size": 12,
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "use_custom_letter_spacing": true,
@@ -225,6 +217,8 @@
                     "case": "none",
                     "wrap": "pretty",
                     "text_color": "#2d2d2d",
+                    "override_mobile_font_color": true,
+                    "mobile_font_color": "#212121",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -232,8 +226,13 @@
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0,
+                    "override_mobile_padding": false,
+                    "mobile_padding_top": 0,
+                    "mobile_padding_bottom": 0,
+                    "mobile_padding_left": 0,
+                    "mobile_padding_right": 0,
                     "desktop_css_override": ";",
-                    "mobile_css_override": "* {\nfont-size: 12px !important;\ncolor: #212121;\n}"
+                    "mobile_css_override": ";"
                   },
                   "blocks": {}
                 },
@@ -339,7 +338,9 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>{{ closest.product.description }}</p>",
+                    "override_margin_top": false,
+                    "custom_margin_top": 0,
+                    "text": "{{ closest.product.description }}",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "left",
@@ -359,6 +360,8 @@
                     "case": "none",
                     "wrap": "pretty",
                     "text_color": "",
+                    "override_mobile_font_color": false,
+                    "mobile_font_color": "#ffffff",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -366,6 +369,11 @@
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0,
+                    "override_mobile_padding": false,
+                    "mobile_padding_top": 0,
+                    "mobile_padding_bottom": 0,
+                    "mobile_padding_left": 0,
+                    "mobile_padding_right": 0,
                     "desktop_css_override": ";",
                     "mobile_css_override": ";"
                   },
@@ -441,6 +449,8 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
+                    "override_margin_top": false,
+                    "custom_margin_top": 0,
                     "text": "<p>Bundle Up And Save Big</p>",
                     "width": "fit-content",
                     "max_width": "normal",
@@ -461,6 +471,8 @@
                     "case": "none",
                     "wrap": "pretty",
                     "text_color": "#212121",
+                    "override_mobile_font_color": false,
+                    "mobile_font_color": "#ffffff",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
@@ -468,6 +480,11 @@
                     "padding-block-end": 0,
                     "padding-inline-start": 5,
                     "padding-inline-end": 0,
+                    "override_mobile_padding": false,
+                    "mobile_padding_top": 0,
+                    "mobile_padding_bottom": 0,
+                    "mobile_padding_left": 0,
+                    "mobile_padding_right": 0,
                     "desktop_css_override": ";",
                     "mobile_css_override": ";"
                   },
@@ -565,8 +582,8 @@
                         "custom_icon_color": "{{ settings.color_palette.background }}",
                         "use_custom_label": true,
                         "custom_label": "BUY IT NOW",
-                        "desktop_css_override": "text-transform: uppercase !important;\nfont-size: 14px;\nfont-weight: 600;",
-                        "mobile_css_override": "font-size: 12px;"
+                        "desktop_css_override": ";",
+                        "mobile_css_override": ";"
                       },
                       "blocks": {}
                     },
@@ -654,6 +671,8 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
+                        "override_margin_top": false,
+                        "custom_margin_top": 0,
                         "text": "<p>Pay in 4 interest-free Installments of $50.00 with</p>",
                         "width": "fit-content",
                         "max_width": "normal",
@@ -674,6 +693,8 @@
                         "case": "none",
                         "wrap": "pretty",
                         "text_color": "",
+                        "override_mobile_font_color": false,
+                        "mobile_font_color": "#ffffff",
                         "background": false,
                         "background_color": "#00000026",
                         "corner_radius": 0,
@@ -681,6 +702,11 @@
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0,
+                        "override_mobile_padding": false,
+                        "mobile_padding_top": 0,
+                        "mobile_padding_bottom": 0,
+                        "mobile_padding_left": 0,
+                        "mobile_padding_right": 0,
                         "desktop_css_override": ";",
                         "mobile_css_override": ";"
                       },
@@ -893,6 +919,8 @@
                           "type": "text",
                           "name": "t:names.text",
                           "settings": {
+                            "override_margin_top": false,
+                            "custom_margin_top": 0,
                             "text": "<p>Free Delivery above $99</p>",
                             "width": "fit-content",
                             "max_width": "normal",
@@ -913,6 +941,8 @@
                             "case": "none",
                             "wrap": "pretty",
                             "text_color": "",
+                            "override_mobile_font_color": false,
+                            "mobile_font_color": "#ffffff",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -920,6 +950,11 @@
                             "padding-block-end": 0,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
+                            "override_mobile_padding": false,
+                            "mobile_padding_top": 0,
+                            "mobile_padding_bottom": 0,
+                            "mobile_padding_left": 0,
+                            "mobile_padding_right": 0,
                             "desktop_css_override": ";",
                             "mobile_css_override": ";"
                           },
@@ -1011,6 +1046,8 @@
                           "type": "text",
                           "name": "t:names.text",
                           "settings": {
+                            "override_margin_top": false,
+                            "custom_margin_top": 0,
                             "text": "<p>Secure Ordering</p>",
                             "width": "fit-content",
                             "max_width": "normal",
@@ -1031,6 +1068,8 @@
                             "case": "none",
                             "wrap": "pretty",
                             "text_color": "",
+                            "override_mobile_font_color": false,
+                            "mobile_font_color": "#ffffff",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -1038,6 +1077,11 @@
                             "padding-block-end": 0,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
+                            "override_mobile_padding": false,
+                            "mobile_padding_top": 0,
+                            "mobile_padding_bottom": 0,
+                            "mobile_padding_left": 0,
+                            "mobile_padding_right": 0,
                             "desktop_css_override": ";",
                             "mobile_css_override": ";"
                           },
@@ -1129,6 +1173,8 @@
                           "type": "text",
                           "name": "t:names.text",
                           "settings": {
+                            "override_margin_top": false,
+                            "custom_margin_top": 0,
                             "text": "<p>30 Day exchange policy</p>",
                             "width": "fit-content",
                             "max_width": "normal",
@@ -1149,6 +1195,8 @@
                             "case": "none",
                             "wrap": "pretty",
                             "text_color": "",
+                            "override_mobile_font_color": false,
+                            "mobile_font_color": "#ffffff",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -1156,6 +1204,11 @@
                             "padding-block-end": 0,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
+                            "override_mobile_padding": false,
+                            "mobile_padding_top": 0,
+                            "mobile_padding_bottom": 0,
+                            "mobile_padding_left": 0,
+                            "mobile_padding_right": 0,
                             "desktop_css_override": ";",
                             "mobile_css_override": ";"
                           },
@@ -1291,6 +1344,8 @@
                           "type": "text",
                           "name": "t:names.text",
                           "settings": {
+                            "override_margin_top": false,
+                            "custom_margin_top": 0,
                             "text": "<p>Share</p>",
                             "width": "fit-content",
                             "max_width": "narrow",
@@ -1311,6 +1366,8 @@
                             "case": "none",
                             "wrap": "pretty",
                             "text_color": "#212121",
+                            "override_mobile_font_color": false,
+                            "mobile_font_color": "#ffffff",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -1318,6 +1375,11 @@
                             "padding-block-end": 0,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
+                            "override_mobile_padding": false,
+                            "mobile_padding_top": 0,
+                            "mobile_padding_bottom": 0,
+                            "mobile_padding_left": 0,
+                            "mobile_padding_right": 0,
                             "desktop_css_override": ";",
                             "mobile_css_override": ";"
                           },
@@ -1396,6 +1458,8 @@
                           "type": "text",
                           "name": "t:names.text",
                           "settings": {
+                            "override_margin_top": false,
+                            "custom_margin_top": 0,
                             "text": "<p>Pin It</p>",
                             "width": "fit-content",
                             "max_width": "narrow",
@@ -1416,6 +1480,8 @@
                             "case": "none",
                             "wrap": "pretty",
                             "text_color": "#212121",
+                            "override_mobile_font_color": false,
+                            "mobile_font_color": "#ffffff",
                             "background": false,
                             "background_color": "#00000026",
                             "corner_radius": 0,
@@ -1423,6 +1489,11 @@
                             "padding-block-end": 0,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0,
+                            "override_mobile_padding": false,
+                            "mobile_padding_top": 0,
+                            "mobile_padding_bottom": 0,
+                            "mobile_padding_left": 0,
+                            "mobile_padding_right": 0,
                             "desktop_css_override": ";",
                             "mobile_css_override": ";"
                           },
@@ -1497,6 +1568,8 @@
                     "text_RCJW4W": {
                       "type": "text",
                       "settings": {
+                        "override_margin_top": false,
+                        "custom_margin_top": 0,
                         "text": "<p>{{ closest.product.metafields.custom.about_product | metafield_tag }}</p>",
                         "width": "100%",
                         "max_width": "normal",
@@ -1517,6 +1590,8 @@
                         "case": "none",
                         "wrap": "pretty",
                         "text_color": "",
+                        "override_mobile_font_color": false,
+                        "mobile_font_color": "#ffffff",
                         "background": false,
                         "background_color": "#00000026",
                         "corner_radius": 0,
@@ -1524,6 +1599,11 @@
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0,
+                        "override_mobile_padding": false,
+                        "mobile_padding_top": 0,
+                        "mobile_padding_bottom": 0,
+                        "mobile_padding_left": 0,
+                        "mobile_padding_right": 0,
                         "desktop_css_override": ";",
                         "mobile_css_override": ";"
                       },
@@ -1548,6 +1628,8 @@
                     "text_Nb9nF4": {
                       "type": "text",
                       "settings": {
+                        "override_margin_top": false,
+                        "custom_margin_top": 0,
                         "text": "<p>No refunds!</p>",
                         "width": "100%",
                         "max_width": "normal",
@@ -1568,6 +1650,8 @@
                         "case": "none",
                         "wrap": "pretty",
                         "text_color": "",
+                        "override_mobile_font_color": false,
+                        "mobile_font_color": "#ffffff",
                         "background": false,
                         "background_color": "#00000026",
                         "corner_radius": 0,
@@ -1575,6 +1659,11 @@
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0,
+                        "override_mobile_padding": false,
+                        "mobile_padding_top": 0,
+                        "mobile_padding_bottom": 0,
+                        "mobile_padding_left": 0,
+                        "mobile_padding_right": 0,
                         "desktop_css_override": ";",
                         "mobile_css_override": ";"
                       },
@@ -1590,43 +1679,6 @@
                 "accordion_row_Tb7GPj",
                 "accordion_row_a3Keby"
               ]
-            },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "t:names.product_description",
-              "disabled": true,
-              "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "use_special_font": false,
-                "special_font": "assistant_n4",
-                "override_font_weight": false,
-                "custom_font_weight": 600,
-                "font_size": "1rem",
-                "override_mobile_font_size": false,
-                "mobile_font_size": 14,
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "use_custom_letter_spacing": false,
-                "custom_letter_spacing": 1,
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0,
-                "desktop_css_override": ";",
-                "mobile_css_override": ";"
-              },
-              "blocks": {}
             }
           },
           "block_order": [
@@ -1638,14 +1690,10 @@
             "divider_KQRKAz",
             "group_JHznVx",
             "divider_gzVKJQ",
-            "accordion_KWNJez",
-            "text_aEtTtq"
+            "accordion_KWNJez"
           ]
         }
       },
-      "block_order": [
-        "disclosures_g9mWze"
-      ],
       "settings": {
         "restrain_width": true,
         "content_width": "content-center-aligned",
@@ -1665,6 +1713,8 @@
         "text_NkBDKx": {
           "type": "text",
           "settings": {
+            "override_margin_top": false,
+            "custom_margin_top": 0,
             "text": "<p>NO FILLER</p>",
             "width": "fit-content",
             "max_width": "normal",
@@ -1685,6 +1735,8 @@
             "case": "uppercase",
             "wrap": "nowrap",
             "text_color": "",
+            "override_mobile_font_color": false,
+            "mobile_font_color": "#ffffff",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -1692,6 +1744,11 @@
             "padding-block-end": 0,
             "padding-inline-start": 10,
             "padding-inline-end": 10,
+            "override_mobile_padding": false,
+            "mobile_padding_top": 0,
+            "mobile_padding_bottom": 0,
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
             "desktop_css_override": ";",
             "mobile_css_override": ";"
           },
@@ -1715,6 +1772,8 @@
         "text_y8rwKc": {
           "type": "text",
           "settings": {
+            "override_margin_top": false,
+            "custom_margin_top": 0,
             "text": "<p>Satisfaction Guaranteed</p>",
             "width": "fit-content",
             "max_width": "normal",
@@ -1735,6 +1794,8 @@
             "case": "uppercase",
             "wrap": "nowrap",
             "text_color": "",
+            "override_mobile_font_color": false,
+            "mobile_font_color": "#ffffff",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -1742,6 +1803,11 @@
             "padding-block-end": 0,
             "padding-inline-start": 10,
             "padding-inline-end": 10,
+            "override_mobile_padding": false,
+            "mobile_padding_top": 0,
+            "mobile_padding_bottom": 0,
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
             "desktop_css_override": ";",
             "mobile_css_override": ";"
           },
@@ -1765,6 +1831,8 @@
         "text_mhfe3X": {
           "type": "text",
           "settings": {
+            "override_margin_top": false,
+            "custom_margin_top": 0,
             "text": "<p>No Seed Oil</p>",
             "width": "fit-content",
             "max_width": "normal",
@@ -1785,6 +1853,8 @@
             "case": "uppercase",
             "wrap": "nowrap",
             "text_color": "",
+            "override_mobile_font_color": false,
+            "mobile_font_color": "#ffffff",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -1792,6 +1862,11 @@
             "padding-block-end": 0,
             "padding-inline-start": 10,
             "padding-inline-end": 10,
+            "override_mobile_padding": false,
+            "mobile_padding_top": 0,
+            "mobile_padding_bottom": 0,
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
             "desktop_css_override": ";",
             "mobile_css_override": ";"
           },
@@ -1815,6 +1890,8 @@
         "text_NH34b6": {
           "type": "text",
           "settings": {
+            "override_margin_top": false,
+            "custom_margin_top": 0,
             "text": "<p>Easy Returns</p>",
             "width": "fit-content",
             "max_width": "normal",
@@ -1835,6 +1912,8 @@
             "case": "uppercase",
             "wrap": "nowrap",
             "text_color": "",
+            "override_mobile_font_color": false,
+            "mobile_font_color": "#ffffff",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -1842,6 +1921,11 @@
             "padding-block-end": 0,
             "padding-inline-start": 10,
             "padding-inline-end": 10,
+            "override_mobile_padding": false,
+            "mobile_padding_top": 0,
+            "mobile_padding_bottom": 0,
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
             "desktop_css_override": ";",
             "mobile_css_override": ";"
           },
@@ -1865,6 +1949,8 @@
         "text_XxkihH": {
           "type": "text",
           "settings": {
+            "override_margin_top": false,
+            "custom_margin_top": 0,
             "text": "<p>Free Delivery above $99</p>",
             "width": "fit-content",
             "max_width": "normal",
@@ -1885,6 +1971,8 @@
             "case": "uppercase",
             "wrap": "nowrap",
             "text_color": "",
+            "override_mobile_font_color": false,
+            "mobile_font_color": "#ffffff",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -1892,6 +1980,11 @@
             "padding-block-end": 0,
             "padding-inline-start": 10,
             "padding-inline-end": 10,
+            "override_mobile_padding": false,
+            "mobile_padding_top": 0,
+            "mobile_padding_bottom": 0,
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
             "desktop_css_override": ";",
             "mobile_css_override": ";"
           },
@@ -1933,7 +2026,7 @@
         "padding-block-start": 24,
         "padding-block-end": 24,
         "gap_between_elements": 24,
-        "desktop_css_override": "border-bottom: 1px solid #E1DBD5;",
+        "desktop_css_override": ";",
         "mobile_css_override": ";"
       }
     },
@@ -1948,6 +2041,10 @@
             "show_stamp": false,
             "stamp_width": "100px",
             "stamp_height": "100px",
+            "stamp_offset_top": "-12%",
+            "stamp_offset_left": "auto",
+            "stamp_offset_right": "auto",
+            "stamp_offset_bottom": "auto",
             "stamp_css": ";",
             "link": "",
             "image_ratio": "adapt",
@@ -2015,6 +2112,8 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
+            "override_margin_top": false,
+            "custom_margin_top": 0,
             "text": "<p>OUR SEASONING PACKS</p>",
             "width": "100%",
             "max_width": "normal",
@@ -2026,8 +2125,8 @@
             "override_font_weight": false,
             "custom_font_weight": 600,
             "font_size": "0.875rem",
-            "override_mobile_font_size": false,
-            "mobile_font_size": 14,
+            "override_mobile_font_size": true,
+            "mobile_font_size": 12,
             "line_height": "normal",
             "letter_spacing": "normal",
             "use_custom_letter_spacing": false,
@@ -2035,6 +2134,8 @@
             "case": "uppercase",
             "wrap": "pretty",
             "text_color": "#b92509",
+            "override_mobile_font_color": false,
+            "mobile_font_color": "#ffffff",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -2042,8 +2143,13 @@
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0,
+            "override_mobile_padding": false,
+            "mobile_padding_top": 0,
+            "mobile_padding_bottom": 0,
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
             "desktop_css_override": ";",
-            "mobile_css_override": "* {font-size: 12px !important;}"
+            "mobile_css_override": ";"
           },
           "blocks": {}
         },
@@ -2051,6 +2157,8 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
+            "override_margin_top": true,
+            "custom_margin_top": -30,
             "text": "<p>You May Also Like</p>",
             "width": "100%",
             "max_width": "normal",
@@ -2062,8 +2170,8 @@
             "override_font_weight": false,
             "custom_font_weight": 600,
             "font_size": "2rem",
-            "override_mobile_font_size": false,
-            "mobile_font_size": 14,
+            "override_mobile_font_size": true,
+            "mobile_font_size": 24,
             "line_height": "normal",
             "letter_spacing": "normal",
             "use_custom_letter_spacing": false,
@@ -2071,6 +2179,8 @@
             "case": "none",
             "wrap": "pretty",
             "text_color": "",
+            "override_mobile_font_color": false,
+            "mobile_font_color": "#ffffff",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -2078,8 +2188,13 @@
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0,
-            "desktop_css_override": "margin-top: -30px;",
-            "mobile_css_override": "* {\nfont-size: 24px !important;\npadding-top: 7px;;\n}"
+            "override_mobile_padding": true,
+            "mobile_padding_top": 7,
+            "mobile_padding_bottom": 0,
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0,
+            "desktop_css_override": ";",
+            "mobile_css_override": ";"
           },
           "blocks": {}
         },
@@ -2099,9 +2214,9 @@
             "padding-block-end": 8,
             "padding-inline-start": 0,
             "padding-inline-end": 0,
-            "image_css_override": "padding: 30px !important;\nmedia-fit: contain;\nbackground-color: #FFFFFF;",
-            "img_special_override": "background-color: #F6F0E9;",
-            "buy_btn_special_override": "background-color: #B9250A !important;\ncolor: white !important;\nbox-shadow: none;"
+            "image_css_override": ";",
+            "img_special_override": ";",
+            "buy_btn_special_override": ";"
           },
           "blocks": {
             "product_card_gallery_DNizbJ": {
@@ -2143,8 +2258,8 @@
                 "padding-block-end": 9,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
-                "desktop_css_override": "height: 1lh;\nmargin-bottom: 14px;",
-                "mobile_css_override": "height: 2lh;"
+                "desktop_css_override": ";",
+                "mobile_css_override": ";"
               },
               "blocks": {}
             },
@@ -2185,8 +2300,10 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
-                "desktop_css_override": "margin-bottom: -12px;",
-                "mobile_css_override": "margin-bottom: -12px;"
+                "override_margin_bottom": true,
+                "custom_margin_bottom": -12,
+                "desktop_css_override": ";",
+                "mobile_css_override": ";"
               },
               "blocks": {
                 "review_tzdGxE": {
@@ -2310,8 +2427,8 @@
                     "custom_icon_color": "#000000",
                     "use_custom_label": false,
                     "custom_label": "Custom Label",
-                    "desktop_css_override": "text-transform: uppercase !important;\nfont-size: 14px;\nfont-weight: 600;",
-                    "mobile_css_override": "font-size: 12px;"
+                    "desktop_css_override": ";",
+                    "mobile_css_override": ";"
                   },
                   "blocks": {}
                 },
@@ -2416,6 +2533,8 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
+                "override_margin_top": false,
+                "custom_margin_top": 0,
                 "text": "<p>WE’RE BEST IN THE GAME</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -2427,8 +2546,8 @@
                 "override_font_weight": false,
                 "custom_font_weight": 600,
                 "font_size": "0.875rem",
-                "override_mobile_font_size": false,
-                "mobile_font_size": 14,
+                "override_mobile_font_size": true,
+                "mobile_font_size": 12,
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "use_custom_letter_spacing": false,
@@ -2436,6 +2555,8 @@
                 "case": "uppercase",
                 "wrap": "pretty",
                 "text_color": "#b92509",
+                "override_mobile_font_color": false,
+                "mobile_font_color": "#ffffff",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -2443,6 +2564,11 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
+                "override_mobile_padding": false,
+                "mobile_padding_top": 0,
+                "mobile_padding_bottom": 0,
+                "mobile_padding_left": 0,
+                "mobile_padding_right": 0,
                 "desktop_css_override": ";",
                 "mobile_css_override": "* {font-size: 12px !important;}"
               },
@@ -2452,6 +2578,8 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
+                "override_margin_top": true,
+                "custom_margin_top": -10,
                 "text": "<p>Best kitchen knives</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -2463,8 +2591,8 @@
                 "override_font_weight": false,
                 "custom_font_weight": 600,
                 "font_size": "2rem",
-                "override_mobile_font_size": false,
-                "mobile_font_size": 14,
+                "override_mobile_font_size": true,
+                "mobile_font_size": 24,
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "use_custom_letter_spacing": false,
@@ -2472,6 +2600,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "text_color": "",
+                "override_mobile_font_color": false,
+                "mobile_font_color": "#ffffff",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -2479,8 +2609,13 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
-                "desktop_css_override": "margin-top: -10px;",
-                "mobile_css_override": "* {\nfont-size: 24px !important;\npadding-top: 5px;\n}"
+                "override_mobile_padding": true,
+                "mobile_padding_top": 5,
+                "mobile_padding_bottom": 0,
+                "mobile_padding_left": 0,
+                "mobile_padding_right": 0,
+                "desktop_css_override": ";",
+                "mobile_css_override": ";"
               },
               "blocks": {}
             },
@@ -2488,6 +2623,8 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
+                "override_margin_top": false,
+                "custom_margin_top": 0,
                 "text": "<p>Some of the best kitchen knives in the game, created by Jack Mancuso. Check out the new Damascus Steel Chef Knife and Cleaver, sure to wow the crowd and cut through just about anything in the kitchen.</p>",
                 "width": "fit-content",
                 "max_width": "normal",
@@ -2508,6 +2645,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "text_color": "#2d2d2d",
+                "override_mobile_font_color": false,
+                "mobile_font_color": "#ffffff",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -2515,6 +2654,11 @@
                 "padding-block-end": 10,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0,
+                "override_mobile_padding": false,
+                "mobile_padding_top": 0,
+                "mobile_padding_bottom": 0,
+                "mobile_padding_left": 0,
+                "mobile_padding_right": 0,
                 "desktop_css_override": ";",
                 "mobile_css_override": ";"
               },
@@ -2537,8 +2681,8 @@
                 "custom_width": 100,
                 "width_mobile": "fit-content",
                 "custom_width_mobile": 100,
-                "desktop_css_override": "font-weight: 600;",
-                "mobile_css_override": "padding-top: 11px;\npadding-bottom: 11px;"
+                "desktop_css_override": ";",
+                "mobile_css_override": ";"
               },
               "blocks": {}
             }
@@ -2558,7 +2702,11 @@
             "stamp": "shopify://shop_images/flame.svg",
             "stamp_width": "12%",
             "stamp_height": "24%",
-            "stamp_css": "right: 15px;\ntop: -12%;",
+            "stamp_offset_top": "-12%",
+            "stamp_offset_left": "auto",
+            "stamp_offset_right": "15px",
+            "stamp_offset_bottom": "auto",
+            "stamp_css": ";",
             "link": "",
             "image_ratio": "adapt",
             "width": "fill",

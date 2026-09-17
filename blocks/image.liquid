@@ -148,6 +148,10 @@
       position: absolute;
       z-index: 999;
       width: {{ block.settings.stamp_width }};
+      top: {{ block.settings.stamp_offset_top }};
+      bottom: {{ block.settings.stamp_offset_bottom }};
+      left: {{ block.settings.stamp_offset_left }};
+      right: {{ block.settings.stamp_offset_right }};
       {{ block.settings.stamp_css }}
     }
   {% endif %}
@@ -187,6 +191,34 @@
       "id": "stamp_height",
       "label": "Stamp Height",
       "default": "100px",
+      "visible_if": "{{ block.settings.show_stamp }}"
+    },
+    {
+      "type": "text",
+      "id": "stamp_offset_top",
+      "label": "Stamp Offset Top",
+      "default": "-12%",
+      "visible_if": "{{ block.settings.show_stamp }}"
+    },
+    {
+      "type": "text",
+      "id": "stamp_offset_left",
+      "label": "Stamp Offset Left",
+      "default": "auto",
+      "visible_if": "{{ block.settings.show_stamp }}"
+    },
+    {
+      "type": "text",
+      "id": "stamp_offset_right",
+      "label": "Stamp Offset Right",
+      "default": "auto",
+      "visible_if": "{{ block.settings.show_stamp }}"
+    },
+    {
+      "type": "text",
+      "id": "stamp_offset_bottom",
+      "label": "Stamp Offset Bottom",
+      "default": "auto",
       "visible_if": "{{ block.settings.show_stamp }}"
     },
     {

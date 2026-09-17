@@ -100,13 +100,7 @@
 
 {% style %}
   .css_override--{{ section.id }} {
-    {{ section.settings.desktop_css_override }}
-  }
-
-  @media screen and (max-width: 768px) {
-    .css_override--{{ section.id }} {
-      {{ section.settings.mobile_css_override }}
-    }
+    border-bottom: 1px solid #E1DBD5;
   }
 {% endstyle %}
 
@@ -187,22 +181,6 @@
       "step": 1,
       "unit": "px",
       "default": 24
-    },
-    {
-      "type": "header",
-      "content": "CSS Overrides"
-    },
-    {
-      "type": "textarea",
-      "id": "desktop_css_override",
-      "label": "Desktop CSS",
-      "default": ";"
-    },
-    {
-      "type": "textarea",
-      "id": "mobile_css_override",
-      "label": "Mobile CSS",
-      "default": ";"
     }
   ],
   "presets": [

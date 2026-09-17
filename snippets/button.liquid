@@ -54,15 +54,7 @@
     margin-top: 5px;
   }
 
-  .css_override--{{ block.id }} {
-    {{ block_settings.desktop_css_override }}
-  }
-
   @media screen and (max-width: 768px) {
-    .css_override--{{ block.id }} {
-      {{ block_settings.mobile_css_override }}
-    }
-
     .{{ block_settings.style_class }}--{{ block.id }} svg {
       width: 12px !important;
       height: 15px;
