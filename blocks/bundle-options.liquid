@@ -5,25 +5,26 @@
   bundle count, discount, and JavaScript callback.
 {%- enddoc -%}
 
-<div class="bundle-options">
+<div
+  class="bundle-options"
+  role="radiogroup"
+  aria-label="Bundle options"
+>
   {% render 'bundle-option',
     bundle_count: block.settings.bundle_1_count,
     discount: block.settings.bundle_1_discount,
-    onclick_function: "handleBundleClick(event)",
     id: block.id
   %}
 
   {% render 'bundle-option',
     bundle_count: block.settings.bundle_2_count,
     discount: block.settings.bundle_2_discount,
-    onclick_function: "handleBundleClick(event)",
     id: block.id
   %}
 
   {% render 'bundle-option',
     bundle_count: block.settings.bundle_3_count,
     discount: block.settings.bundle_3_discount,
-    onclick_function: "handleBundleClick(event)",
     id: block.id
   %}
 </div>
@@ -47,10 +48,6 @@
 
 {% comment %} This JS is responsible for applying the Quantity Update and the Discount on Click {% endcomment %}
 <script>
-  function handleBundleClick(event) {
-    selectBundle(event.currentTarget);
-  }
-
   function findBundleElementByItemCount(count) {
     let match = undefined;
     document.querySelectorAll(".bundle-option").forEach((element) => {
@@ -72,10 +69,12 @@
     const quantityElement = document.querySelector('input[name="quantity"]');
 
     quantityElement.value = count;
+    // We fire the event outside of this function to prevent an infinite loop
 
     noActiveBundle();
 
     activeToBe.classList.toggle('active', true);
+    activeToBe.setAttribute('aria-checked', 'true');
 
     document.querySelector('.quantity-minus').disabled = false;
   }
@@ -83,6 +82,7 @@
   function noActiveBundle() {
     document.querySelectorAll('.bundle-option-{{ block.id }}').forEach((optionElement) => {
       optionElement.classList.toggle('active', false);
+      optionElement.setAttribute('aria-checked', 'false');
     });
   }
 
@@ -108,8 +108,25 @@
 
     if (!quantityElement) return;
 
+    // assigning bundle option onclick handling
+    const bundleOptions = document.querySelector('.bundle-options');
+
+    if (!bundleOptions) return;
+
+    bundleOptions.addEventListener('click', (event) => {
+      const bundleOption = event.target.closest('.bundle-option');
+
+      if (!bundleOption) return;
+
+      selectBundle(bundleOption);
+
+      // Hand off the quantity synch to quantity component
+      quantityElement.dispatchEvent(new Event('blur', { bubbles: true }));
+    });
+
     let debounceTimer;
 
+    // Our element should remain responsible for synchronizing itself with quantity element
     document.addEventListener("quantity-selector:update", (event) => {
       clearTimeout(debounceTimer);      
       debounceTimer = setTimeout(() => {

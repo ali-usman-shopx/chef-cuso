@@ -1,11 +1,18 @@
 {%- doc -%}
   @param {number} bundle_count - The count of elements in the bundle.
   @param {number} discount - The discount that will be applied on the final amount.
-  @param {string} onclick_function - The onclick callback for the bundle option.
   @param {string} id - The ID for the attribute.
+  @param {string} [onclick_function] - The onclick callback for the bundle option.
 {%- enddoc -%}
 
-<div id="bundle-option-block-{{ id }}-count-{{ bundle_count }}" class="bundle-option bundle-option-{{ id }}" onclick={{ onclick_function }}>
+<div
+  id="bundle-option-block-{{ id }}-count-{{ bundle_count }}"
+  class="bundle-option bundle-option-{{ id }}"
+  {% if onclick_function != blank %}onclick={{ onclick_function }}{% endif %}
+  type="button"
+  role="radio"
+  aria-checked="false"
+>
     <span class="content">
       <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4.46875 9.66875L0 5.28125L1.21875 4.14375L4.46875 7.39375L11.7812 0L13 1.1375L4.46875 9.66875Z" fill="#212121"/>
