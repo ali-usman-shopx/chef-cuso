@@ -52,6 +52,71 @@
       "visible_if": "{{ block.settings.is_tastes_parent_element }}"
     },
     {
+      "type": "checkbox",
+      "id": "is_footer_element",
+      "label": "Is Footer Element",
+      "info": "Designates group as a footer element and allows you to toggle Footer CSS overrides on.",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "footer_element_type",
+      "label": "Footer Element Type",
+      "info": "Allows you to specify footer element type and toggle its css on or off.",
+      "visible_if": "{{ block.settings.is_footer_element }}",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "instagram-main-wrapper",
+          "label": "Instagram Main Wrapper"
+        },
+        {
+          "value": "instagram-heading-wrapper",
+          "label": "Instagram Heading Wrapper"
+        },
+        {
+          "value": "instagram-image-wrapper",
+          "label": "Instagram Image Wrapper"
+        },
+        {
+          "value": "content-wrapper", // This will set desktop padding left and right to 8%.
+          "label": "Footer Wrapper"
+        },
+        {
+          "value": "branding", // Styles branding container
+          "label": "Branding"
+        },
+        {
+          "value": "logo-wrapper", // Styles Footer Logo
+          "label": "Logo Wrapper"
+        },
+        {
+          "value": "links",
+          "label": "Links"
+        },
+        {
+          "value": "links-top-row",
+          "label": "Links Top Row"
+        },
+        {
+          "value": "links-bottom-row",
+          "label": "Links Bottom Row"
+        },
+        {
+          "value": "utilities",
+          "label": "Utilities"
+        },
+        {
+          "value": "payment-logos",
+          "label": "Payment Logos"
+        },
+      ],
+      "default": "none"
+    },
+    {
       "type": "header",
       "content": "t:content.layout"
     },
@@ -98,6 +163,10 @@
         {
           "value": "space-between",
           "label": "t:options.space_between"
+        },
+        {
+          "value": "space-around",
+          "label": "Space Around"
         }
       ],
       "default": "flex-start",
@@ -178,6 +247,12 @@
       "visible_if": "{{ block.settings.content_direction == 'column' }}"
     },
     {
+      "type": "checkbox",
+      "id": "enable_no_wrap",
+      "label": "No Wrap",
+      "default": false
+    },
+    {
       "type": "range",
       "id": "gap",
       "label": "t:settings.gap",
@@ -186,6 +261,23 @@
       "step": 1,
       "unit": "px",
       "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_mobile_gap",
+      "label": "Use Custom Mobile Gap",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "label": "Mobile Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12,
+      "visible_if": "{{ block.settings.use_custom_mobile_gap }}"
     },
     {
       "type": "header",
@@ -533,20 +625,54 @@
       "default": 0
     },
     {
-      "type": "header",
-      "content": "CSS Overrides"
+      "type": "checkbox",
+      "id": "override_mobile_padding",
+      "label": "Override Mobile Padding",
+      "default": false
     },
     {
-      "type": "textarea",
-      "id": "desktop_css_override",
-      "label": "Desktop CSS",
-      "default": ";"
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.override_mobile_padding }}"
     },
     {
-      "type": "textarea",
-      "id": "mobile_css_override",
-      "label": "Mobile CSS",
-      "default": ";"
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.override_mobile_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_left",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.override_mobile_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_right",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.override_mobile_padding }}"
     }
   ],
   "presets": [

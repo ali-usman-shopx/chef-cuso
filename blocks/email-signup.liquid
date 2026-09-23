@@ -13,6 +13,7 @@
   style="
     {% render 'size-style', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
+    max-width: 587px;
   "
   {{ block.shopify_attributes }}
 >
@@ -81,7 +82,7 @@
           aria-label="{{ 'actions.sign_up' | t }}"
         {% endif %}
         {% if block_settings.integrated_button %}
-          style="border-radius: 50px; margin: 0px;"
+          style="border-radius: 50px; margin: 0px; font-weight: 600;"
         {% endif %}
       >
         {% if block_settings.display_type == 'text' %}
@@ -441,6 +442,14 @@
     
     .email-signup__input {
       font-size: 10px !important;
+    }
+  }
+
+  /* CSS Overrides */
+  @media screen and (max-width: 768px) {
+    .email-signup__button--integrated {
+      max-width: 157px;
+      --padding-3xl: 17px;
     }
   }
 {% endstylesheet %}

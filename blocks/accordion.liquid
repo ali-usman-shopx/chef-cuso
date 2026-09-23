@@ -101,6 +101,52 @@
 {% endif %}
 
 
+{% if block_settings.enable_custom_product_details_styling %}
+  {% style %}
+    .accordion--{{ block.id }} .details {
+      border-top: 1px solid #DEDEDE !important;
+      font-size: 14px;
+      color: #2D2D2D;
+      letter-spacing: 1px;
+      font-weight: 400;
+
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding-top: 29px;
+      padding-bottom: 30px;
+    }
+
+    .accordion--{{ block.id }} .details__header {
+      font-size: 16px;
+      padding: 0px;
+      color: #212121;
+    }
+
+    .accordion--{{ block.id }} .details .svg-wrapper {
+      width: 30px;
+      height: 30px;
+      min-width: 28px;
+      min-height: 28px;
+      border-radius: 50px;
+      border: 1px solid black;
+    }
+
+    .accordion--{{ block.id }} .details[open] {
+    }
+
+    .accordion--{{ block.id }} .details[open] .svg-wrapper {
+      background-color: #B92509;
+      border-color: #B92509;
+      color: white;
+    }
+
+    .accordion--{{ block.id }} .details[open] .details-content * {
+      width: 100%;
+      color: #2D2D2D;
+    }
+  {% endstyle %}
+{% endif %}
+
 {% schema %}
 {
   "name": "t:names.accordion",
@@ -116,6 +162,12 @@
       "type": "checkbox",
       "id": "enable_custom_faq_styling",
       "label": "Enable Custom FAQ Styling",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_product_details_styling",
+      "label": "Enable Custom Product Details Styling",
       "default": false
     },
     {

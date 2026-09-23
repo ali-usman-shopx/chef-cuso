@@ -1,0 +1,106 @@
+{%- doc -%}
+  @param {number} bundle_count - The count of elements in the bundle.
+  @param {number} discount - The discount that will be applied on the final amount.
+  @param {string} id - The ID for the attribute.
+  @param {string} [onclick_function] - The onclick callback for the bundle option.
+{%- enddoc -%}
+
+<div
+  id="bundle-option-block-{{ id }}-count-{{ bundle_count }}"
+  class="bundle-option bundle-option-{{ id }}"
+  {% if onclick_function != blank %}onclick={{ onclick_function }}{% endif %}
+  type="button"
+  role="radio"
+  aria-checked="false"
+>
+    <span class="content">
+      <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.46875 9.66875L0 5.28125L1.21875 4.14375L4.46875 7.39375L11.7812 0L13 1.1375L4.46875 9.66875Z" fill="#212121"/>
+      </svg>
+      <span class="discount">Get {{ discount }}% Off</span>
+    </span>
+    <span class="tag">{{ bundle_count }}-Pack</span>
+</div>
+
+{% stylesheet %}
+  .bundle-option {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+
+    min-width: 168px;
+    max-height: 48px;
+    height: 48px;
+    border-radius: 60px;
+
+    background-color: transparent;
+    border: 1px solid #DEDEDE;
+
+    transition: 300ms ease;
+  }
+
+  .tag {
+    position: absolute;
+    top: -18%;
+
+    min-width: 66px;
+    max-height: 21px;
+    height: 21px;
+    border-radius: 60px;
+
+    background-color: #F6F0E9;
+
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    transition: 300ms ease;
+  }
+
+  .discount {
+    font-size: 14px;
+  }
+
+  .bundle-option * {
+    font-weight: 500;
+  }
+
+  .bundle-option .content {
+    position: absolute;
+    bottom: 7px;
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-content: end;
+    gap: 10px;
+  }
+
+  .bundle-option .content svg {
+    margin-top: 6px;
+    display: none;
+  }
+
+  .bundle-option:hover {
+    cursor: pointer;
+  }
+
+  .bundle-option.active, .bundle-option:hover {
+    background-color: #F6F0E9;
+    border-color: #F6F0E9;
+  }
+
+  .bundle-option.active .tag, .bundle-option:hover .tag {
+    background-color: #B92509;
+    color: white;
+  }
+
+  .bundle-option.active .content svg {
+    display: flex;
+  }
+{% endstylesheet %}

@@ -66,6 +66,29 @@
           padding-right: var(--padding-horizontal) !important;
         }
       }
+      
+      {% comment %} 
+        The restrain width classes are used to restrain specfic sections' maximum width.
+        This provides a more intuitive way to control apparent padding.
+      {% endcomment %}
+
+      .restrain-width-1202 {
+        max-width: 1202px;
+        justify-self: center;
+      }
+
+      {% if template.name == "product" %}
+        .jm-review-widget {
+          padding-bottom: 0px !important;
+        }
+
+        .jm-button--primary {
+          border: 1px solid black !important;
+          border-radius: 60px !important;
+          padding-top: 16px !important;
+          padding-bottom: 16px !important;
+        }
+      {% endif %}
     </style>
   </head>
 

@@ -39,7 +39,7 @@
 %}
 
 <product-price
-  class="text-block {{ text_block_classes }} text-{{ block_settings.alignment }} {{ block_settings.type_preset | default: 'paragraph' }} spacing-style"
+  class="price-css-override--{{ block.id }} text-block {{ text_block_classes }} text-{{ block_settings.alignment }} {{ block_settings.type_preset | default: 'paragraph' }} spacing-style"
   data-block-id="{{ block.id }}"
   data-product-id="{{ product_resource.id }}"
   style="
@@ -94,13 +94,27 @@
 
 
 {% style %}
+  {% if block_settings.override_font_weight %}
+    .price-css-override--{{ block.id }} * {
+      font-weight: {{ block_settings.custom_font_weight }};
+    }
+  {% endif %}
+
+  {% if block_settings.override_mobile_font_size %}
+    @media screen and (max-width: 768px) {
+      .price-css-override--{{ block.id }} * {
+        font-size: {{ block_settings.mobile_font_size }}px !important;
+      }
+    }
+  {% endif %}
+
   .compare-at-price {
     {% if block_settings.slashed_price_size != ";" %}
       font-size: {{ block_settings.slashed_price_size }};
       vertical-align: middle;
     {% endif %}
     {% if block_settings.slashed_price_color %}
-      color: {{ block_settings.slashed_price_color }};
+      color: {{ block_settings.slashed_price_color }} !important;
     {% endif %}
   }
 {% endstyle %}
@@ -233,6 +247,23 @@
       "visible_if": "{{ block.settings.type_preset == 'custom' }}"
     },
     {
+      "type": "checkbox",
+      "id": "override_font_weight",
+      "label": "Override Font Weight",
+      "default": false,
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "custom_font_weight",
+      "label": "Font Weight",
+      "default": 600,
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "visible_if": "{{ block.settings.override_font_weight }}"
+    },
+    {
       "type": "select",
       "id": "font_size",
       "label": "t:settings.size",
@@ -308,6 +339,23 @@
       ],
       "default": "1rem",
       "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "override_mobile_font_size",
+      "label": "Override Mobile Font Size",
+      "default": false,
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size",
+      "label": "Mobile Font Size",
+      "default": 14,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "visible_if": "{{ block.settings.override_mobile_font_size }}"
     },
     {
       "type": "select",

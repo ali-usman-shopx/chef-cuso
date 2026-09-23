@@ -8,9 +8,28 @@
   "tag": null,
   "settings": [
     {
+      "type": "checkbox",
+      "id": "override_margin_top",
+      "label": "Override Margin Top",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "custom_margin_top",
+      "label": "Custom Margin Top",
+      "default": 0,
+      "visible_if": "{{ block.settings.override_margin_top }}"
+    },
+    {
       "type": "richtext",
       "id": "text",
       "label": "t:settings.text"
+    },
+    {
+      "type": "checkbox",
+      "id": "strip_text_decoration",
+      "label": "Strip Text Decoration",
+      "default": false
     },
     {
       "type": "header",
@@ -51,6 +70,18 @@
         }
       ],
       "default": "normal"
+    },
+    {
+      "type": "checkbox",
+      "id": "override_max_width_mobile",
+      "label": "Override Max Width Mobile",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "custom_max_width_mobile",
+      "label": "Custom Max Width Mobile",
+      "default": "100%"
     },
     {
       "type": "text_alignment",
@@ -134,6 +165,36 @@
       "visible_if": "{{ block.settings.type_preset == 'custom' }}"
     },
     {
+      "type": "checkbox",
+      "id": "use_special_font",
+      "label": "Use Special Font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "special_font",
+      "label": "Select Font",
+      "default": "assistant_n4",
+      "visible_if": "{{ block.settings.use_special_font }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "override_font_weight",
+      "label": "Override Font Weight",
+      "default": false,
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "custom_font_weight",
+      "label": "Font Weight",
+      "default": 600,
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "visible_if": "{{ block.settings.override_font_weight }}"
+    },
+    {
       "type": "select",
       "id": "font_size",
       "label": "t:settings.size",
@@ -211,6 +272,23 @@
       "visible_if": "{{ block.settings.type_preset == 'custom' }}"
     },
     {
+      "type": "checkbox",
+      "id": "override_mobile_font_size",
+      "label": "Override Mobile Font Size",
+      "default": false,
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size",
+      "label": "Mobile Font Size",
+      "default": 14,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "visible_if": "{{ block.settings.override_mobile_font_size }}"
+    },
+    {
       "type": "select",
       "id": "line_height",
       "label": "t:settings.line_height",
@@ -232,6 +310,40 @@
       "visible_if": "{{ block.settings.type_preset == 'custom' }}"
     },
     {
+      "type": "checkbox",
+      "id": "use_custom_line_height",
+      "label": "Use Custom Line Height",
+      "default": false,
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "custom_line_height",
+      "label": "Custom Line Height",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "visible_if": "{{ block.settings.use_custom_line_height }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_different_line_height_on_mobile",
+      "label": "Use Different Line Height for Mobile",
+      "default": false,
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "custom_line_height_mobile",
+      "label": "Custom Line Height",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "visible_if": "{{ block.settings.use_different_line_height_on_mobile }}"
+    },
+    {
       "type": "select",
       "id": "letter_spacing",
       "label": "t:settings.letter_spacing",
@@ -251,6 +363,22 @@
       ],
       "default": "normal",
       "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_letter_spacing",
+      "label": "Use Custom Letter Spacing",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "custom_letter_spacing",
+      "label": "Custom Letter Spacing",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 1,
+      "visible_if": "{{ block.settings.use_custom_letter_spacing }}"
     },
     {
       "type": "select",
@@ -298,6 +426,19 @@
       "id": "text_color",
       "label": "t:settings.text_color",
       "placeholder": "t:settings.default"
+    },
+    {
+      "type": "checkbox",
+      "id": "override_mobile_font_color",
+      "label": "Override Mobile Font Color",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "mobile_font_color",
+      "label": "Mobile Font Color",
+      "default": "#FFFFFF",
+      "visible_if": "{{ block.settings.override_mobile_font_color }}"
     },
     {
       "type": "checkbox",
@@ -368,20 +509,54 @@
       "default": 0
     },
     {
-      "type": "header",
-      "content": "CSS Overrides"
+      "type": "checkbox",
+      "id": "override_mobile_padding",
+      "label": "Override Mobile Padding",
+      "default": false
     },
     {
-      "type": "textarea",
-      "id": "desktop_css_override",
-      "label": "Desktop CSS",
-      "default": ";"
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.override_mobile_padding }}"
     },
     {
-      "type": "textarea",
-      "id": "mobile_css_override",
-      "label": "Mobile CSS",
-      "default": ";"
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.override_mobile_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_left",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.override_mobile_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_right",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.override_mobile_padding }}"
     }
   ],
   "presets": [

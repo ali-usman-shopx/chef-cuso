@@ -18,6 +18,34 @@
   if settings.background_media != blank and settings.background_media != 'none'
     assign skip_contrast = true
   endif
+
+  assign footer_class = ""
+  if settings.is_footer_element
+    case settings.footer_element_type
+      when "instagram-main-wrapper"
+        assign footer_class = "footer-instagram-main-wrapper"
+      when "instagram-heading-wrapper"
+        assign footer_class = "footer-instagram-heading-wrapper"
+      when "instagram-image-wrapper"
+        assign footer_class = "footer-instagram-image-wrapper"
+      when "content-wrapper"
+        assign footer_class = "footer-content-wrapper"
+      when "branding"
+        assign footer_class = "footer-branding"
+      when "logo-wrapper"
+        assign footer_class = "footer-logo-wrapper"
+      when "links"
+        assign footer_class = "footer-links"
+      when "links-top-row"
+        assign footer_class = "footer-links-top-row"
+      when "links-bottom-row"
+        assign footer_class = "footer-links-bottom-row"
+      when "utilities"
+        assign footer_class = "footer-utilities"
+      when "payment-logos"
+        assign footer_class = "footer-payment-logos"
+    endcase
+  endif
 %}
 {% render 'contrast-override', background_color: background_color, section_id: block_id, skip_contrast: skip_contrast %}
 
@@ -33,6 +61,7 @@
     {% if background_color != blank %} color-custom-{{ block_id }}{% endif %}
     css_override--{{ block.id }}
     {% if block.settings.is_tastes_parent_element %}no-padding-assertion{% endif %}
+    {{ footer_class }}
   "
   style="
     {% render 'border-override', settings: settings %}
@@ -111,20 +140,180 @@
 
     transform: translateY(-100%);
   }
+
+  /* Footer Overrides */
+
+  /* Desktop */
+  @media screen and (min-width: 769px) {
+    .footer-instagram-main-wrapper {
+      padding-top: 69px;
+      padding-bottom: 60px;
+    }
+
+    .footer-instagram-heading-wrapper {
+      padding-bottom: 43px;
+    }
+    
+    .footer-instagram-image-wrapper {
+      width: 13%;
+      max-width: 186px;
+    }
+
+    .footer-content-wrapper {
+      padding-left: 8%;
+      padding-right: 8%;
+    }
+
+    .footer-branding {
+      border-right: 1px solid #D6D1CB;
+      padding-right: 109px;
+    }
+
+    .footer-logo-wrapper {
+      width: 112px;
+    }
+
+    /* .footer-links {} No Overrides; Left a Comment for Explicity. */
+
+    .footer-links-top-row * {
+      justify-content: space-around;
+    }
+
+    .footer-links-bottom-row {
+      margin-left: 9%;
+    }
+
+    .footer-utilities {
+      padding-left: 8%;
+      padding-right: 8%;
+    }
+
+    .footer-utilities * {
+      justify-content: space-between;
+    }
+
+    .footer-payment-logos {
+      height: 24px;
+      width: 497px;
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 768px) {
+    .footer-instagram-main-wrapper {
+      padding-top: 40px;
+      padding-bottom: 50px;
+    }
+
+    .footer-instagram-heading-wrapper {
+      padding-bottom: 30px;
+    }
+    
+    .footer-instagram-image-wrapper {
+      width: 28%;
+    }
+
+    /* .footer-content-wrapper {} No Overrides; Left a Comment for Explicity. */
+
+    .footer-branding {
+      padding-bottom: 30px;
+      border-bottom: 1px solid #D6D1CB;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    
+    .footer-logo-wrapper {
+      width: 83px;
+    }
+
+    .footer-links {
+      padding-top: 14px;
+      padding-bottom: 35px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .footer-links-top-row {margin-bottom: 30px;}
+
+    /* .footer-links-bottom-row {} No Overrides; Left a Comment for Explicity. */
+
+    /* .footer-utilities {} No Overrides; Left a Comment for Explicity. */
+
+    .footer-payment-logos {
+      height: 16px;
+    }
+  }
+
+  /* Tablets */
+  @media screen and (max-width: 1070px) and (min-width: 768px) {
+    .footer-content-wrapper > .group-block-content {
+      --flex-direction: column !important;
+    }
+
+    .footer-branding {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #D6D1CB;
+      padding-right: 0px;
+      padding-bottom: 30px;
+      padding-right: none;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .footer-branding > .group-block-content {
+      width: fit-content;
+      --horizontal-alignment: center !important;
+    }
+
+    .footer-branding > .group-block-content .group-block-content {
+      --horizontal-alignment: center !important;
+    }
+
+    .footer-links {
+      width: 100%;
+      padding: 15px 0px;
+    }
+
+    .footer-links > .group-block-content {
+      --horizontal-alignment: space-between !important;
+      --vertical-alignment: baseline !important;
+      --gap: 0px !important;
+    }
+
+    .footer-links-top-row > .group-block-content {
+      justify-content: space-around !important;
+    }
+
+    .footer-utilities > .group-block-content {
+      --flex-direction: column !important;
+    }
+  }
+
+  @media screen and (width: 768px) {
+    .footer-links-top-row > .group-block-content {
+      justify-content: space-evenly !important;
+    }
+  }
+
 {% endstylesheet %}
 
 {% style %}
-  @media screen and (min-width: 769px) {
-    .css_override--{{ block.id }} {
-      {{ settings.desktop_css_override }}
+  {% if settings.use_custom_mobile_gap %}
+    @media screen and (max-width: 768px) {
+      .css_override--{{ block.id }} .group-block-content {
+        gap: {{ settings.mobile_gap }}px;
+      }
     }
-  }
+  {% endif %}
 
-  @media screen and (max-width: 768px) {
+  {% if settings.override_margin_bottom %}
     .css_override--{{ block.id }} {
-      {{ settings.mobile_css_override }}
+      margin-bottom: {{ settings.custom_margin_bottom }}px;
     }
-  }
+  {% endif %}
 
   {% if block.settings.is_tastes_parent_element %}
     .css_override--{{ block.id }} {

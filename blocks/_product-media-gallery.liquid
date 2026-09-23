@@ -8,11 +8,79 @@
   section: section
 %}
 
+{% style %}
+  .media-gallery--{{ block.id }} .product-media {
+    background-color: {{ block.settings.media_background_color }};
+    {% if block.settings.apply_media_styling_overrides %}
+      padding: 74px;
+    {% endif %}
+  }
+
+  {% if block.settings.apply_media_styling_overrides %}
+    .media-gallery--{{ block.id }} .product-media {
+      border-radius: 15px;
+    }
+
+    .media-gallery--{{ block.id }} slideshow-arrows {
+      display: none;
+    }
+
+    .media-gallery--{{ block.id }} .product-media__image {
+      object-fit: contain;
+    }
+
+    .media-gallery--{{ block.id }} .slideshow-controls__thumbnails {
+      margin-left: 0px;
+      padding-left: 0px;
+      
+      padding-top: 0px;
+      margin-top: 24px;
+    }
+
+    .media-gallery--{{ block.id }} .slideshow-controls__thumbnails .slideshow-controls__thumbnail {
+      padding: 10px 13px 10px 12px;
+      width: 130px;
+      height: 113px;
+      outline: none;
+      border-radius: 19px;
+      background-color: transparent;
+      border: 1px solid #E2E2E2;
+    }
+
+    .media-gallery--{{ block.id }} .slideshow-controls__thumbnails .slideshow-controls__thumbnail-colored-bg {
+      background-color: {{ block.settings.media_background_color }};
+      border-color: {{ block.settings.media_background_color }};
+    }
+
+    .media-gallery--{{ block.id }} .slideshow-controls__thumbnails .slideshow-controls__thumbnail > img {
+      object-fit: contain;
+      border-radius: 19px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .media-gallery--{{ block.id }} {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+    } 
+  {% endif %}
+{% endstyle %}
+
 {% schema %}
 {
   "name": "t:names.product_media",
   "tag": null,
   "settings": [
+    {
+      "type": "color",
+      "id": "media_background_color",
+      "label": "Media Background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "apply_media_styling_overrides",
+      "label": "Apply Media Styling Overrides"
+    },
     {
       "type": "select",
       "id": "media_presentation",

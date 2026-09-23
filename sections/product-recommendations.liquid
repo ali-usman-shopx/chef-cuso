@@ -56,6 +56,7 @@
   ></div>
   <div
     class="
+      {% if section.settings.restrain_width %}restrain-width-1202{% endif %}
       section
       section--{{ section.settings.section_width }}
       {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
@@ -190,6 +191,16 @@
   </div>
 </product-recommendations>
 
+{% if section.settings.use_custom_mobile_gap %}
+  {% style %}
+    @media screen and (max-width: 768px) {
+      .resource-list--grid {
+        gap: {{ section.settings.mobile_gap }}px;
+      }
+    }
+  {% endstyle %}
+{% endif %}
+
 {% schema %}
 {
   "name": "t:names.product_recommendations",
@@ -229,6 +240,13 @@
     }
   ],
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "restrain_width",
+      "label": "Restrain Max Width",
+      "info": "Sets Max Width to 1202px.",
+      "default": false
+    },
     {
       "type": "product",
       "id": "product",
@@ -422,6 +440,23 @@
       "step": 1,
       "unit": "px",
       "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_mobile_gap",
+      "label": "Use Custom Mobile Gap",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "label": "Mobile Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12,
+      "visible_if": "{{ section.settings.use_custom_mobile_gap }}"
     },
     {
       "type": "color",
