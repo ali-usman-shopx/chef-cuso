@@ -16,6 +16,19 @@
     padding-left: {{ section.settings.padding-block-left }}px;
     padding-right: {{ section.settings.padding-block-right }}px;
   }
+
+  .custom-image-with-text {
+    justify-self: center;
+  }
+
+  .custom-image-with-text > div {
+    --gap: 10px !important;
+  }
+
+  .custom-image-with-text .group-block {
+    max-width: 45%;
+  }
+
   @media (max-width: 768px) {
     .section-css-override--{{ section.id }} {
       padding-left: 0px;
@@ -54,6 +67,13 @@
       "id": "restrain_width",
       "label": "Restrain Max Width",
       "info": "Sets Max Width to 1202px.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "tag_as_image_with_text",
+      "label": "Tag as Image with Text",
+      "info": "Applies the CSS for image with text sections.",
       "default": false
     },
     {

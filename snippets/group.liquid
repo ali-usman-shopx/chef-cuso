@@ -278,13 +278,17 @@
 {% endstylesheet %}
 
 {% style %}
-  {% if settings.use_custom_mobile_gap %}
     @media screen and (max-width: 768px) {
       .css_override--{{ block.id }} .group-block-content {
-        gap: {{ settings.mobile_gap }}px;
+        {% if settings.use_custom_mobile_gap %}
+          gap: {{ settings.mobile_gap }}px;
+        {% endif %}
+        
+        {% if settings.override_mobile_padding %}    
+          padding: {{ settings.mobile_padding_top }}px {{ settings.mobile_padding_right }}px {{ settings.mobile_padding_bottom }}px {{ settings.mobile_padding_left }}px;
+        {% endif %}
       }
     }
-  {% endif %}
 
   {% if settings.override_margin_bottom %}
     .css_override--{{ block.id }} {

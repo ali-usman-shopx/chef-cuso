@@ -10,7 +10,7 @@
       <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4.46875 9.66875L0 5.28125L1.21875 4.14375L4.46875 7.39375L11.7812 0L13 1.1375L4.46875 9.66875Z" fill="#212121"/>
       </svg>
-      <span class="">Get {{ discount }}% Off</span>
+      <span class="discount">Get {{ discount }}% Off</span>
     </span>
     <span class="tag">{{ bundle_count }}-Pack</span>
 </div>
@@ -53,9 +53,12 @@
     transition: 300ms ease;
   }
 
+  .discount {
+    font-size: 14px;
+  }
+
   .bundle-option * {
     font-weight: 500;
-    font-size: 14px;
   }
 
   .bundle-option .content {
