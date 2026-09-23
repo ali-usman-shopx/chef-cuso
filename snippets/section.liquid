@@ -66,7 +66,7 @@
   </div>
 
   <div
-    class="{% if section.settings.restrain_width %}restrain-width-1202{% endif %} border-style custom-section-content {% if section.settings.exclude_from_theme_padding_override %}no-padding-assertion{% endif %}"
+    class="{% if section.settings.restrain_width %}restrain-width-1202{% endif %} {% if section.settings.tag_as_image_with_text %}custom-image-with-text{% endif %} border-style custom-section-content {% if section.settings.exclude_from_theme_padding_override %}no-padding-assertion{% endif %}"
     style="{% render 'border-override', settings: section.settings %}"
   >
     {% if section.settings.toggle_overlay %}

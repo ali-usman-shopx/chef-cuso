@@ -103,7 +103,7 @@
   {% if block_settings.override_mobile_font_size %}
     @media screen and (max-width: 768px) {
       .price-css-override--{{ block.id }} * {
-        font-size: {{ block_settings.mobile_font_size }}px;
+        font-size: {{ block_settings.mobile_font_size }}px !important;
       }
     }
   {% endif %}
@@ -114,7 +114,7 @@
       vertical-align: middle;
     {% endif %}
     {% if block_settings.slashed_price_color %}
-      color: {{ block_settings.slashed_price_color }};
+      color: {{ block_settings.slashed_price_color }} !important;
     {% endif %}
   }
 {% endstyle %}

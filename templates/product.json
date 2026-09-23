@@ -115,7 +115,12 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "override_mobile_padding": false,
+                "mobile_padding_top": 0,
+                "mobile_padding_bottom": 0,
+                "mobile_padding_left": 0,
+                "mobile_padding_right": 0
               },
               "blocks": {
                 "text_xrnftG": {
@@ -341,7 +346,12 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "override_mobile_padding": false,
+                "mobile_padding_top": 0,
+                "mobile_padding_bottom": 0,
+                "mobile_padding_left": 0,
+                "mobile_padding_right": 0
               },
               "blocks": {
                 "text_EzfFfU": {
@@ -457,7 +467,12 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "override_mobile_padding": false,
+                "mobile_padding_top": 0,
+                "mobile_padding_bottom": 0,
+                "mobile_padding_left": 0,
+                "mobile_padding_right": 0
               },
               "blocks": {
                 "text_rLFwmL": {
@@ -680,7 +695,12 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "override_mobile_padding": false,
+                    "mobile_padding_top": 0,
+                    "mobile_padding_bottom": 0,
+                    "mobile_padding_left": 0,
+                    "mobile_padding_right": 0
                   },
                   "blocks": {
                     "text_phLy4B": {
@@ -702,9 +722,9 @@
                         "special_font": "assistant_n4",
                         "override_font_weight": false,
                         "custom_font_weight": 600,
-                        "font_size": "0.75rem",
-                        "override_mobile_font_size": false,
-                        "mobile_font_size": 14,
+                        "font_size": "0.875rem",
+                        "override_mobile_font_size": true,
+                        "mobile_font_size": 12,
                         "line_height": "tight",
                         "use_custom_line_height": false,
                         "custom_line_height": 10,
@@ -822,7 +842,12 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "override_mobile_padding": false,
+                "mobile_padding_top": 0,
+                "mobile_padding_bottom": 0,
+                "mobile_padding_left": 0,
+                "mobile_padding_right": 0
               },
               "blocks": {
                 "group_TK7KJz": {
@@ -870,7 +895,12 @@
                     "padding-block-start": 22,
                     "padding-block-end": 22,
                     "padding-inline-start": 15,
-                    "padding-inline-end": 15
+                    "padding-inline-end": 15,
+                    "override_mobile_padding": false,
+                    "mobile_padding_top": 0,
+                    "mobile_padding_bottom": 0,
+                    "mobile_padding_left": 0,
+                    "mobile_padding_right": 0
                   },
                   "blocks": {
                     "group_zbRYRR": {
@@ -918,7 +948,12 @@
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-inline-end": 0,
+                        "override_mobile_padding": false,
+                        "mobile_padding_top": 0,
+                        "mobile_padding_bottom": 0,
+                        "mobile_padding_left": 0,
+                        "mobile_padding_right": 0
                       },
                       "blocks": {
                         "icon_xB9net": {
@@ -1050,7 +1085,12 @@
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-inline-end": 0,
+                        "override_mobile_padding": false,
+                        "mobile_padding_top": 0,
+                        "mobile_padding_bottom": 0,
+                        "mobile_padding_left": 0,
+                        "mobile_padding_right": 0
                       },
                       "blocks": {
                         "icon_33chHj": {
@@ -1182,7 +1222,12 @@
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-inline-end": 0,
+                        "override_mobile_padding": false,
+                        "mobile_padding_top": 0,
+                        "mobile_padding_bottom": 0,
+                        "mobile_padding_left": 0,
+                        "mobile_padding_right": 0
                       },
                       "blocks": {
                         "icon_q7HjGE": {
@@ -1310,7 +1355,12 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "override_mobile_padding": false,
+                    "mobile_padding_top": 0,
+                    "mobile_padding_bottom": 0,
+                    "mobile_padding_left": 0,
+                    "mobile_padding_right": 0
                   },
                   "blocks": {
                     "group_fJpn8A": {
@@ -1358,7 +1408,12 @@
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-inline-end": 0,
+                        "override_mobile_padding": false,
+                        "mobile_padding_top": 0,
+                        "mobile_padding_bottom": 0,
+                        "mobile_padding_left": 0,
+                        "mobile_padding_right": 0
                       },
                       "blocks": {
                         "icon_JMMHzT": {
@@ -1477,7 +1532,12 @@
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "padding-inline-end": 0,
+                        "override_mobile_padding": false,
+                        "mobile_padding_top": 0,
+                        "mobile_padding_bottom": 0,
+                        "mobile_padding_left": 0,
+                        "mobile_padding_right": 0
                       },
                       "blocks": {
                         "icon_ArM8LP": {
@@ -2151,6 +2211,7 @@
       "name": "Banner",
       "settings": {
         "restrain_width": false,
+        "tag_as_image_with_text": false,
         "exclude_from_theme_padding_override": true,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -2606,7 +2667,12 @@
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-end": 0,
+            "override_mobile_padding": true,
+            "mobile_padding_top": 0,
+            "mobile_padding_bottom": 80,
+            "mobile_padding_left": 0,
+            "mobile_padding_right": 0
           },
           "blocks": {
             "text_jkAURG": {
@@ -2827,6 +2893,7 @@
       "name": "t:names.image_with_text",
       "settings": {
         "restrain_width": true,
+        "tag_as_image_with_text": true,
         "exclude_from_theme_padding_override": true,
         "content_direction": "row",
         "vertical_on_mobile": true,
