@@ -254,20 +254,37 @@
       width: 100%;
       border-right: none;
       border-bottom: 1px solid #D6D1CB;
+      padding-right: 0px;
       padding-bottom: 30px;
+      padding-right: none;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .footer-branding > .group-block-content {
+      width: fit-content;
+      --horizontal-alignment: center !important;
+    }
+
+    .footer-branding > .group-block-content .group-block-content {
+      --horizontal-alignment: center !important;
     }
 
     .footer-links {
       width: 100%;
+      padding: 15px 0px;
     }
 
     .footer-links > .group-block-content {
       --horizontal-alignment: space-between !important;
       --vertical-alignment: baseline !important;
+      --gap: 0px !important;
     }
 
     .footer-links-top-row > .group-block-content {
-      justify-content: space-evenly !important;
+      justify-content: space-around !important;
     }
 
     .footer-utilities > .group-block-content {
@@ -275,20 +292,22 @@
     }
   }
 
+  @media screen and (width: 768px) {
+    .footer-links-top-row > .group-block-content {
+      justify-content: space-evenly !important;
+    }
+  }
+
 {% endstylesheet %}
 
 {% style %}
+  {% if settings.use_custom_mobile_gap %}
     @media screen and (max-width: 768px) {
       .css_override--{{ block.id }} .group-block-content {
-        {% if settings.use_custom_mobile_gap %}
-          gap: {{ settings.mobile_gap }}px;
-        {% endif %}
-        
-        {% if settings.override_mobile_padding %}    
-          padding: {{ settings.mobile_padding_top }}px {{ settings.mobile_padding_right }}px {{ settings.mobile_padding_bottom }}px {{ settings.mobile_padding_left }}px;
-        {% endif %}
+        gap: {{ settings.mobile_gap }}px;
       }
     }
+  {% endif %}
 
   {% if settings.override_margin_bottom %}
     .css_override--{{ block.id }} {
