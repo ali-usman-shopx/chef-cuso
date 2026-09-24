@@ -201,6 +201,14 @@
       {% if block_settings.override_mobile_font_size %}
         font-size: {{ block_settings.mobile_font_size }}px;
       {% endif %}
+
+      {% if block_settings.override_mobile_text_alignment %}
+        text-align: {{ block_settings.mobile_alignment }};
+      {% endif %}
+
+      {% if block_settings.override_font_weight %}
+        font-weight: {{ block_settings.custom_mobile_font_weight }};
+      {% endif %}
     }
 
     .css_override--{{ block.id }} > p {

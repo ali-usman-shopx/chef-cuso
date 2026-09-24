@@ -1,0 +1,107 @@
+{%- doc -%}
+  Renders the ingredient card
+
+  @param {object} ingredient - ingredient object
+
+  @example
+  {% render 'ingredient', ingredient: ingredient %}
+{%- enddoc -%}
+
+<div class="ingredient-card-wrapper">
+    <div class="ingredient-card">
+        <div class="ingredient-image-wrapper active">
+            {{
+                ingredient.image
+                | image_url: width: 400
+                | image_tag:
+                loading: 'lazy',
+                class: 'testimonial-client-image',
+                alt: ingredient.image
+            }}
+        </div>
+        <div class="ingredient-description-wrapper">
+            <span>
+                {{ ingredient.description }}
+            </span>
+        </div>
+    </div>
+    <div class="ingredient-title-wrapper">
+        <span class="ingredient-title">{{ ingredient.title }}</span>
+    </div>
+</div>
+
+{% stylesheet %}
+  .ingredient-card-wrapper {
+    color: var(--card-text-color);
+    max-width: fit-content;
+    max-height: fit-content;
+  }
+
+  .ingredient-title-wrapper {
+    padding-top: 15px;
+  }
+
+  .ingredient-title {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  .ingredient-card {
+    width: 276px;
+    height: var(--card-media-standard-height);
+
+    background-color: var(--card-bg-color);
+    border: var(--card-border-stroke) solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    position: relative;
+
+    transition: 300ms ease-out;
+  }
+
+  .ingredient-card > .ingredient-image-wrapper {
+    width: var(--card-media-standard-width);
+    height: var(--card-media-standard-height);
+    transition: 300ms ease-out;
+  }
+
+  .ingredient-card > .ingredient-image-wrapper > img {
+    width: var(--card-media-standard-width);
+    height: var(--card-media-standard-height);
+    object-fit: contain;
+    display: block;
+    transition: 300ms ease-out;
+  }
+
+  .ingredient-card > .ingredient-description-wrapper {
+    position: absolute;
+
+    width: 100%;
+    padding: 0px 20px;
+
+    top: 100%;
+    left: 0px;
+    transition: top 300ms ease-out;
+  }
+
+  .ingredient-card > .ingredient-description-wrapper > span {
+    font-size: 15px;
+  }
+
+  .ingredient-card:hover {
+    padding: 26px 20px 27px 20px;
+    background-color: var(--card-bg-color-hover);
+    overflow: scroll;
+  }
+
+  .ingredient-card:hover > .ingredient-image-wrapper > img {
+    width: var(--card-media-active-width);
+    height: var(--card-media-active-height);
+    object-fit: contain;
+  }
+
+  .ingredient-card:hover > .ingredient-description-wrapper {
+    top: 108px;
+  }
+{% endstylesheet %}

@@ -1,0 +1,118 @@
+<section class="ingredients-section">
+  <div class="ingredients-content">
+    {% assign ingredients = metaobjects.ingredients.values %}
+
+    {% if ingredients != blank %}
+      {% for ingredient in ingredients %}
+        {% render 'ingredient', ingredient: ingredient %}
+      {% endfor %}
+    {% endif %}
+
+  </div>
+</section>
+
+{% style %}
+  .ingredients-section {
+    --grid-padding-vertical: 50px;
+    --grid-padding-horizontal: 40px;
+  }
+
+  .ingredients-content {
+    /* Card Variables */
+    --card-bg-color: #F6F0E9;
+    --card-bg-color-hover: white;
+    --card-text-color: #212121;
+    --card-border-color: #E2E2E2;
+    --card-border-radius: {{ section.settings.card_border_radius }}px;
+    --card-border-stroke: {{ section.settings.card_border_stroke }}px;
+
+    --card-media-standard-width: 100%;
+    --card-media-standard-height: 285px;
+    --card-media-active-width: 63px;
+    --card-media-active-height: 72px;
+
+    /* Grid Variables */
+    --grid-column-gap: 32px;
+    --grid-row-gap: 70px;
+  }
+{% endstyle %}
+
+{% stylesheet %}
+  .ingredients-section {
+    width: 100%;
+    padding: 0px var(--grid-padding-horizontal);
+    background-color: #F6F0E9;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ingredients grid */
+  .ingredients-content {
+    --grid-columns-desktop: 4;
+    --grid-columns-tablet: 2;
+
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns-desktop), minmax(0, 1fr));
+
+    max-width: 100%;
+
+    margin: var(--grid-padding-vertical) auto;
+
+
+    row-gap: var(--grid-row-gap);
+    column-gap: var(--grid-column-gap);
+
+    justify-items: center;
+  }
+
+  /* Tablet */
+  @media screen and (max-width: 1220px) {
+    .ingredients-content {
+      grid-template-columns: repeat(var(--grid-columns-tablet), minmax(0, 1fr));
+      width: 100%;
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .ingredients-content {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Ingredients",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Ingredient Cards",
+      "info": "When you make your changes, save and reload to see the effect as JS needs to be run to apply masonry/mosaic grid pattern."
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "default": 15,
+      "label": "Card Border Radius",
+      "id": "card_border_radius",
+      "info": "Sets the border radius for the ingredient card",
+    },
+    {
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "default": 1,
+      "label": "Card Border Stroke",
+      "id": "card_border_stroke",
+      "info": "Sets the border stroke for the ingredient card",
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients"
+    }
+  ]
+}
+{% endschema %}

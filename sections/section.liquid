@@ -29,6 +29,15 @@
     max-width: 45%;
   }
 
+  /* Target Non-mobile screens */
+  @media screen and (min-width: 768px) {
+    .section-css-override--{{ section.id }} {
+      {% if section.settings.mobile_only %}
+        display: none;
+      {% endif %}
+    }
+  }
+
   @media (max-width: 768px) {
     .section-css-override--{{ section.id }} {
       padding-left: 0px;
@@ -74,6 +83,13 @@
       "id": "tag_as_image_with_text",
       "label": "Tag as Image with Text",
       "info": "Applies the CSS for image with text sections.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_only",
+      "label": "Display on Mobile Only",
+      "info": "Removes element from screens greater than 768 pixels wide",
       "default": false
     },
     {
