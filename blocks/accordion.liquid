@@ -147,6 +147,15 @@
   {% endstyle %}
 {% endif %}
 
+{% if block_settings.enable_ingredients_styling %}
+  {% style %}
+    .accordion--{{ block.id }} .details__header {
+      font-size: 18px !important;
+      font-weight: 400;
+    }
+  {% endstyle %}
+{% endif %}
+
 {% schema %}
 {
   "name": "t:names.accordion",
@@ -168,6 +177,13 @@
       "type": "checkbox",
       "id": "enable_custom_product_details_styling",
       "label": "Enable Custom Product Details Styling",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_ingredients_styling",
+      "label": "Enable Ingredients Styling",
+      "info": "Changes the font size and weight for the summary/row heading",
       "default": false
     },
     {
