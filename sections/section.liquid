@@ -29,6 +29,15 @@
     max-width: 45%;
   }
 
+  /* Target Non-mobile screens */
+  @media screen and (min-width: 768px) {
+    .section-css-override--{{ section.id }} {
+      {% if section.settings.mobile_only %}
+        display: none;
+      {% endif %}
+    }
+  }
+
   @media (max-width: 768px) {
     .section-css-override--{{ section.id }} {
       padding-left: 0px;
@@ -74,6 +83,13 @@
       "id": "tag_as_image_with_text",
       "label": "Tag as Image with Text",
       "info": "Applies the CSS for image with text sections.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_only",
+      "label": "Display on Mobile Only",
+      "info": "Removes element from screens greater than 768 pixels wide",
       "default": false
     },
     {
@@ -277,6 +293,45 @@
         }
       ],
       "default": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "override_mobile_height",
+      "label": "Override Mobile Height",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "section_mobile_height",
+      "label": "t:settings.height",
+      "options": [
+        {
+          "value": "",
+          "label": "t:options.auto"
+        },
+        {
+          "value": "small",
+          "label": "t:options.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:options.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:options.large"
+        },
+        {
+          "value": "full-screen",
+          "label": "t:options.full_screen"
+        },
+        {
+          "value": "custom",
+          "label": "t:options.custom"
+        }
+      ],
+      "default": "",
+      "visible_if": "{{ section.settings.override_mobile_height }}"
     },
     {
       "type": "range",

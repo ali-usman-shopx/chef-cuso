@@ -91,6 +91,19 @@
       "visible_if": "{{ block.settings.width == '100%' }}"
     },
     {
+      "type": "checkbox",
+      "label": "Override Mobile Alignment",
+      "id": "override_mobile_text_alignment",
+      "default": false
+    },
+    {
+      "type": "text_alignment",
+      "id": "mobile_alignment",
+      "label": "t:settings.alignment",
+      "default": "left",
+      "visible_if": "{{ block.settings.override_mobile_text_alignment }}"
+    },
+    {
       "type": "header",
       "content": "t:content.typography"
     },
@@ -193,6 +206,23 @@
       "max": 900,
       "step": 100,
       "visible_if": "{{ block.settings.override_font_weight }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "override_mobile_font_weight",
+      "label": "Override Mobile Font Weight",
+      "default": false,
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "range",
+      "id": "custom_mobile_font_weight",
+      "label": "Mobile Font Weight",
+      "default": 600,
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "visible_if": "{{ block.settings.override_mobile_font_weight }}"
     },
     {
       "type": "select",
